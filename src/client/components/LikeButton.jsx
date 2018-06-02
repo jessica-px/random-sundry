@@ -9,6 +9,10 @@ class LikeButton extends React.Component{
 
     handleClick = (e) => {
         const icon = e.target;
+
+        // TO-DO: If not logged in, pop up a modal saying "you need to be logged in"
+        // ALSO: A pop-up modal for nicknaming??
+
         // If previously liked, unlike
         if (this.state.liked){
             this.setState((prevState) => ({
@@ -24,7 +28,7 @@ class LikeButton extends React.Component{
 
     }
 
-    // When "liked", render an animated heart
+    // When "liked", render a bouncy red heart. When "unliked", return to grey heart.
     render(){
         return(
             <div onClick={this.handleClick} className='icon'>
@@ -32,7 +36,7 @@ class LikeButton extends React.Component{
                     <FontAwesome icon={faHeart} className='icon--red bounce'/>
                 }
                 {!this.state.liked &&
-                    <FontAwesome icon={faHeart}/>
+                    <FontAwesome icon={faHeart} />
                 }
                 
 

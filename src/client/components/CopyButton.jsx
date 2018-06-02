@@ -1,28 +1,69 @@
 import React from 'react';
 import FontAwesome from '@fortawesome/react-fontawesome';
 import faClipboard from '@fortawesome/fontawesome-free-solid/faClipboard';
+import ReactTooltip from 'react-tooltip';
 
 class CopyButton extends React.Component{
     state = {
-        toggleAnimation: false
+        toggleAnimation: false,
+        copied: false
     }
 
     handleClick = (e) => {
-        // show tooltip
-        // and actually copy the text, somehow
+        // TO-DO: Actually copy text
+        if (this.state.copied === false){
+            e.target.classList.add('bounce');
+        }
+
+        //Tooltip
         this.setState((prevState) => ({
-            toggleAnimation: !prevState.toggleAnimation
+            toggleAnimation: !prevState.toggleAnimation,
+            copied: true
+        }))
+        const reset = setTimeout(this.resetTooltip, 1500, e.target);
+    }
+
+    // Resets "copied" tooltip after 1.5 seconds
+    resetTooltip = (target) => {
+        target.classList.remove('bounce');
+        this.setState((prevState) => ({
+            copied: false
         }))
     }
 
-    // When "liked", render an animated heart
     render(){
         return(
-            <div onClick={this.handleClick} className='icon'>
-   
-                <FontAwesome icon={faClipboard} />
+            <div>
+                <span data-tip data-for='copy'>
+                    <div onClick={this.handleClick} className='icon' data-tip data-for='copied'>
+                        <FontAwesome icon={faClipboard} />
+                    </div>
+                </span>
 
+                {/* On hover, show "Copy Text" tooltip. On click, show "Copied" temporarily*/}
+                <ReactTooltip id='copy' effect='solid' delayShow={150} delayHide={300}>
+                    {!this.state.copied &&   
+                            <span>Copy Text</span>
+                    }
+                    {this.state.copied && 
+                            <span>Copied</span>
+                    }
+                </ReactTooltip>
+                
+                    {/* {!this.state.copied &&   
+                        <ReactTooltip id='copy' effect='float' delayShow={150} delayHide={300}>
+                            <span>Copy Text</span>
+                        </ReactTooltip>
+                    }
+                    {this.state.copied && 
+                        <ReactTooltip id='copied' effect='float' delayHide={300} resizeHide={true}>
+                            <span>Copied</span>
+                        </ReactTooltip>
+                    } */}
+                
+                
             </div>
+
         )
     
     }

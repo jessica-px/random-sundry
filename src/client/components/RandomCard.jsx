@@ -5,21 +5,25 @@ import CopyButton from './CopyButton.jsx';
 
 const RandomCard = (props) => (
     <div className='card'>
+
+        {/* Render small header, if present */}
         <div className='smallCardHeader'>
-            Shortsword, 1d6 piercing. Light, finesse.
+            {props.cardHeaderSmall}
         </div>
-        <p>
-            This is a shortsword with a thin, blackened blade. 
-            It is engraved with a single rune.
-        </p>    
-        <p>
-            Attacks with this weapon can deal Necrotic damage.
-        </p>                
-        <p>
-            Rumor says it was once a gift for an orc warlord.
-        </p>
-        <LikeButton />
-        <CopyButton />
+
+        {/* Render each string in 'cardBody' as its own paragraph */}
+        <div className='cardBody'>
+            {props.cardBody.map((paragraph, index) => 
+                <p key={index}>{paragraph}</p>
+            )}
+        </div>
+        
+        {/* Render fave / copy icons */}
+        <div className='cardIcons'>
+            <LikeButton />
+            <CopyButton />
+        </div>
+        
     </div>
 )
 

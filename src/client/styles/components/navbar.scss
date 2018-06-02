@@ -8,7 +8,7 @@
 
 .navTitle{
     flex: 1;
-    padding: $size-s
+    padding: $size-s;
 }
 
 .navButton{
@@ -19,4 +19,9 @@
 .navButton:hover{
     cursor: pointer;
     background-color: darken($primary, 5%);
+}
+
+.navIcon{
+    font-size: 1.8rem;
+    color: white;
 }
