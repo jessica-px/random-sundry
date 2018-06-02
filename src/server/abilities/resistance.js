@@ -7,7 +7,7 @@ const damageTypes = [
     'Fire',
     'Poison',
     'Lightning',
-    'Nectrotic',
+    'Necrotic',
     'Psychic',
     'Radiant',
     'Thunder',
