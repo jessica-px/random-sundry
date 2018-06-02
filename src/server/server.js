@@ -2,49 +2,32 @@
 const express = require('express');
 const app = express();
 const port = process.env.PORT || 8080;
+const cors = require('cors');
+const path = require("path");
+app.use(cors()); // Allow cross-origin-referneces
 app.listen(port);
 
-// Get Random From Array Function
-const getRandomFrom = require('./getRandomFromArray.js');
 
 
-// Random Weapons
-const swords = require('./weapons/swords');
-const axes = require('./weapons/axes');
-const spears = require('./weapons/spears');
-const weapons = [swords, axes, spears];
-
-// Random Abilities
-const utility = require('./abilities/utility');
-const damageType = require('./abilities/damageType');
-const resistance = require('./abilities/resistance');
-const creatureType = require('./abilities/creatureType');
-const abilities = [utility, damageType, resistance, creatureType];
-
-// Random Origins
-const people = require('./origins/people');
-const origins = [people];
-
-// Return Random Item
-app.get('/random', (req, res) => {
-    const weapon = formatWeapon();
+// API - Random Weapon
+app.get('/api/random-weapon', (req, res) => {
+    const weapon = require('./weapons/weaponGen')();
     res.send(weapon);
 })
 
-//Format item to JSON
-const formatWeapon = () => {
-    const weapon = getRandomFrom(weapons)();
-    const ability = getRandomFrom(abilities)();
-    const origin = getRandomFrom(origins)();
-    const body = [weapon.description, ability, origin]
+// API - Random Ruins
+app.get('/api/random-ruin', (req, res) => {
+    const ruins = {header: 'Ruins', 
+            body: ['These are some ruins.', 'They\'re full of zombies.']}
+    res.send(ruins);
+})
 
-    return {
-        name: weapon.typeName,
-        smallHeader: weapon.stats,
-        body: body
-    }
-}
 
+
+// Direct all other routes to index.html
+app.get('*', function (request, response){
+    response.sendFile(path.resolve(__dirname +'/../..', 'public', 'index.html'))
+})
 
 
 

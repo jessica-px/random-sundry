@@ -43,8 +43,16 @@ const config = {
     },
     devServer: {
         publicPath: "/",
+        historyApiFallback: true,
         contentBase: "./public",
-        //hot: true
+        proxy: [ // allows redirect of requests to webpack-dev-server to another destination
+            {
+              context: ['/api', '/auth'],  // can have multiple
+              target: 'http://localhost:8080', // server and port to redirect to
+              secure: false,
+            },
+          ],
+        port: 3030, // port webpack-dev-server listens to, defaults to 8080
     },
 };
 

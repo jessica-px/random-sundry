@@ -15,18 +15,25 @@ class WeaponPage extends React.Component{
     }
 
     randomize = () => {
-        // Get random text from API
-        // For now, we're using 'fake random' text
-        const cardHeaderSmall = 'Shortsword, 1d6 piercing. Light, finesse.';
-        const cardBody = [
-            'This is a shortsword with a thin, blackened blade. It is engraved with a single rune.',
-            'Attacks with this weapon can deal Necrotic damage.',
-            'Rumor says it was once a gift for an orc warlord.'
-        ];
+        const url = 'http://localhost:8080/api/' + this.props.url;
+        fetch(url, {
+            method: 'GET'
+        }).then((response) => {
+            console.log(response);
+            response.json().then((data) =>{
+                this.showCardText(data);
+            });
+        }).catch((err) => {
+            console.log(err);
+        })
+    }
+
+    showCardText = (random) => {
         // Set state to new random text
         this.setState((prevState) => ({
-            cardHeaderSmall: cardHeaderSmall,
-            cardBody: cardBody
+            cardHeader: random.header,
+            cardHeaderSmall: random.smallHeader,
+            cardBody: random.body
         }))
     }
 
@@ -35,7 +42,7 @@ class WeaponPage extends React.Component{
             <div>
                 <NavBar/>
                     <div className='generatorWrapper'>
-                    <div className='pageTitle'>Magic Weapon Generator</div>
+                    <div className='pageTitle'>{this.props.title}</div>
                     <RandomCard {...this.state}/>
                     <RandomButton onClick={this.randomize}/>
                 </div>
