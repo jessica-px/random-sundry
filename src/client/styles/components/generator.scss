@@ -1,0 +1,35 @@
+
+.generatorWrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pageTitle{
+    padding: $size-l;
+    text-align: center;
+}
+
+.card{
+    background: $color-card;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 75%;
+    height: 60%;
+    padding: $size-s;
+}
+
+.smallCardHeader{
+    font-size: $size-s;
+    font-style: italic;
+}
+
+
+
+
+
+@media screen and (min-width: 450px) {
+    .card{
+        width: 50%;
+    }
+}
+

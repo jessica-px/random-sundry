@@ -1,0 +1,93 @@
+////
+///// Generic Button
+////
+
+.button{
+    padding: $size-s;
+    background-color: $primary;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 0;
+    outline: none;
+}
+
+.button:hover{
+    cursor: pointer;
+    background-color: darken($primary, 5%);
+    
+}
+
+    // Ripple effect originally by Bence Szabo
+    // https://codepen.io/finnhvman/pen/jLXKJw
+.ripple {
+    background-position: center;
+    transition: background 0.4s;
+  }
+  .ripple:hover {
+    background: darken($primary, 5%) radial-gradient(circle, transparent 1%, darken($primary, 5%) 1%) center/15000%;
+  }
+  .ripple:active {
+    background-color: lighten($primary, 5%);
+    background-size: 100%;
+    transition: background 0s;
+  }
+
+
+
+////
+///// Big Button
+////
+
+.button--big{
+    width: 40%;
+    max-width: 15rem;
+    margin: $size-m;
+}
+
+
+////
+///// Icon Buttons
+////
+
+.icon{
+    font-size: $size-icon;
+    color: grey;
+    border: none;
+    border-radius: 50%;
+}
+
+.icon:hover{
+    cursor: pointer;
+    color: $color-icon;
+}
+
+.icon--red{
+    color: red;
+}
+
+// Like / Fave / Heart <3
+
+.bounce{
+    animation: bounce .5s;
+}
+
+@keyframes bounce {
+    0% {
+      //transform: translateY(10);
+      transform: scale(1,1);
+    }
+    50%{
+        transform: scale(1.5, 1.5);
+    }
+    100% {
+      //transform: translateY(0);
+      transform: scale(1, 1);
+    }
+}
+
+// Clipboard
+
+.clipboard:active{
+    color: black;
+}

@@ -1,0 +1,22 @@
+
+.navBar{
+    display: flex;
+    background: $primary;
+    color: white;
+    justify-content: space-between;
+}
+
+.navTitle{
+    flex: 1;
+    padding: $size-s
+}
+
+.navButton{
+    padding: $size-s;
+    align-self: flex-end;
+}
+
+.navButton:hover{
+    cursor: pointer;
+    background-color: darken($primary, 5%);
+}
