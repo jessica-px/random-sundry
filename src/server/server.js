@@ -27,11 +27,23 @@ const origins = [people];
 
 // Return Random Item
 app.get('/random', (req, res) => {
-    const description = getRandomFrom(weapons)();
+    const weapon = formatWeapon();
+    res.send(weapon);
+})
+
+//Format item to JSON
+const formatWeapon = () => {
+    const weapon = getRandomFrom(weapons)();
     const ability = getRandomFrom(abilities)();
     const origin = getRandomFrom(origins)();
-    res.send(description + ' ' + ability + ' ' + origin);
-})
+    const body = [weapon.description, ability, origin]
+
+    return {
+        name: weapon.typeName,
+        smallHeader: weapon.stats,
+        body: body
+    }
+}
 
 
 

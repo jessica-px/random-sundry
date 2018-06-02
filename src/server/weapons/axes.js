@@ -1,4 +1,7 @@
 
+// Get Random Function
+const getRandomFrom = require('./../getRandomFromArray');
+
 const metals = require('./components/metals');
 const blades = require('./components/blades');
 
@@ -20,20 +23,28 @@ const bonuses = [
 ]
 
 const types = [
-    'handaxe',
-    'greataxe',
+    {
+        typeName: getRandomFrom(['handaxe']),
+        stats: 'Handaxe, 1d6 slashing. Light, thrown (range 20/60).'},
+    {
+        typeName: getRandomFrom(['battleaxe']),
+        stats: 'Battleaxe, 1d8 slashing. Versatile (1d10).'},
+    {
+        typeName: getRandomFrom(['greataxe']),
+        stats: 'Greataxe, 1d12 slashing. Heavy, two-handed.'},
 ]
+
 
 const axe = () => {
     const type = getRandomFrom(types);
     const blade = getRandomFrom(blades);
     const metal = getRandomFrom(metals);
     const bonus = getRandomFrom(bonuses);
-    return `This is a ${type} with ${blade}, ${metal} blade. ${bonus}.`
-    
+    return weapon = {
+        typeName: type.typeName,
+        description: `This is a ${type.typeName} with ${blade}, ${metal} blade. ${bonus}.`,
+        stats: type.stats
+    }
 }
-
-// Get Random Function
-const getRandomFrom = require('./../getRandomFromArray');
 
 module.exports = axe;
