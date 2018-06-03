@@ -2,9 +2,9 @@
 const shafts = [
     'polished wood',
     'black wood',
-    'red wood',
-    'white wood',
-    'yellow wood',
+    'cherry wood',
+    'ash wood',
+    'birch wood',
     'twisted',
     'gnarled',
     'knotted',
