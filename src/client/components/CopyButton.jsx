@@ -11,7 +11,7 @@ class CopyButton extends React.Component{
 
     copyToClipboard = () => {
         const range = document.getSelection().getRangeAt(0);
-        range.selectNode(document.getElementById("cardText"));
+        range.selectNode(document.getElementById(this.props.copyDivId));
         const selection = window.getSelection();
         selection.removeAllRanges();   
         selection.addRange(range);
@@ -63,18 +63,6 @@ class CopyButton extends React.Component{
                             <span>Copied</span>
                     }
                 </ReactTooltip>
-                
-                    {/* {!this.state.copied &&   
-                        <ReactTooltip id='copy' effect='float' delayShow={150} delayHide={300}>
-                            <span>Copy Text</span>
-                        </ReactTooltip>
-                    }
-                    {this.state.copied && 
-                        <ReactTooltip id='copied' effect='float' delayHide={300} resizeHide={true}>
-                            <span>Copied</span>
-                        </ReactTooltip>
-                    } */}
-                
                 
             </div>
 
