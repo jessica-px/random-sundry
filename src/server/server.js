@@ -17,8 +17,7 @@ app.get('/api/random-weapon', (req, res) => {
 
 // API - Random Ruins
 app.get('/api/random-ruin', (req, res) => {
-    const ruins = {header: 'Ruins', 
-            body: ['These are some ruins.', 'They\'re full of zombies.']}
+    const ruins = require('./ruins/ruinsGen')();
     res.send(ruins);
 })
 

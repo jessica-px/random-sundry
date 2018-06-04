@@ -1,30 +1,27 @@
-
-// Get Random From Array Function
+// Functions
 const getRandomFrom = require('./../getRandomFromArray.js');
+const spellCheck = require('./../spellCheck.js');
+const fillBlanks = require('./../sentences/fillBlanks.js');
 
 // Random Weapons
-const swords = require('./swords');
-const axes = require('./axes');
-const spears = require('./spears');
-const weapons = [swords, axes, spears];
+const weapons = [
+    require('./swords'),
+    require('./axes'),
+    require('./spears')
+];
 
-// Random Abilities
-const utility = require('./../abilities/utility');
-const damageType = require('./../abilities/damageType');
-const resistance = require('./../abilities/resistance');
-const creatureType = require('./../abilities/creatureType');
-const abilities = [utility, damageType, resistance, creatureType];
+// Randomizers
+const randomOrigin = require('./../sentences/wpnOrigins');
+const randomAbility = require('./../sentences/wpnAbilities');
 
-// Random Origins
-const people = require('./../origins/people');
-const origins = [people];
 
 //Format to JSON
 const formatWeapon = () => {
     const weapon = getRandomFrom(weapons)();
-    const ability = getRandomFrom(abilities)();
-    const origin = getRandomFrom(origins)();
-    const body = [weapon.description, ability, origin];
+    const description = spellCheck(fillBlanks(weapon.description));
+    const ability = randomAbility();
+    const origin = randomOrigin();
+    const body = [description, ability, origin];
 
     return {
         name: weapon.typeName,
@@ -32,5 +29,6 @@ const formatWeapon = () => {
         body: body
     }
 }
+
 
 module.exports = formatWeapon;
