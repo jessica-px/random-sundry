@@ -8,7 +8,8 @@ const weapons = [
     require('./swords'),
     require('./axes'),
     require('./spears'),
-    require('./hammers')
+    require('./hammers'),
+    require('./maces')
 ];
 
 // Randomizers

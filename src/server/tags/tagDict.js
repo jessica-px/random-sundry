@@ -10,6 +10,7 @@ const tagDict = {
     $DAMAGE_TYPE: require('./damageType'),
     $CANTRIP: require('./cantrips'),
     // Weapon Bonuses
+    $ITEMBONUS: require('./bonusItem').master,
     $ITEMBONUS_SWORD: require('./bonusItem').sword,
     $ITEMBONUS_SPEAR: require('./bonusItem').spear,
     $ITEMBONUS_AXE: require('./bonusItem').axe,
