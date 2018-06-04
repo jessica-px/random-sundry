@@ -6,16 +6,26 @@ import ReactTooltip from 'react-tooltip';
 class CopyButton extends React.Component{
     state = {
         toggleAnimation: false,
-        copied: false
+        copied: false,
+    }
+
+    copyToClipboard = () => {
+        const range = document.getSelection().getRangeAt(0);
+        range.selectNode(document.getElementById("cardText"));
+        const selection = window.getSelection();
+        selection.removeAllRanges();   
+        selection.addRange(range);
+        document.execCommand("copy");
     }
 
     handleClick = (e) => {
-        // TO-DO: Actually copy text
+        //Copy Text
+        this.copyToClipboard();
+        // Bounce icon
         if (this.state.copied === false){
             e.target.classList.add('bounce');
         }
-
-        //Tooltip
+        //Change Tooltip
         this.setState((prevState) => ({
             toggleAnimation: !prevState.toggleAnimation,
             copied: true
@@ -31,12 +41,16 @@ class CopyButton extends React.Component{
         }))
     }
 
+
     render(){
         return(
             <div>
                 <span data-tip data-for='copy'>
-                    <div onClick={this.handleClick} className='icon' data-tip data-for='copied'>
-                        <FontAwesome icon={faClipboard} />
+                    <div onClick={this.handleClick} 
+                        className='icon' 
+                        data-tip data-for='copied'
+                        >
+                            <FontAwesome icon={faClipboard} />
                     </div>
                 </span>
 
