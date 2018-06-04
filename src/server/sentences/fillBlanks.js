@@ -3,7 +3,7 @@ const getRandomFrom = require('./../getRandomFromArray');
 
 // Matches $TAGS, aka: 
 // uppercase strings preceeded with $ and bounded by white space, punctuation, or string start/ends
-const regex = /(\s|[\.\,\'\"\!]|^)(\$[A-Z_]+)(\s|[\.\,\'\"\!]|$)/g;
+const regex = /(\$[A-Z_]+)/g;
 
 // Finds $TAGS in sentence and pairs them with random item from matching array, 
 // as listed in tagDict.js
@@ -14,9 +14,9 @@ const fillBlanks = (sentence) => {
     }
 
     sentence = sentence.replace(regex, (fullmatch, p1, p2, p3) => {
-        const tag = p2;
+        const tag = fullmatch;
         const array = getArrFromTag(tag);
-        return p1 + getRandomFrom(array) + p3;
+        return getRandomFrom(array);
     })
     return sentence;
 }

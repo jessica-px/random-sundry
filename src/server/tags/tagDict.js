@@ -1,8 +1,12 @@
 
 const tagDict = {
+    // Living Things
+    $PERSON_ADJ: require('./personAdj'),
     $PERSON: require('./persons'),
+    $PEOPLE: require('./peoples'),
     $CREATURE: require('./creature'),
     $CREATURES: require('./creatures'),
+    // Magic-related
     $DAMAGE_TYPE: require('./damageType'),
     $CANTRIP: require('./cantrips'),
     // Weapon Bonuses
