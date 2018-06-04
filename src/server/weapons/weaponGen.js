@@ -7,7 +7,8 @@ const fillBlanks = require('./../sentences/fillBlanks.js');
 const weapons = [
     require('./swords'),
     require('./axes'),
-    require('./spears')
+    require('./spears'),
+    require('./hammers')
 ];
 
 // Randomizers

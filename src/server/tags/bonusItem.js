@@ -38,9 +38,17 @@ const axeBonuses = itemBonuses.concat([
     'It cuts the air noiselessly.',
 ])
 
+const hammerBonuses = itemBonuses.concat([
+    'Jutting from the back of its head is a long, terrible spike.',
+    'It\s face bears the carving of a snarling lion.',
+    'The head is oddly rounded.',
+    'It\s face bears many tiny spikes.'
+])
+
 module.exports = {
     master: itemBonuses,
     sword: swordBonuses,
     spear: spearBonuses,
-    axe: axeBonuses
+    axe: axeBonuses,
+    hammer: hammerBonuses
 };
