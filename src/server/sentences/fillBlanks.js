@@ -9,7 +9,7 @@ const regex = /(\$[A-Z_]+)/g;
 // as listed in tagDict.js
 const fillBlanks = (sentence) => {
     if (typeof sentence !== "string"){
-        console.error('ERROR: Expected string. Recieved ' + typeof sentence +':');
+        console.error('ERROR in fillBlanks.js: Expected string. Recieved ' + typeof sentence +':');
         console.error(sentence);
     }
 
