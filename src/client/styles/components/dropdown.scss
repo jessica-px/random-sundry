@@ -1,0 +1,34 @@
+.dropdown{
+    position: relative;
+   display: inline-block;
+}
+
+.dropdown--menu{
+    position: absolute;
+    right: 0px;
+    min-width: 200px;
+
+}
+
+.dropdown--button{
+    border:none;
+    background: none;
+    padding: $size-s;
+    width: 100%;
+    text-align: right;
+    color: $black;
+    font-size: $size-m;
+}
+
+.dropdown--button:hover{
+    cursor: pointer;
+    background-color: darken($color-card, 15%);
+}
+
+.dropdown--header{
+    color: $black;
+    text-align: right;
+    padding: $size-s;
+    color: lighten($black, 25%);
+    font-size: $size-s;
+}

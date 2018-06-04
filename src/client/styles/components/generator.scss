@@ -10,18 +10,16 @@
     text-align: center;
 }
 
-.card{
+.generatorCard{
     display: flex;
     flex-direction: column;
-    background: $color-card;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 75%;
     height: 60%;
     padding: $size-s;
 }
 
 .smallCardHeader{
-    font-size: $size-s;
+    font-size: $size-xs;
     font-style: italic;
 }
 

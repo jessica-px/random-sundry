@@ -23,7 +23,14 @@ button:disabled{
   cursor: default;
 }
 
-@media screen and (min-width: 1000px) {
+.card{
+  background: $color-card;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+@media screen and (min-width: 1025px) {
   body{
       width: 60%;
       margin: 0 auto 0 auto;

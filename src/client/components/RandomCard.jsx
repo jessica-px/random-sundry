@@ -4,7 +4,7 @@ import LikeButton from './LikeButton.jsx';
 import CopyButton from './CopyButton.jsx';
 
 const RandomCard = (props) => (
-    <div className='card'>
+    <div className='card generatorCard'>
 
         {/* Render header, if present */}
             {props.cardHeader &&
