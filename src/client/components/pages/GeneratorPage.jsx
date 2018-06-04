@@ -3,7 +3,7 @@ import NavBar from './../NavBar.jsx';
 import RandomCard from './../RandomCard.jsx';
 import RandomButton from './../RandomButton.jsx';
 
-class WeaponPage extends React.Component{
+class GeneratorPage extends React.Component{
     state = {
         cardHeaderSmall: 'text',
         cardBody: []
@@ -51,4 +51,4 @@ class WeaponPage extends React.Component{
     }
 }
 
-export default WeaponPage;
+export default GeneratorPage;
