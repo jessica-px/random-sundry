@@ -5,6 +5,9 @@
 // Loading these out of order could cause consequences
 // Re-order with caution
 @import './components/navbar';
+@import './components/cards';
+@import './floatLabel';
+@import './components/login';
 @import './components/buttons';
 @import './components/generator';
 @import './components/dropdown';

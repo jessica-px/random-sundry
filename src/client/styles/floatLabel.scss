@@ -1,0 +1,24 @@
+
+
+.floatLabel {
+  // font-size: $size-m; 
+  // padding: 10px;   
+  display: block; 
+  // width: 100%;    
+}
+
+label {
+  font-size: $size-m; 
+  left: 10px;
+  top: 13px;  
+  pointer-events: none;
+  
+  transition: 0.2s ease all;        /* determines animation during */
+  -moz-transition: 0.2s ease all;      /* user interaction */
+  -webkit-transition:0.2s ease all;
+}
+
+.floatLabel:focus ~ label, .floatLabel:valid ~ label {
+  top: -20px;        /* where the label goes upon interaction */
+  font-size: $size-xs;   /* font-size change on interaction */
+}

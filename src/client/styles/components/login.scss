@@ -1,0 +1,55 @@
+
+
+
+.textInputArea{
+  //padding: $size-xs;
+  display: flex;
+  margin-top: $size-l;
+  width: 80%;
+  border-bottom: 1px solid $color-icon;
+}
+
+
+.textInput{
+  display: block; 
+  flex: 1;
+  min-width: 10px;
+  padding: .8rem;
+  font-size: $size-m;
+  border: none;
+}
+
+.inputIcon{
+  align-self: center;
+  font-size: $size-s;
+  padding-left: .8rem;
+  padding-right: .8rem;
+  color: $color-icon;
+}
+
+.loginCard{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 40rem;
+  max-width: 80%;
+  margin: 10rem auto 0 auto;
+}
+
+// Resizing login card
+@media screen and (min-width: 450px) {
+  .loginCard{
+    width: 60%;
+  }}
+@media screen and (min-width: 600px) {
+  .loginCard{
+    width: 50%;
+  }}
+@media screen and (min-width: 800px) {
+  .loginCard{
+    width: 40%;
+  }}
+@media screen and (min-width: 1025px) {
+  .loginCard{
+    width: 50%;
+  }}
