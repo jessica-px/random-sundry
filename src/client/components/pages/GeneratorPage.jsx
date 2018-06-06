@@ -19,7 +19,7 @@ class GeneratorPage extends React.Component{
         fetch(url, {
             method: 'GET'
         }).then((response) => {
-            console.log(response);
+            //console.log(response);
             response.json().then((data) =>{
                 this.showCardText(data);
             });
@@ -40,7 +40,6 @@ class GeneratorPage extends React.Component{
     render(){
         return(
             <div>
-                <NavBar/>
                     <div className='generatorWrapper'>
                     <div className='pageTitle'>{this.props.title}</div>
                     <RandomCard {...this.state}/>

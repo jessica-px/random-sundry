@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Menu anatomy wokrs like this:
 // Each dropdown has (as a prop) an array of sections
@@ -17,7 +18,6 @@ class Dropdown extends React.Component{
 
   // On click, show menu
   onClickHandler = (e) => {
-    console.log('Click');
     e.preventDefault();
     this.showMenu();
   }
@@ -70,9 +70,9 @@ const renderHeader = (section) => {
 const renderLinks = (section) => {
   return section.links.map(link => {
     return(
-      <a href={link.url}><button className='dropdown--button navButton'>
+      <Link to={link.url} key={link.url}><button className='dropdown--button navButton'>
         {link.name}
-      </button></a>
+      </button></Link>
     )
   })
 }
