@@ -1,12 +1,16 @@
 
 
 
-.textInputArea{
-  //padding: $size-xs;
+.textInputWrapper{
   display: flex;
   margin-top: $size-l;
   width: 80%;
-  border-bottom: 1px solid $color-icon;
+  box-shadow: 0px -1px 0px $color-icon inset;
+  transition: all .4s ease-out;
+}
+
+.textInputWrapper--focus{
+  box-shadow: 0px -2px 0px $color-icon inset;
 }
 
 
@@ -17,6 +21,30 @@
   padding: .8rem;
   font-size: $size-m;
   border: none;
+  background-color: transparent;
+}
+
+.textInput:focus{
+  outline:none;
+}
+
+.floatLabelWrapper{
+  position: relative;
+}
+
+.floatLabel{
+  position: absolute;
+  top: 0;
+  font-size: $size-m;
+  color: $color-icon;
+  transition: all .2s ease-in-out;
+}
+
+.floatLabel--up{
+  position: absolute;
+  top: -18;
+  font-size: $size-s;
+  color: rgb(126, 126, 126);
 }
 
 .inputIcon{
