@@ -1,9 +1,9 @@
 import React from 'react';
 
-const RandomButton = (props) => (
+const BigButton = (props) => (
     <div className='button button--big ripple' onClick={props.onClick}>
-        Randomize
+        {props.label}
     </div>
 )
 
-export default RandomButton;
+export default BigButton;

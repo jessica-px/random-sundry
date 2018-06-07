@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './../NavBar.jsx';
 import RandomCard from './../RandomCard.jsx';
-import RandomButton from './../RandomButton.jsx';
+import BigButton from './../BigButton.jsx';
 
 class GeneratorPage extends React.Component{
     state = {
@@ -43,7 +43,7 @@ class GeneratorPage extends React.Component{
                     <div className='generatorWrapper'>
                     <div className='pageTitle'>{this.props.title}</div>
                     <RandomCard {...this.state}/>
-                    <RandomButton onClick={this.randomize}/>
+                    <BigButton onClick={this.randomize} label={'Randomize'}/>
                 </div>
             </div>
         )
