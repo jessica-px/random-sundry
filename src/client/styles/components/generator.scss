@@ -15,7 +15,14 @@
     flex-direction: column;
     width: 75%;
     height: 60%;
-    padding: $size-s;
+    padding: $size-xl;
+}
+
+.cardHeader{
+    text-align: center;
+    font-size: $size-l;
+    font-weight: lighter;
+    padding: $size-m;
 }
 
 .smallCardHeader{

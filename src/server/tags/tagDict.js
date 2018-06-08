@@ -6,6 +6,7 @@ const tagDict = {
     $PEOPLE: require('./peoples'),
     $CREATURE: require('./creature'),
     $CREATURES: require('./creatures'),
+    $FACTION: require('./factions'),
     // Magic-related
     $DAMAGE_TYPE: require('./damageType'),
     $CANTRIP: require('./cantrips'),
@@ -19,10 +20,18 @@ const tagDict = {
     $METAL: require('./metals'),
     $BLADE: require('./blades'),
     $SHAFT: require('./shafts'),
-
+    // Places
+    $LOCATION: require('./locations'),
+    // Ruins
+    $BUILDING: require('./buildings'),
+    $BUILDING_ADJ: require('./buildingAdj'),
+    $BUILDING_EXTRA: require('./buildingExtra'),
 }
 
 const getArrFromTag = (tag) => {
+    if (tagDict[tag] === undefined){
+        console.log('ERROR: tag "' + tag + '" not found.')
+    }
     return tagDict[tag];
 }
 

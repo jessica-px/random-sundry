@@ -1,6 +1,7 @@
 
-// Get Random Function
 const getRandomFrom = require('./../getRandomFromArray');
+const fillBlanks = require('./../sentences/fillBlanks.js');
+const titleCase = require('./../titleCase.js');
 
 const weaponTypes = [
     {
@@ -25,7 +26,9 @@ const weaponTypes = [
 
 const sword = () => {
     const weapon = getRandomFrom(weaponTypes);
-    weapon.description = `This is a ${weapon.typeName} with a $BLADE, $METAL blade. $ITEMBONUS_SWORD`;
+    const adj = fillBlanks('$METAL');
+    weapon.name = titleCase(adj +' ' + weapon.typeName);
+    weapon.description = `This is a ${weapon.typeName} with a ${adj}, $METAL blade. $ITEMBONUS_SWORD`;
     return weapon;
 }
 

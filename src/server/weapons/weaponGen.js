@@ -27,6 +27,7 @@ const formatWeapon = () => {
 
     return {
         name: weapon.typeName,
+        header: weapon.name,
         smallHeader: weapon.stats,
         body: body
     }

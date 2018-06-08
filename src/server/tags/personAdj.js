@@ -9,7 +9,7 @@ const personAdj = [
     'blood-thirsty',
     'fanatical',
     'selfish',
-    'egotistical',
+    'proud',
     'feared',
     'ambitious',
     'cruel',

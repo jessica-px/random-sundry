@@ -8,7 +8,7 @@ const RandomCard = (props) => (
         <div id="cardText">
             {/* Render header, if present */}
                 {props.cardHeader &&
-                <div className='CardHeader'>{props.cardHeader}</div>
+                <div className='cardHeader'>{props.cardHeader}</div>
             }
 
             {/* Render small header, if present */}
