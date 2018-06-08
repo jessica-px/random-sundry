@@ -10,6 +10,7 @@ class SignupPage extends React.Component{
     render(){
         return(
             <LoginWidget title={'Sign Up'} />
+
         )
     }
 }
