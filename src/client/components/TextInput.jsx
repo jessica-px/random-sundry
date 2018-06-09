@@ -65,7 +65,7 @@ class TextInput extends React.Component{
             onFocus={this.onFocus}
             onBlur={this.onBlur}
             onChange={this.onInputChange}
-            required
+            //required
             > 
           </input>
         </span>

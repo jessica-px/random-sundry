@@ -49,22 +49,30 @@ app.get('/api/random-ruin', (req, res) => {
 })
 
 // API - POST - Register
-// app.post('/api/register', (req, res, next) => {
-//     const username = req.body.username;
-//     const password = req.body.password;
-//     //console.log(req.body);
-//     console.log('Recieved post: ' + username + ', ' + password +'...');
-//     passport.authenticate('local-signup', (err, user, info) => {
-//         console.log('Authenticated!');
-//     })(req, res, next);
-// })
 
-app.post('/api/register', 
-    passport.authenticate('local-signup'), 
-    ((req, res) => {
-        res.send('Authentictaed');
-    })
-)
+// app.post('/api/register', 
+//     passport.authenticate('local-signup'), 
+//     ((req, res) => {
+//         res.json({
+//             message: 'Message!'
+//     })})
+// )
+
+
+app.post('/api/register', function(req, res, next) {
+    passport.authenticate('local-signup', function(err, user, info) {
+        console.log('info:')
+        console.log(info);
+      if (err) { return next(err); }
+      if (!user) { return res.json(info); }
+      req.logIn(user, function(err) {
+        if (err) { return next(err); }
+        return res.json({success: 'You have successfully signed up as ' + user.local.username + '.'});
+      });
+    })(req, res, next);
+  });
+
+
 
 // API - POST - Login
 app.post('/api/login', (req, res) => {

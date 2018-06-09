@@ -18,19 +18,46 @@ class LoginWidget extends React.Component{
       username: e.target[0].value,
       password: e.target[1].value
     }
-    console.log('submitting form: '+ JSON.stringify(info));
+    console.log('Submitting form: '+ JSON.stringify(info));
     const url = '/api/register';
     fetch(url, {
       method: 'POST',
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        'Accept': 'application/json'
       },
       body: JSON.stringify(info)
     }).then((res) => {
-        return res.json();
-    }).then((data) => {
-        console.log(data);
-      })
+      return res.json();
+    }).then((info) => {
+      this.handleSeverMessage(info);
+    })
+  }
+
+  // Handle Error / Success messages from server
+  handleSeverMessage = (info) => {
+    if (info.success){
+      console.log(info.success);
+    }
+    else if (info.usernameError){
+      this.showNameError(info.userNameError);
+    }
+    else if (info.passwordError){
+      this.showPasswordError(info.passwordError);
+    }
+    else if (info.message){
+      console.log(info.message);
+    }
+  }
+
+  // Show username errors as tooltip
+  showNameError = (msg) => {
+    console.log("Username Error: " + msg);
+  }
+
+  // Show password errors as tooltip
+  showPasswordError = (msg) => {
+    console.log("Password Error: " + msg);
   }
 
   render(){

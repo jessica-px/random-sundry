@@ -4,6 +4,7 @@ const User = require('./models/user');
 
 
 
+
 module.exports = (passport) => {
   console.log('Running passport config');
 
@@ -37,13 +38,16 @@ module.exports = (passport) => {
       // looks up this username in DB
       User.findOne({'local.username' : username}, (err, user) => {
         console.log('Looking up user...')
-        
-        // catch errors
-        if (err) return done(err);
 
         // if name is taken, return message
-        //if (user) return done(null, false, req.flash('signupMessage', 'Username taken.'));
-        if (user) return done(null, false, console.log('Username taken.'));
+        if (user) return done(null, false, info = {usernameError: 'Username already taken.'});
+
+        // if password is too short, return message
+        else if (password.length < 8) return done(null, false, info = {passwordError: 'Password must be at least 8 characters.'});
+
+        // catch errors
+        else if (err) return done(err);
+
         else{
           console.log('Creating new user...')
           // otherwise create new user
