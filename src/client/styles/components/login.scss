@@ -3,7 +3,8 @@
 
 .textInputWrapper{
   display: flex;
-  margin-top: $size-l;
+  margin-top: $size-xl;
+  margin-bottom: $size-xl;
   //width: 80%;
   box-shadow: 0px -1px 0px $color-icon inset;
   transition: all .4s ease-out;
@@ -26,6 +27,12 @@
 
 .textInput:focus{
   outline:none;
+}
+
+.inputMessage{
+  font-size: $size-s;
+  color: red;
+  text-align: center;
 }
 
 .floatLabelWrapper{

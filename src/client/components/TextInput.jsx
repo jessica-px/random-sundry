@@ -43,6 +43,7 @@ class TextInput extends React.Component{
     this.setState((prevState) => ({
       value: newValue
     }))
+    this.props.clearErrorMsg();
   }
 
   render(){
@@ -53,9 +54,9 @@ class TextInput extends React.Component{
           <FontAwesome icon={this.props.icon} className='inputIcon'/>
         }
         <span className='floatLabelWrapper'>
-           {/* Floating Label */}
+          {/* Floating Label */}
           <label className={this.state.labelClass}>{this.props.name}</label>
-           {/* Input Field */}
+          {/* Input Field */}
           <input 
             type='text' 
             className='textInput'
@@ -71,7 +72,6 @@ class TextInput extends React.Component{
         </span>
       </div>
     )
-
   }
 }
 
