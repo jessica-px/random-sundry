@@ -3,28 +3,28 @@ import FontAwesome from '@fortawesome/react-fontawesome';
 import faUser from '@fortawesome/fontawesome-free-solid/faUser';
 
 class AccountButton extends React.Component{
-    state = {
+  state = {
 
-    }
+  }
 
-    handleClick = (e) => {
-        // TO-DO: Show dropdown menu
-    }
+  handleClick = (e) => {
+      // TO-DO: Show dropdown menu
+  }
 
 
-    render(){
-        return(
-         
-    
-            <div onClick={this.handleClick} className='navIcon navButton ripple'>
-                <FontAwesome icon={faUser} />
-            </div>
-        
-     
+  render(){
+    return(
+      
 
-        )
-    
-    }
+      <div onClick={this.handleClick} className='navIcon navButton ripple'>
+          <FontAwesome icon={faUser} />
+      </div>
+  
+  
+
+    )
+  
+  }
 }
 
-export default AccountButton;
+export default (AccountButton);

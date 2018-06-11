@@ -1,10 +1,12 @@
 import React from 'react';
-import AccountButton from './AccountButton.jsx';
+// import AccountButton from './AccountButton.jsx';
+import DropdownUser from './DropdownUser.jsx';
+import DropdownSignup from './DropdownSignup.jsx';
 import DropdownBrowse from './DropdownBrowse.jsx';
 import HomeButton from './HomeButton.jsx';
 import AboutButton from './AboutButton.jsx';
-import {connect} from 'react-redux';
 import { validateToken } from '../actions/authActions';
+import {connect} from 'react-redux';
 
 class NavBar extends React.Component{
   state = {
@@ -21,15 +23,22 @@ class NavBar extends React.Component{
     return(
       <div>
         <div className="navBar">
-            <HomeButton />
-            <AboutButton />
-            <DropdownBrowse />
-            <AccountButton />
+          <HomeButton />
+          <AboutButton />
+          <DropdownBrowse />
+          {this.props.loggedIn && <DropdownUser />}
+          {!this.props.loggedIn && <DropdownSignup />}
         </div>
       </div>  
     )
   }
 }
 
+const mapStateToProps = (state) => {
+  return{
+      loggedIn: state.auth.loggedIn,
+      username: state.auth.username
+  };
+}
 
-export default connect()(NavBar);
+export default connect(mapStateToProps)(NavBar);
