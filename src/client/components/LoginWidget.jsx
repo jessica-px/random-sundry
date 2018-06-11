@@ -1,11 +1,12 @@
 import React from 'react';
-import { withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom"; // allows redirects
 import TextInput from './TextInput.jsx';
 import BigButton from './BigButton.jsx';
 import SubmitButton from './SubmitButton.jsx';
-//import FontAwesome from '@fortawesome/react-fontawesome';
 import faUser from '@fortawesome/fontawesome-free-solid/faUser';
 import faLock from '@fortawesome/fontawesome-free-solid/faLock';
+import {connect} from 'react-redux';
+import { validateToken, setUsername } from '../actions/authActions';
 
 class LoginWidget extends React.Component{
   state = {
@@ -23,6 +24,7 @@ class LoginWidget extends React.Component{
     const url = '/api/register';
     fetch(url, {
       method: 'POST',
+      credentials: 'include', // necessary for storing session cookies
       headers: {
         "Content-Type": "application/json",
         'Accept': 'application/json'
@@ -40,6 +42,9 @@ class LoginWidget extends React.Component{
     // Redirects to home page on success
     if (info.success){
       console.log(info.success);
+      console.log('Cookies: ' + document.cookie);
+      //this.props.dispatch(validateToken());
+      this.props.dispatch(setUsername(info.username));
       this.props.history.push("/");
     }
     else if (info.usernameError){
@@ -80,4 +85,6 @@ class LoginWidget extends React.Component{
   }
 }
 
-export default withRouter(LoginWidget);
+
+
+export default connect()(withRouter(LoginWidget));
