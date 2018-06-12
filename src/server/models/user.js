@@ -20,8 +20,8 @@ userSchema.methods.generateHash = (password) => {
 }
 
 // Validate password
-userSchema.methods.validPassword = (password) => {
-    return true;
+userSchema.methods.validPassword = function(password){ // can't be an arrow function, because of 'this'
+    return bcrypt.compareSync(password, this.local.password);
 }
 
 // Export

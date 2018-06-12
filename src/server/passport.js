@@ -74,4 +74,40 @@ module.exports = (passport) => {
     }
   ));
 
+  //==============================================================
+
+  //    Login
+
+  //==============================================================
+
+  passport.use('local-login', new LocalStrategy({
+    usernameField: 'username',
+    passwordField: 'password',
+    passReqToCallback: true // this prevents the 'done is not a function' error
+  },
+  callback = (req, username, password, done) => {
+
+    // Find a user with matching username
+    User.findOne({ 'local.username' : username}, (err, user) => {
+      if (err) return done(err);
+
+      // If no user found, or the password doesn't match, return failure message
+      if ( !user || !user.validPassword(password) ) {
+        return done(null, false, info = { message: 'Wrong username or password.' })
+      }
+      
+      if (!user.validPassword(password)){
+        return done(null, false, info = { message: 'Wrong username or password.' })
+      }
+
+
+      console.log('Password ' + password + ' is valid for user ' + username + ': ' + user.validPassword(password));
+      return done(null, user);
+
+    })
+  }
+  ))
+
+
+
 };

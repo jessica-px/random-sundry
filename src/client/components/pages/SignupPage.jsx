@@ -1,15 +1,11 @@
 import React from 'react';
-import LoginWidget from './../LoginWidget.jsx';
+import SignupWidget from './../SignupWidget.jsx';
 
 class SignupPage extends React.Component{
-    state = {
-        cardHeaderSmall: 'text',
-        cardBody: []
-    }
 
     render(){
         return(
-            <LoginWidget title={'Sign Up'} />
+            <SignupWidget title={'Sign Up'} />
 
         )
     }

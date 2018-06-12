@@ -75,14 +75,37 @@ app.post('/auth/register', function(req, res, next) {
     })(req, res, next);
   });
 
-// AUTH - GET - Login
-app.get('/auth/login', (req, res) => {
-    //const ruins = require('./ruins/ruinsGen')();
-})
+
+// AUTH - POST - Signup / Register
+app.post('/auth/login', function(req, res, next) {
+    console.log('Logging user in...')
+    passport.authenticate('local-login', function(err, user, info) {
+      if (err) { return next(err); }
+      if (!user) { return res.json(info); }
+      req.logIn(user, function(err) {
+        if (err) { return next(err); }
+        return res.json({success: 'You have successfully logged in.', username: user.local.username});
+      });
+    })(req, res, next);
+  });
+
+// // AUTH - GET - Login
+// app.get('/auth/login', (req, res) => {
+//     console.log('Logging user in...')
+//     if (!req.user){
+//         // If not valid user, return failure message
+//         res.send({ message: 'Invalid username/password.'});
+//     }
+//     req.login(user, (err) => {
+//         // Else, log in
+//         if (err) { return next(err); }
+//         res.send({isLoggedIn = true, username});
+//     })
+// })
 
 // AUTH - GET - Log Out
 app.get('/auth/logout', (req, res) => {
-    console.log('Logging user out');
+    console.log('Logging user out...');
     req.session.destroy();
     res.send('Session ended.')
 })

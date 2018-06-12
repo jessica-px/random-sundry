@@ -8,7 +8,7 @@ import faLock from '@fortawesome/fontawesome-free-solid/faLock';
 import {connect} from 'react-redux';
 import { validateToken, setUsername } from '../actions/authActions';
 
-class LoginWidget extends React.Component{
+class SignupWidget extends React.Component{
   state = {
     errorMessage: ''
   }
@@ -16,16 +16,12 @@ class LoginWidget extends React.Component{
   handleSubmit = (e) => {
     e.preventDefault();
     this.clearErrorMessage();
-    const userInfo = {
+    const info = {
       username: e.target[0].value,
       password: e.target[1].value
     }
-    this.logIn(userInfo);
-  }
-
-  logIn = (userInfo) => {
-    const url = '/auth/login';
-    console.log('Submitting form: '+ JSON.stringify(userInfo));
+    console.log('Submitting form: '+ JSON.stringify(info));
+    const url = '/auth/register';
     fetch(url, {
       method: 'POST',
       credentials: 'include', // necessary for storing session cookies
@@ -33,7 +29,7 @@ class LoginWidget extends React.Component{
         "Content-Type": "application/json",
         'Accept': 'application/json'
       },
-      body: JSON.stringify(userInfo)
+      body: JSON.stringify(info)
     }).then((res) => {
       return res.json();
     }).then((info) => {
@@ -50,6 +46,12 @@ class LoginWidget extends React.Component{
       //this.props.dispatch(validateToken());
       this.props.dispatch(setUsername(info.username));
       this.props.history.push("/");
+    }
+    else if (info.usernameError){
+      this.setErrorMessage(info.usernameError);
+    }
+    else if (info.passwordError){
+      this.setErrorMessage(info.passwordError);
     }
     else if (info.message){
       this.setErrorMessage(info.message);
@@ -71,12 +73,13 @@ class LoginWidget extends React.Component{
   render(){
     return(
       <form className='card loginCard' onSubmit={this.handleSubmit}>
-        <div className='cardHeaderBar'>{this.props.title}</div>
+        <div className='cardHeaderBar'>Sign Up</div>
       
         <TextInput name='Username' max={20} icon={faUser} clearErrorMsg={this.clearErrorMessage}/>
         <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage}/>
-        <SubmitButton label='Login' />
+        <SubmitButton label='Create Account' />
         <div className="inputMessage">{this.state.errorMessage}</div>
+        <div className="">Already have an account? Login.</div>
         
       </form>
     )
@@ -85,4 +88,4 @@ class LoginWidget extends React.Component{
 
 
 
-export default connect()(withRouter(LoginWidget));
+export default connect()(withRouter(SignupWidget));
