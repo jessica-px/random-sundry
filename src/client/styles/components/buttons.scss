@@ -46,10 +46,12 @@
 }
 
 .button--login{
+    box-sizing: border-box;
     width: 60%;
     margin: $size-m;
     font-size: $size-m;
     padding: $size-s;
+    min-height: 4.5rem;
 }
 
 

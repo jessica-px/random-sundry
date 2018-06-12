@@ -26,7 +26,7 @@ const ruinsProps = {
 
 const AppRouter = () => (
     <BrowserRouter>
-        <div>
+        <div className='page'>
             <NavBar />
             <Switch>
                 {/* General Navigation */}

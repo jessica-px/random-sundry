@@ -1,10 +1,12 @@
 import React from 'react';
-import { withRouter } from "react-router-dom"; // allows redirects
+import { Link, withRouter } from "react-router-dom"; // withRouter allows redirects
 import TextInput from './TextInput.jsx';
 import BigButton from './BigButton.jsx';
 import SubmitButton from './SubmitButton.jsx';
+import FontAwesome from '@fortawesome/react-fontawesome';
 import faUser from '@fortawesome/fontawesome-free-solid/faUser';
 import faLock from '@fortawesome/fontawesome-free-solid/faLock';
+import faDice from '@fortawesome/fontawesome-free-solid/faDice';
 import {connect} from 'react-redux';
 import { validateToken, setUsername } from '../actions/authActions';
 
@@ -54,7 +56,12 @@ class SignupWidget extends React.Component{
       this.setErrorMessage(info.passwordError);
     }
     else if (info.message){
-      this.setErrorMessage(info.message);
+      if (info.message === 'Missing credentials'){
+        this.setErrorMessage('Username and password required.');
+      }
+      else{
+        this.setErrorMessage(info.message);
+      }
     }
   }
 
@@ -74,12 +81,13 @@ class SignupWidget extends React.Component{
     return(
       <form className='card loginCard' onSubmit={this.handleSubmit}>
         <div className='cardHeaderBar'>Sign Up</div>
-      
+        <FontAwesome icon={faDice} className='cardDiceIcon' size='4x'/>
         <TextInput name='Username' max={20} icon={faUser} clearErrorMsg={this.clearErrorMessage}/>
         <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage}/>
-        <SubmitButton label='Create Account' />
         <div className="inputMessage">{this.state.errorMessage}</div>
-        <div className="">Already have an account? Login.</div>
+        <SubmitButton label='Create Account' />
+        
+        <div className="inputQuestionText">Already have an account? <Link to={'/login'}>Login</Link>.</div>
         
       </form>
     )
