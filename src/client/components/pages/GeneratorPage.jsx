@@ -15,7 +15,7 @@ class GeneratorPage extends React.Component{
     }
 
     randomize = () => {
-        const url = 'http://localhost:8080/api/' + this.props.url;
+        const url = '/api/' + this.props.url;
         fetch(url, {
             method: 'GET'
         }).then((response) => {
