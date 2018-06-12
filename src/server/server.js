@@ -58,18 +58,11 @@ app.get('/api/random-ruin', (req, res) => {
     res.send(ruins);
 })
 
-// API - POST - Register
-
-// app.post('/api/register', 
-//     passport.authenticate('local-signup'), 
-//     ((req, res) => {
-//         res.json({
-//             message: 'Message!'
-//     })})
-// )
 
 
-app.post('/api/register', function(req, res, next) {
+
+// AUTH - POST - Signup / Register
+app.post('/auth/register', function(req, res, next) {
     passport.authenticate('local-signup', function(err, user, info) {
         console.log('info:')
         console.log(info);
@@ -82,25 +75,26 @@ app.post('/api/register', function(req, res, next) {
     })(req, res, next);
   });
 
-
-
-// API - POST - Login
-app.post('/api/login', (req, res) => {
+// AUTH - GET - Login
+app.get('/auth/login', (req, res) => {
     //const ruins = require('./ruins/ruinsGen')();
 })
 
-// API - GET - Get user info from ID
-app.get('/api/random-ruin', (req, res) => {
-    //onst ruins = require('./ruins/ruinsGen')();
-    //res.send(ruins);
+// AUTH - GET - Log Out
+app.get('/auth/logout', (req, res) => {
+    console.log('Logging user out');
+    req.session.destroy();
+    res.send('Session ended.')
 })
 
-// AUTH - Authentication route, for verifying cookies
-app.get('/auth', (req, res) => {
-    console.log('Recieved authentication request...')
-    console.log(req.user);
+// AUTH - GET - Validates cookies
+app.get('/auth/validate', (req, res) => {
+    console.log('Validating cookies...')
     const isLoggedIn = req.isAuthenticated();
-    const username = req.user.local.username ? req.user.local.username : 'notLoggedIn';
+    const username = req.user ? req.user.local.username : '';
+    if (!isLoggedIn){
+        console.log('No cookies found!');
+    }
     res.send({isLoggedIn, username});
 })
 

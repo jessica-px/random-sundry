@@ -21,7 +21,7 @@ class LoginWidget extends React.Component{
       password: e.target[1].value
     }
     console.log('Submitting form: '+ JSON.stringify(info));
-    const url = '/api/register';
+    const url = '/auth/register';
     fetch(url, {
       method: 'POST',
       credentials: 'include', // necessary for storing session cookies

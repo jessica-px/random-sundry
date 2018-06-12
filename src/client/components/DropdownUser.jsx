@@ -23,7 +23,7 @@ const DropdownUser = (props) => (
           links: [
             {name: 'My Faves', url: '/weapons'},
             {name: 'Settings', url: '/armor'},
-            {name: 'Log Out', url: '/'}
+            {name: 'Log Out', url: '/logout'}
           ]
         }
       ]}
