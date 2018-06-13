@@ -22,7 +22,9 @@ class GeneratorPage extends React.Component{
     }
 
     randomize = (url) => {
-        //const url = '/api/' + this.props.url;
+        if (typeof url !== "string"){
+            url = '/api/' + this.props.url;
+        }
         fetch(url, {
             method: 'GET'
         }).then((response) => {
