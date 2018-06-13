@@ -9,13 +9,20 @@ class GeneratorPage extends React.Component{
         cardBody: []
     }
 
-    // Randomize once on first render
+    // Randomize once on first render of generator
     componentDidMount() {
-        this.randomize();
+        const url = '/api/' + this.props.url;
+        this.randomize(url);
     }
 
-    randomize = () => {
-        const url = '/api/' + this.props.url;
+    // Randomize on props updates (when swapping between generators)
+    componentWillReceiveProps(newProps){
+        const url = '/api/' + newProps.url;
+        this.randomize(url);
+    }
+
+    randomize = (url) => {
+        //const url = '/api/' + this.props.url;
         fetch(url, {
             method: 'GET'
         }).then((response) => {
