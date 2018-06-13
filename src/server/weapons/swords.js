@@ -28,7 +28,7 @@ const sword = () => {
     const weapon = getRandomFrom(weaponTypes);
     const adj = fillBlanks('$METAL');
     weapon.name = titleCase(adj +' ' + weapon.typeName);
-    weapon.description = `This is a ${weapon.typeName} with a ${adj}, $METAL blade. $ITEMBONUS_SWORD`;
+    weapon.description = `This is a ${weapon.typeName} with a $BLADE, ${adj} blade. $ITEMBONUS_SWORD`;
     return weapon;
 }
 
