@@ -5,7 +5,7 @@ import BigButton from './../BigButton.jsx';
 
 class GeneratorPage extends React.Component{
     state = {
-        cardHeaderSmall: 'text',
+        cardHeaderSmall: '',
         cardBody: []
     }
 
@@ -48,13 +48,13 @@ class GeneratorPage extends React.Component{
 
     render(){
         return(
-            <div>
-                    <div className='generatorWrapper'>
-                    <div className='pageTitle'>{this.props.title}</div>
-                    <RandomCard {...this.state}/>
-                    <BigButton onClick={this.randomize} label={'Randomize'}/>
-                </div>
+
+            <div className='generatorWrapper'>
+                <div className='pageTitle'>{this.props.title}</div>
+                <RandomCard {...this.state}/>
+                <BigButton onClick={this.randomize} label={'Randomize'}/>
             </div>
+
         )
     }
 }
