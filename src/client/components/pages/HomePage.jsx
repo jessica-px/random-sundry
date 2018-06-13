@@ -1,14 +1,17 @@
 import React from 'react';
 import NavBar from './../NavBar.jsx';
 import {connect} from 'react-redux';
+import FontAwesome from '@fortawesome/react-fontawesome';
+import faDice from '@fortawesome/fontawesome-free-solid/faDice';
 
 const HomePage = (props) => (
     <div className="navShape">
  
         <div className="navTriangle">
-            
+            <FontAwesome icon={faDice} className='homeIcon' size='4x'/>
         </div>
         <div className='homeGreeting'>
+        
         {props.loggedIn && <p>Hi there, {props.username}!</p>}
         {!props.loggedIn && <p>Hi there!</p>}
         <p>
