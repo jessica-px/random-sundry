@@ -4,7 +4,7 @@
     background: $primary;
     color: white;
     justify-content: space-between;
-    margin-bottom: $size-s;
+    //margin-bottom: $size-s;
 }
 
 .navTitle{
@@ -25,4 +25,20 @@
 .navIcon{
     font-size: 1.8rem;
     color: white;
+}
+
+.navShape{
+    position: relative;
+}
+
+.navTriangle{
+    width: 100%;
+    height: 30rem;
+    background-color: $primary;
+    /* The points are: centered top, left bottom, right bottom */
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 60%, 0 40%);
+    clip-path: polygon(0 0, 100% 0, 100% 60%, 0 40%);
+    //  Adjusts position so you can't see a gap
+    position: absolute;
+    top: -1rem;
 }

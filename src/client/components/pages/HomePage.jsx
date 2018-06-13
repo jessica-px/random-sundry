@@ -3,11 +3,27 @@ import NavBar from './../NavBar.jsx';
 import {connect} from 'react-redux';
 
 const HomePage = (props) => (
-    <div>
-        <div className='pageTitle'>Home Page</div>
-        This is where home page information will go. Later.
-        {props.loggedIn && <p>Hello, {props.username}.</p>}
-        {props.loggedIn ? <p>LOGGED IN</p> : <p>NOT LOGGED IN</p>}
+    <div className="navShape">
+ 
+        <div className="navTriangle">
+            
+        </div>
+        <div className='homeGreeting'>
+        {props.loggedIn && <p>Hi there, {props.username}!</p>}
+        {!props.loggedIn && <p>Hi there!</p>}
+        <p>
+            This website hosts a collection of quick and snappy random generators
+            for 5th Edition Dungeons and Dragons.
+        </p>
+        <p>
+            Browse the generators as a guests, or sign up for an account so you 
+            can save your favorite results!
+        </p>
+        </div>
+        
+        
+        
+        
     </div>
 )
 
