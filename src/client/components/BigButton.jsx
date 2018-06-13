@@ -1,7 +1,7 @@
 import React from 'react';
 
 const BigButton = (props) => (
-    <div className='button button--big ripple' onClick={props.onClick}>
+    <div className={'button button--big ripple '+ props.className} onClick={props.onClick}>
         {props.label}
     </div>
 )

@@ -45,6 +45,10 @@
     margin: $size-m;
 }
 
+.button--secondary{
+    background-color: lighten(gray, 15%);
+}
+
 .button--login{
     box-sizing: border-box;
     width: 60%;

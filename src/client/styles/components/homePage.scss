@@ -12,3 +12,9 @@
     font-size: $size-m;
     margin: 18rem $size-l $size-l $size-l;
 }
+
+.homeButtons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
