@@ -3,8 +3,12 @@ import NavBar from './../NavBar.jsx';
 import {connect} from 'react-redux';
 import FontAwesome from '@fortawesome/react-fontawesome';
 import faDice from '@fortawesome/fontawesome-free-solid/faDice';
+import faUser from '@fortawesome/fontawesome-pro-light/faUserPlus';
+import faLogin from '@fortawesome/fontawesome-pro-light/faSignInAlt';
+import faBook from '@fortawesome/fontawesome-pro-light/faBookOpen';
 import BigButton from './../BigButton.jsx';
 import LinkButton from './../LinkButton.jsx';
+import IconButton from './../IconButton.jsx';
 
 
 const HomePage = (props) => (
@@ -56,8 +60,11 @@ const notLoggedInContent = () => {
             can save your favorite results!
         </p>
         <div className="homeButtons">
-            <LinkButton label='Sign Up' url='signup'/>
-            <LinkButton label='Login' url='login' className='button--secondary'/> 
+            {/* <LinkButton label='Sign Up' url='signup'/>
+            <LinkButton label='Login' url='login' className='button--secondary'/>  */}
+            <IconButton label='Sign Up' url='signup' icon={faUser} />
+            <IconButton label='Browse' url='ruins' icon={faBook} />
+            <IconButton label='Login' url='login' icon={faLogin} />
         </div>  
     </div>
     )
