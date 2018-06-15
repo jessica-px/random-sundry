@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBar from './../NavBar.jsx';
 import IconButton from './../IconButton.jsx';
-import FontAwesome from '@fortawesome/react-fontawesome';
 import faHome from '@fortawesome/fontawesome-pro-light/faHome';
 import faBook from '@fortawesome/fontawesome-pro-light/faBookOpen';
 
