@@ -6,8 +6,19 @@ const userSchema = mongoose.Schema({
     local:{
         username: String,
         password: String,
+    },
+    faves:{
+        people: [],
+        places: [],
+        things: [],
     }
 })
+
+//  --------------
+//
+//  Authentication
+//
+//  ---------------
 
 // Generate salted hash with bcrypt (synchronously)
 userSchema.methods.generateHash = (password) => {
@@ -22,6 +33,29 @@ userSchema.methods.generateHash = (password) => {
 // Validate password
 userSchema.methods.validPassword = function(password){ // can't be an arrow function, because of 'this'
     return bcrypt.compareSync(password, this.local.password);
+}
+
+//  --------------
+//
+//  Faves
+//
+//  ---------------
+
+// Validate password
+userSchema.methods.addFave = function(fave){ // can't be an arrow function, because of 'this'
+    console.log('Adding fave to user ' + this.local.username + '...')
+    switch(fave.category){
+        case 'People': this.faves.people.push(fave); break
+        case 'Places': this.faves.places.push(fave); break;
+        case 'Things': this.faves.things.push(fave); break
+        default: console.log('Error: No valid category found for fave: ' + fave); break
+    }
+    this.save((err) => {
+        if (err) throw err;
+        else{
+          console.log('Added new fave user: ' + this.local.username)
+        }
+      });
 }
 
 // Export

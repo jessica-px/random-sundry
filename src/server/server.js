@@ -43,7 +43,14 @@ app.listen(port);
 console.log('Listening on port ' + port);
 
 
+// --------------------------------
+//
+//      APIs
+//
+// --------------------------------
 
+
+// ------ Generator API --------------------------------------------
 
 
 // API - GET - Random Weapon
@@ -58,14 +65,35 @@ app.get('/api/random-ruin', (req, res) => {
     res.send(ruins);
 })
 
+// ------ Add/Delete/Edit Favorites API ---------------------------
 
+app.get('/api/new-fave', (req, res) => {
+    console.log('Recieved new-fave post request...')
+    const testFave = {
+        header: 'Cool Sword',
+        subheader: 'Longsword. 1d8 Slashing. Etc.',
+        body: 'This is a really cool sword. It slices stuff up.',
+        category: 'Things',
+        subcategory: 'Weapons'
+    }
+
+    const isLoggedIn = req.isAuthenticated();
+    if (isLoggedIn){
+        console.log('User ' + req.user.local.username + ' is logged in...')
+        req.user.addFave(testFave);
+    }
+    else{
+        console.log('User not logged in!')
+    }
+})
+
+
+// ------ Authentication API ---------------------------------------
 
 
 // AUTH - POST - Signup / Register
 app.post('/auth/register', function(req, res, next) {
     passport.authenticate('local-signup', function(err, user, info) {
-        console.log('info:')
-        console.log(info);
       if (err) { return next(err); }
       if (!user) { return res.json(info); }
       req.logIn(user, function(err) {
@@ -76,7 +104,7 @@ app.post('/auth/register', function(req, res, next) {
   });
 
 
-// AUTH - POST - Signup / Register
+// AUTH - POST - LOGIN
 app.post('/auth/login', function(req, res, next) {
     console.log('Logging user in...')
     passport.authenticate('local-login', function(err, user, info) {
@@ -88,20 +116,6 @@ app.post('/auth/login', function(req, res, next) {
       });
     })(req, res, next);
   });
-
-// // AUTH - GET - Login
-// app.get('/auth/login', (req, res) => {
-//     console.log('Logging user in...')
-//     if (!req.user){
-//         // If not valid user, return failure message
-//         res.send({ message: 'Invalid username/password.'});
-//     }
-//     req.login(user, (err) => {
-//         // Else, log in
-//         if (err) { return next(err); }
-//         res.send({isLoggedIn = true, username});
-//     })
-// })
 
 // AUTH - GET - Log Out
 app.get('/auth/logout', (req, res) => {
@@ -127,7 +141,7 @@ app.get('/auth/validate', (req, res) => {
 // Direct all other routes to index.html
 
 app.get('*', function (req, res){
-    console.log('Loaded page. User is' + req.user);
+    console.log('Loading * route. User is: ' + req.user.local.username);
     console.log(req.isAuthenticated())
     res.sendFile(path.resolve(__dirname +'/../..', 'public', 'index.html'))
 })
