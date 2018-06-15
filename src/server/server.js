@@ -74,9 +74,11 @@ app.post('/api/new-fave', (req, res) => {
     if (isLoggedIn){
         console.log('User ' + req.user.local.username + ' is logged in...')
         req.user.addFave(testFave);
+        res.sendStatus(200); // status ok
     }
     else{
         console.log('User not logged in!')
+        res.sendStatus(401); // status not authenticated
     }
 })
 

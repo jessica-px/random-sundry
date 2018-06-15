@@ -1,6 +1,7 @@
 import React from 'react';
 import FontAwesome from '@fortawesome/react-fontawesome';
 import faHeart from '@fortawesome/fontawesome-free-solid/faHeart';
+import uuid from 'uuid/v1';
 
 class LikeButton extends React.Component{
   state = {
@@ -37,21 +38,20 @@ class LikeButton extends React.Component{
 
   addToFaves = () => {
     console.log('Liking:')
-    console.log(this.props)
     const url = '/api/new-fave'
-    const newFaveJson = this.props;
+    let newFaveJson = {...this.props};
+    newFaveJson.id = uuid(); // add unique ID, for retrieval and to prevent duplicate posts
+    console.log(newFaveJson)
     fetch(url, {
       method: 'POST',
       credentials: 'include', // sends session token
       headers: {
         "Content-Type": "application/json",
-        'Accept': 'application/json'
+        //'Accept': 'application/json'
       },
       body: JSON.stringify(newFaveJson)
     }).then((res) => {
-      return res.json();
-    }).then((info) => {
-      console.log(info);
+      return res;
     })
   }
 

@@ -7,11 +7,7 @@ const userSchema = mongoose.Schema({
         username: String,
         password: String,
     },
-    faves:{
-        people: [],
-        places: [],
-        things: [],
-    }
+    faves: []
 })
 
 //  --------------
@@ -41,21 +37,24 @@ userSchema.methods.validPassword = function(password){ // can't be an arrow func
 //
 //  ---------------
 
-// Validate password
-userSchema.methods.addFave = function(fave){ // can't be an arrow function, because of 'this'
-    console.log('Adding fave to user ' + this.local.username + '...')
-    switch(fave.category){
-        case 'People': this.faves.people.push(fave); break;
-        case 'Places': this.faves.places.push(fave); break;
-        case 'Things': this.faves.things.push(fave); break;
-        default: console.log('Error: No valid category found for fave: ' + fave); break
+// Add Fave
+userSchema.methods.addFave = function(newFave){ // can't be an arrow function, because of 'this'
+    console.log('Adding new fave to user ' + this.local.username + '...')
+
+    if (this.faves.filter(fave => fave.id === newFave.id).legnth > 0){
+        console.log('Fave already saved in DB.')
     }
-    this.save((err) => {
-        if (err) throw err;
-        else{
-          console.log('Added new fave to user: ' + this.local.username)
-        }
-    });
+    else{
+        console.log('Saving new fave to database...')
+        this.faves.push(newFave);
+        this.save((err) => {
+            if (err) throw err;
+            else{
+              console.log('Saved new fave.')
+            }
+        });
+    }
+
 }
 
 // Export
