@@ -5,7 +5,8 @@ import uuid from 'uuid/v1';
 
 class LikeButton extends React.Component{
   state = {
-    liked: false
+    liked: false,
+    id: ''
   }
 
   // resets "liked" state whenever RandomCard sends in new props
@@ -23,6 +24,7 @@ class LikeButton extends React.Component{
 
     // If previously liked, unlike
     if (this.state.liked){
+      this.removeFromFaves();
       this.setState((prevState) => ({
         liked: false
       }))
@@ -37,20 +39,37 @@ class LikeButton extends React.Component{
   }
 
   addToFaves = () => {
-    console.log('Liking:')
     const url = '/api/new-fave'
     let newFaveJson = {...this.props};
     newFaveJson.id = uuid(); // add unique ID, for retrieval and to prevent duplicate posts
+    this.setState(() => ({id: newFaveJson.id})) // saves ID to state, for un-faving
+    console.log('Liking:')
     console.log(newFaveJson)
+
     fetch(url, {
       method: 'POST',
       credentials: 'include', // sends session token
       headers: {
         "Content-Type": "application/json",
-        //'Accept': 'application/json'
       },
       body: JSON.stringify(newFaveJson)
     }).then((res) => {
+      return res;
+    })
+  }
+
+  removeFromFaves = () => {
+    const url = '/api/delete-fave';
+    console.log('Deleting fave with ID:' + this.state.id)
+    fetch(url, {
+      method: 'POST',
+      credentials: 'include', // sends session token
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({id: this.state.id})
+    }).then((res) => {
+      this.setState(() => {id: ''}); // reset id
       return res;
     })
   }

@@ -54,6 +54,26 @@ userSchema.methods.addFave = function(newFave){ // can't be an arrow function, b
             }
         });
     }
+}
+
+// Delete Fave
+userSchema.methods.deleteFave = function(id){ 
+    console.log('Deleting fave from user ' + this.local.username + '...')
+
+    const matchingFave = this.faves.filter(fave => fave.id === id)[0];
+    if (matchingFave){
+        console.log('Fave found in DB....')
+        this.faves = this.faves.filter(fave => fave.id !== id);
+        this.save((err) => {
+            if (err) throw err;
+            else{
+              console.log('Deleted fave.')
+            }
+        });
+    }
+    else{
+        console.log('Fave not found in DB.')
+    }
 
 }
 

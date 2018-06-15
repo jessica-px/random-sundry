@@ -82,6 +82,21 @@ app.post('/api/new-fave', (req, res) => {
     }
 })
 
+app.post('/api/delete-fave', (req, res) => {
+    console.log('Recieved delete-fave post request...')
+    const id = req.body.id;
+    const isLoggedIn = req.isAuthenticated();
+    if (isLoggedIn){
+        console.log('User ' + req.user.local.username + ' is logged in...')
+        req.user.deleteFave(id);
+        res.sendStatus(200); // status ok
+    }
+    else{
+        console.log('User not logged in!')
+        res.sendStatus(401); // status not authenticated
+    }
+})
+
 
 // ------ Authentication API ---------------------------------------
 
