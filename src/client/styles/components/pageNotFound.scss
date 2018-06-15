@@ -1,0 +1,21 @@
+
+.pageNotFoundWrapper{
+    margin: auto;
+}
+
+.centerImage{
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0 2rem 0;
+}
+
+.center404Text{
+    padding: 1rem;
+    font-size: $size-l;
+    text-align: center;
+}
+
+.pageNotFoundButtons{
+    display: flex;
+    justify-content: space-evenly;
+}
