@@ -5,8 +5,11 @@ import BigButton from './../BigButton.jsx';
 
 class GeneratorPage extends React.Component{
     state = {
+        cardHeader: '',
         cardHeaderSmall: '',
-        cardBody: []
+        cardBody: [],
+        cardCategory: '',
+        cardSubcategory: ''
     }
 
     // Randomize once on first render of generator
@@ -41,8 +44,10 @@ class GeneratorPage extends React.Component{
         // Set state to new random text
         this.setState((prevState) => ({
             cardHeader: random.header,
-            cardHeaderSmall: random.smallHeader,
-            cardBody: random.body
+            cardHeaderSmall: random.subheader,
+            cardBody: random.body,
+            cardCategory: random.category,
+            cardSubcategory: random.subcateogry
         }))
     }
 

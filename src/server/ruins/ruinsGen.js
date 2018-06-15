@@ -32,10 +32,11 @@ const formatJson = () => {
     ]
 
     return {
-        name: 'ruins',
         header: titleCase(adjective + ' ' + building),
-        //smallHeader: ,
-        body: body
+        //subheader: ,
+        body: body,
+        category: 'Places',
+        subcategory: 'Ruins'
     }
 }
 

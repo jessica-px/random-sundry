@@ -26,10 +26,11 @@ const formatWeapon = () => {
     const body = [description, ability, origin];
 
     return {
-        name: weapon.typeName,
         header: weapon.name,
-        smallHeader: weapon.stats,
-        body: body
+        subheader: weapon.stats,
+        body: body,
+        category: 'Things',
+        subcategory: 'Weapons'
     }
 }
 
