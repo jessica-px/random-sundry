@@ -37,9 +37,9 @@ class LikeButton extends React.Component{
     // When "liked", render a bouncy red heart. When "unliked", return to grey heart.
     render(){
         return(
-            <div onClick={this.handleClick} className='icon'>
+            <div onClick={this.handleClick} className='cardIcon'>
                 {this.state.liked &&
-                    <FontAwesome icon={faHeart} className='icon--red bounce'/>
+                    <FontAwesome icon={faHeart} className='cardIcon--red bounce'/>
                 }
                 {!this.state.liked &&
                     <FontAwesome icon={faHeart} />

@@ -25,7 +25,7 @@ const RandomCard = (props) => (
         </div>
         
         {/* Render fave / copy icons */}
-        <div className='cardIcons'>
+        <div className='cardIconWrapper'>
             <LikeButton {...props}/>
             <CopyButton copyDivId='cardText'/>
         </div>

@@ -47,7 +47,7 @@ class CopyButton extends React.Component{
             <div>
                 <span data-tip data-for='copy'>
                     <div onClick={this.handleClick} 
-                        className='icon' 
+                        className='cardIcon' 
                         data-tip data-for='copied'
                         >
                             <FontAwesome icon={faClipboard} />
