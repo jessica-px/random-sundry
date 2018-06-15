@@ -45,17 +45,17 @@ userSchema.methods.validPassword = function(password){ // can't be an arrow func
 userSchema.methods.addFave = function(fave){ // can't be an arrow function, because of 'this'
     console.log('Adding fave to user ' + this.local.username + '...')
     switch(fave.category){
-        case 'People': this.faves.people.push(fave); break
+        case 'People': this.faves.people.push(fave); break;
         case 'Places': this.faves.places.push(fave); break;
-        case 'Things': this.faves.things.push(fave); break
+        case 'Things': this.faves.things.push(fave); break;
         default: console.log('Error: No valid category found for fave: ' + fave); break
     }
     this.save((err) => {
         if (err) throw err;
         else{
-          console.log('Added new fave user: ' + this.local.username)
+          console.log('Added new fave to user: ' + this.local.username)
         }
-      });
+    });
 }
 
 // Export

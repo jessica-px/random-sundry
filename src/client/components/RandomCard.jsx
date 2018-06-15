@@ -7,18 +7,18 @@ const RandomCard = (props) => (
     <div className='card generatorCard'>
         <div id="cardText">
             {/* Render header, if present */}
-                {props.cardHeader &&
-                <div className='cardHeader'>{props.cardHeader}</div>
+                {props.header &&
+                <div className='cardHeader'>{props.header}</div>
             }
 
             {/* Render small header, if present */}
             {props.cardHeaderSmall &&
-                <div className='smallCardHeader'>{props.cardHeaderSmall}</div>
+                <div className='smallCardHeader'>{props.subheader}</div>
             }
             
-            {/* Render each string in 'cardBody' as its own paragraph */}
+            {/* Render each string in 'body' as its own paragraph */}
             <div className='cardBody'>
-                {props.cardBody.map((paragraph, index) => 
+                {props.body.map((paragraph, index) => 
                     <p key={index}>{paragraph}</p>
                 )}
             </div>

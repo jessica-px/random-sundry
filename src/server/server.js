@@ -67,16 +67,9 @@ app.get('/api/random-ruin', (req, res) => {
 
 // ------ Add/Delete/Edit Favorites API ---------------------------
 
-app.get('/api/new-fave', (req, res) => {
+app.post('/api/new-fave', (req, res) => {
     console.log('Recieved new-fave post request...')
-    const testFave = {
-        header: 'Cool Sword',
-        subheader: 'Longsword. 1d8 Slashing. Etc.',
-        body: 'This is a really cool sword. It slices stuff up.',
-        category: 'Things',
-        subcategory: 'Weapons'
-    }
-
+    const testFave = req.body;
     const isLoggedIn = req.isAuthenticated();
     if (isLoggedIn){
         console.log('User ' + req.user.local.username + ' is logged in...')
