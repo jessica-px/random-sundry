@@ -7,6 +7,12 @@ class LikeButton extends React.Component{
         liked: false
     }
 
+    componentWillReceiveProps(){
+        this.setState(() => ({
+            liked: false
+        }))
+    }
+
     handleClick = (e) => {
         const icon = e.target;
 
