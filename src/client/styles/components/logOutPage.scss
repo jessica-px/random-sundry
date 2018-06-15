@@ -1,0 +1,22 @@
+
+.logOutPageWrapper{
+    margin: auto;
+}
+
+.logOutTitle{
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: .05rem;
+    font-size: $size-l;
+    padding: $size-l;
+}
+
+.logOutText{
+    text-align: center;
+    padding: $size-l;
+}
+
+.logOutPageButtons{
+    display: flex;
+    justify-content: space-evenly;
+}
