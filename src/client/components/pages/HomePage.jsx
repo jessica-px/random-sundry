@@ -6,6 +6,8 @@ import faDice from '@fortawesome/fontawesome-free-solid/faDice';
 import faUser from '@fortawesome/fontawesome-pro-light/faUserPlus';
 import faLogin from '@fortawesome/fontawesome-pro-light/faSignInAlt';
 import faBook from '@fortawesome/fontawesome-pro-light/faBookOpen';
+import faHeart from '@fortawesome/fontawesome-pro-light/faHeart';
+import faSignOut from '@fortawesome/fontawesome-pro-light/faSignOut';
 import BigButton from './../BigButton.jsx';
 import LinkButton from './../LinkButton.jsx';
 import IconButton from './../IconButton.jsx';
@@ -35,13 +37,17 @@ const loggedInContent = (props) => {
     <div className='homeGreeting'>
         <p>Hi there, {props.username}!</p>
         <p>
-            Check out the random generators with the Browse button up top.
+            I can't think of any interesting text to put here right now.
+            However, I think it should take up several lines.
         </p>
         <p>
-            Or if you can't make up your mind, click here for a random random generator ;)
+            Otherwise the buttons will look unnaturally high up on the page.
+            Anyway, enjoy the generators!
         </p>
         <div className="homeButtons">
-            <LinkButton label='Random' url='ruins'/>
+            <IconButton label='Log Out' url='logout' icon={faSignOut} />
+            <IconButton label='Browse' url='ruins' icon={faBook} />
+            <IconButton label='Faves' url='login' icon={faHeart} />
         </div> 
     </div>
     )
