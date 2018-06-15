@@ -97,6 +97,22 @@ app.post('/api/delete-fave', (req, res) => {
     }
 })
 
+app.get('/api/faves', (req, res) => {
+    console.log('Recieved GET request for faves...');
+    const category = req.query.category;
+    const subcategory = req.query.subcategory;
+    const isLoggedIn = req.isAuthenticated();
+    if (isLoggedIn){
+        console.log('User ' + req.user.local.username + ' is logged in...')
+        const faves = req.user.getAllFaves(category, subcategory);
+        res.send(faves);
+    }
+    else{
+        console.log('User not logged in!')
+        res.send(401); // status not authenticated
+    }
+})
+
 
 // ------ Authentication API ---------------------------------------
 
