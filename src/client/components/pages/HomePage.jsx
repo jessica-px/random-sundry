@@ -47,7 +47,7 @@ const loggedInContent = (props) => {
         <div className="homeButtons">
             <IconButton label='Log Out' url='logout' icon={faSignOut} />
             <IconButton label='Browse' url='ruins' icon={faBook} />
-            <IconButton label='Faves' url='login' icon={faHeart} />
+            <IconButton label='Faves' url='faves' icon={faHeart} />
         </div> 
     </div>
     )
