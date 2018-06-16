@@ -12,26 +12,32 @@
     outline: none;
 }
 
-.button:hover{
-    cursor: pointer;
-    background-color: darken($primary, 5%);
-    
+@media (any-hover){
+    .button:hover{
+        cursor: pointer;
+        background-color: darken($primary, 5%);
+    }
 }
+
+
 
     // Ripple effect originally by Bence Szabo
     // https://codepen.io/finnhvman/pen/jLXKJw
 .ripple {
     background-position: center;
     transition: background 0.4s;
+    background: $primary radial-gradient(circle, transparent 1%, darken($primary, 5%) 1%) center/15000%;
   }
-  .ripple:hover {
-    background: darken($primary, 5%) radial-gradient(circle, transparent 1%, darken($primary, 5%) 1%) center/15000%;
-  }
-  .ripple:active {
+@media (any-hover){
+    .ripple:hover {
+        background: darken($primary, 5%) radial-gradient(circle, transparent 1%, darken($primary, 5%) 1%) center/15000%;
+    }
+}
+.ripple:active {
     background-color: lighten($primary, 5%);
     background-size: 100%;
     transition: background 0s;
-  }
+}
 
 
 

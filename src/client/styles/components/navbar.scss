@@ -19,10 +19,13 @@
     align-self: flex-end;
 }
 
-.navButton:hover{
-    cursor: pointer;
-    background-color: darken($primary, 5%);
+@media (any-hover){
+    .navButton:hover{
+        cursor: pointer;
+        background-color: darken($primary, 5%);
+    }
 }
+
 
 .navIcon{
     font-size: 1.8rem;
