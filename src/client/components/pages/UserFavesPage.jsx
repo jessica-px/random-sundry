@@ -36,7 +36,7 @@ class UserFavesPage extends React.Component{
 
   setFaves = (faveData) => {
     const noFaves = faveData.length === 0 ? true : false;
-    let filteredFaves = faveData;
+    let filteredFaves = faveData.reverse();
     if (this.state.filter !== ''){
       // Perform another function that filters array
       // and returns new filteredFaves
@@ -63,7 +63,7 @@ class UserFavesPage extends React.Component{
       </div>
 
       <div className="favesPanelWrapper">
-      
+
         {this.state.filteredFaves.map((fave) => 
           <FavesPanel {...fave} key={fave.id} />
         )}
