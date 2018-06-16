@@ -21,7 +21,7 @@ const HomePage = (props) => (
         </div>
         <div className='homeGreeting'>
 
-            {!props.loggedIn && notLoggedInContent(props)}
+            {(!props.loggedIn && !props.validating) && notLoggedInContent(props)}
             {props.loggedIn && loggedInContent(props)}
             
         </div>
@@ -79,7 +79,8 @@ const notLoggedInContent = () => {
 const mapStateToProps = (state) => {
     return{
         loggedIn: state.auth.loggedIn,
-        username: state.auth.username
+        username: state.auth.username,
+        validating: state.auth.validating
     };
 }
 
