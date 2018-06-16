@@ -4,13 +4,16 @@ import { BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
 // Nav Bar (rendered on every page)
 import NavBar from './../components/NavBar.jsx'
 
-// Pages
+// General Pages
 import HomePage from './../components/pages/HomePage.jsx'
 import AboutPage from './../components/pages/AboutPage.jsx'
 import SignupPage from './../components/pages/SignupPage.jsx'
 import LoginPage from './../components/pages/LoginPage.jsx'
-import LogOutPage from './../components/pages/LogOutPage.jsx'
 import PageNotFound from './../components/pages/PageNotFound.jsx'
+
+// User pgaes
+import UserFavesPage from './../components/pages/UserFavesPage.jsx'
+import LogOutPage from './../components/pages/LogOutPage.jsx'
 
 // Generators
 // Made by passing props to the generic GeneratorPage template
@@ -38,6 +41,7 @@ const AppRouter = () => (
                 <Route path="/weapons" render={() => <GeneratorPage {...weaponProps}/>}/>
                 <Route path="/ruins" render={() => <GeneratorPage {...ruinsProps}/>}/>
                 {/* User Pages */}
+                <Route path="/faves" exact component={UserFavesPage}/>
                 <Route path="/logout" exact component={LogOutPage}/>
                 {/* 404 Page */}
                 <Route path='*' component={PageNotFound}/>
