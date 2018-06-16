@@ -1,0 +1,54 @@
+
+// UserFavesPage component
+.favesPageWrapper{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.favesHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.favesTitle{
+    font-size: $size-l;
+    font-weight: 200;
+    padding: $size-xl;
+}
+
+.favesPanelWrapper{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    padding-bottom: $size-xl;
+}
+
+// FavesPanel component
+.favesPanel{
+    //padding: $size-xl;
+    margin: .5rem;
+    width: 65%;
+    background: $color-card;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.10);
+    //background-color: rgb(170, 170, 170);
+}
+
+.favesPanel__label{
+    display: flex;
+    justify-content: space-between;
+    padding: $size-xl;
+    font-weight: 300;
+}
+
+.favesPanel__label:hover{
+    cursor: pointer;
+    background: darken($color-card, 10%);
+    //text-decoration: underline;
+}
+
+.favesPanel__body{
+    padding: 0 $size-m $size-m $size-m;
+}
