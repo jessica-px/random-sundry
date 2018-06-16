@@ -21,8 +21,8 @@ const DropdownUser = (props) => (
         {
           header: '',
           links: [
-            {name: 'My Faves', url: '/weapons'},
-            {name: 'Settings', url: '/armor'},
+            {name: 'My Faves', url: '/faves'},
+            {name: 'Settings', url: '/settings'},
             {name: 'Log Out', url: '/logout'}
           ]
         }
