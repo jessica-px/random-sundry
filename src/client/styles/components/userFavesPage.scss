@@ -23,17 +23,15 @@
     flex-direction: column;
     align-items: center;
     overflow: auto;
-    padding-bottom: $size-xl;
+    padding-bottom: 25rem;
 }
 
 // FavesPanel component
 .favesPanel{
-    //padding: $size-xl;
     margin: .5rem;
-    width: 65%;
+    width: 80%;
     background: $color-card;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.10);
-    //background-color: rgb(170, 170, 170);
 }
 
 .favesPanel__label{
