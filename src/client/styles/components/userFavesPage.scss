@@ -9,12 +9,21 @@
 .favesHeader{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .favesTitle{
     font-size: $size-l;
     font-weight: 200;
     padding: $size-xl;
+}
+
+.favesFilter{
+    font-size: $size-s;
+    font-weight: 200;
+    margin: 0 $size-xl 0 $size-xl;
+    padding: 0 $size-s .2rem $size-s;
+    border-bottom: 1px solid $black;
 }
 
 .favesPanelWrapper{

@@ -1,0 +1,42 @@
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    padding: $size-l;
+    width: 65%;
+    color: $black;
+}
+
+.modalOverlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modalTitle{
+    font-size: $size-m;
+    //font-weight: 300;
+    padding-bottom: $size-l;
+}
+
+.modalButtonWrapper{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modalButton{
+    color: darken($primary, 10%);
+    padding: $size-s;
+    font-size: $size-s;
+    font-weight: 400;
+}
+
+.modalButton--red{
+    color: rgb(248, 96, 96);
+    font-weight: 500;
+}

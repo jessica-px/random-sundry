@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router'
 import FavesPanel from './../FavesPanel.jsx';
+import FontAwesome from '@fortawesome/react-fontawesome';
+import faChevronDown from '@fortawesome/fontawesome-pro-light/faChevronDown';
 
 
 class UserFavesPage extends React.Component{
@@ -35,15 +37,25 @@ class UserFavesPage extends React.Component{
   }
 
   setFaves = (faveData) => {
-    const noFaves = faveData.length === 0 ? true : false;
     let filteredFaves = faveData.reverse();
     if (this.state.filter !== ''){
       // Perform another function that filters array
       // and returns new filteredFaves
     }
-
+    const noFaves = filteredFaves.length === 0 ? true : false;
     this.setState(() => ({
       userFaves: faveData,
+      filteredFaves,
+      noFaves,
+    }))
+  }
+
+  removeFaveFromList = (id) => {
+    const userFaves = this.state.userFaves.filter((fave) => fave.id !== id);
+    const filteredFaves = this.state.filteredFaves.filter((fave) => fave.id !== id);
+    const noFaves = filteredFaves.length === 0 ? true : false;
+    this.setState(() => ({
+      userFaves,
       filteredFaves,
       noFaves,
     }))
@@ -59,13 +71,13 @@ class UserFavesPage extends React.Component{
 
       <div className="favesHeader">
         <div className="favesTitle">My Favorites</div>
-        <div>Show All</div>
+        <div className="favesFilter">Show All <FontAwesome icon={faChevronDown} size='xs'/></div>
       </div>
 
       <div className="favesPanelWrapper">
 
         {this.state.filteredFaves.map((fave) => 
-          <FavesPanel {...fave} key={fave.id} />
+          <FavesPanel {...fave} key={fave.id} removeFunc={this.removeFaveFromList}/>
         )}
       
       </div>

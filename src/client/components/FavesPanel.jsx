@@ -4,6 +4,7 @@ import FontAwesome from '@fortawesome/react-fontawesome';
 import faChevronDown from '@fortawesome/fontawesome-pro-light/faChevronDown';
 import faChevronUp from '@fortawesome/fontawesome-pro-light/faChevronUp';
 import CopyButton from './CopyButton.jsx';
+import DeleteButton from './DeleteButton.jsx';
 
 class FavesPanel extends React.Component{
   state = {
@@ -16,6 +17,25 @@ class FavesPanel extends React.Component{
     }))
   }
 
+  deleteFave = (e) => {
+    console.log('Deleting ' + this.props.header)
+    const url = '/api/delete-fave';
+    fetch(url, {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({id: this.props.id})
+    }).then((response) => {
+      // After fetch, hide modal and remove fave from list
+      //this.toggleModal();
+      this.props.removeFunc(this.props.id);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
+
 
   render(){
     return(
@@ -26,7 +46,7 @@ class FavesPanel extends React.Component{
           {this.state.expanded && <FontAwesome icon={faChevronUp} size='1x'/>}
         </div>  
 
-        {this.state.expanded && expandedPanelBody(this.props)}
+        {this.state.expanded && expandedPanelBody(this.deleteFave, this.props)}
       </div>
       
       
@@ -36,7 +56,7 @@ class FavesPanel extends React.Component{
 
 // TO-DO: Pull text from props. Assign CopyButton to unique ID.
 
-const expandedPanelBody = (props) => {
+const expandedPanelBody = (deleteFave, props) => {
   return(
     <div className="favesPanel__body">
       {props.subheader && <div className='smallCardHeader'>{props.subheader}</div>}
@@ -47,6 +67,7 @@ const expandedPanelBody = (props) => {
       </div>
         <div className='cardIconWrapper'>
           <CopyButton copyDivId={props.id}/>
+          <DeleteButton faveId={props.id} faveLabel={props.header} onDelete={deleteFave}/>
         </div>
     </div>
   )
