@@ -43,11 +43,14 @@
     font-weight: 300;
 }
 
-.favesPanel__label:hover{
-    cursor: pointer;
-    background: darken($color-card, 10%);
-    //text-decoration: underline;
+@media (any-hover){
+    .favesPanel__label:hover{
+        cursor: pointer;
+        background: darken($color-card, 10%);
+    }
 }
+
+
 
 .favesPanel__body{
     padding: 0 $size-m $size-m $size-m;
