@@ -12,7 +12,7 @@ const RandomCard = (props) => (
             }
 
             {/* Render small header, if present */}
-            {props.cardHeaderSmall &&
+            {props.subheader &&
                 <div className='smallCardHeader'>{props.subheader}</div>
             }
             
