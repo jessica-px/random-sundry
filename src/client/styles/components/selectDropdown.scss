@@ -1,9 +1,19 @@
 
 .selectDropdown{
     font-size: $size-s;
-    font-weight: 200;
+    font-weight: 300;
     margin: 0 $size-xl 0 $size-xl;
-    padding: 0 $size-s .2rem $size-s;
-    border-bottom: 1px solid $black;
+    padding: 0 $size-s .4rem $size-s;
+    border-bottom: 1px solid $color-icon;
+    color: $color-icon;
+    min-width: 8rem;
+    text-align: center;
     cursor: pointer;
+}
+
+@media (any-hover){
+    .selectDropdown:hover {
+        color: black;
+        border-bottom: 1px solid black;
+    }
 }
