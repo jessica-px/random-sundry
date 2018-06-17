@@ -39,7 +39,6 @@ const persons = [
     'lich',
     'necromancer',
     'paladin',
-    'seer'
 ]
 
 module.exports = persons;
