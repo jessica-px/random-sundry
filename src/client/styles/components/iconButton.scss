@@ -15,8 +15,12 @@
     font-size: $size-s;
 }
 
-.iconButton:hover{
-    cursor: pointer;
-    color: $primary;
-    font-weight: 500;
+
+
+@media (any-hover){
+    .iconButton:hover{
+        cursor: pointer;
+        color: $primary;
+        font-weight: 500;
+    }
 }
