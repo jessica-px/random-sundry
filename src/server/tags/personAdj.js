@@ -14,6 +14,13 @@ const personAdj = [
     'cowardly',
     'secretive',
     'vengeful',
+    'desperate',
+    'mysterious',
+    'power-hungry',
+    'cynical',
+    'paranoid',
+    'arrogant',
+    'cunning',
     // Races
     'fey',
     'elven',
