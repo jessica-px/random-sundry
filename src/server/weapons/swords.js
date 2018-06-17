@@ -27,7 +27,7 @@ const sword = () => {
     const weapon = getRandomFrom(weaponTypes);
     const adjective = get(tags.metal);
     weapon.name = titleCase(adjective + ' ' + weapon.typeName);
-    weapon.description = `This is a ${weapon.typeName} with a ${get(tags.blade)}, ${adjective} blade. ${get(tags.itemBonusSword)}.`;
+    weapon.description = `This is a ${weapon.typeName} with a ${get(tags.blade)}, ${adjective} blade. ${get(tags.itemBonusSword)}`;
     return weapon;
 }
 
