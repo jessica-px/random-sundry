@@ -22,10 +22,13 @@ const tagDict = {
     shaft: require('./shafts'),
     // Places
     location: require('./locations'),
+    locationMild: require('./locationsMild'),
     // Ruins
     building: require('./buildings'),
     buildingAdj: require('./buildingAdj'),
     buildingExtra: require('./buildingExtra'),
+    // Villages
+    villageAdjs: require('./villageAdjs'),
 }
 
 module.exports = tagDict;
