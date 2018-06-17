@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router'
 import FavesPanel from './../FavesPanel.jsx';
+import FavesFilter from './../FavesFilter.jsx';
 import FontAwesome from '@fortawesome/react-fontawesome';
 import faChevronDown from '@fortawesome/fontawesome-pro-light/faChevronDown';
 
@@ -38,10 +39,10 @@ class UserFavesPage extends React.Component{
 
   setFaves = (faveData) => {
     let filteredFaves = faveData.reverse();
-    if (this.state.filter !== ''){
-      // Perform another function that filters array
-      // and returns new filteredFaves
-    }
+    // if (this.state.filter !== ''){
+    //   // Perform another function that filters array
+    //   // and returns new filteredFaves
+    // }
     const noFaves = filteredFaves.length === 0 ? true : false;
     this.setState(() => ({
       userFaves: faveData,
@@ -60,6 +61,33 @@ class UserFavesPage extends React.Component{
       noFaves,
     }))
   }
+
+  setFilter = (filter) => {
+    let noFaves = false;
+    let filteredFaves = this.getFilteredFaves(filter);
+    filteredFaves.length === 0 ? noFaves = true : noFaves = false;
+    this.setState(() => ({
+      filter,
+      filteredFaves,
+      noFaves
+    }))
+  }
+
+  getFilteredFaves = (filter) => {
+    // If 'Show All', return all faves
+    const allFaves = this.state.userFaves;
+    if (filter == 'Show All'){
+      return allFaves;
+    }
+    // Else only return faves with matching category or subcategory
+    else{
+      return allFaves.filter((fave) => 
+      fave.category === filter || fave.subcategory === filter
+    )
+    }
+    
+    
+  }
   
   render(){
     return(
@@ -71,14 +99,20 @@ class UserFavesPage extends React.Component{
 
       <div className="favesHeader">
         <div className="favesTitle">My Favorites</div>
-        <div className="favesFilter">Show All <FontAwesome icon={faChevronDown} size='xs'/></div>
+        <FavesFilter setFilter={this.setFilter}/>
       </div>
 
       <div className="favesPanelWrapper">
 
-        {this.state.filteredFaves.map((fave) => 
+        {/* map faves to FavesPanels */}
+        {!this.state.noFaves && this.state.filteredFaves.map((fave) => 
           <FavesPanel {...fave} key={fave.id} removeFunc={this.removeFaveFromList}/>
         )}
+
+        {/* if no faves to present, show message  */}
+        {this.state.noFaves &&
+          <p>There's nothing here!</p>
+        }
       
       </div>
 
