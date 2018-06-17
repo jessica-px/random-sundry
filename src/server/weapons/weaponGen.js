@@ -12,8 +12,8 @@ const weapons = [
 ];
 
 // Randomizers
-const randomOrigin = require('./../sentences/wpnOrigins');
-const randomAbility = require('./../sentences/wpnAbilities');
+const randomOrigin = require('./wpnOrigins');
+const randomAbility = require('./wpnAbilities');
 
 
 //Format to JSON
