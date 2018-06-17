@@ -11,6 +11,12 @@ class FavesPanel extends React.Component{
     expanded: false
   }
 
+  componentWillReceiveProps(){
+    this.setState((prevState) => ({
+      expanded: false
+    }))
+  }
+
   toggleExpand = () => {
     this.setState((prevState) => ({
       expanded: !prevState.expanded
