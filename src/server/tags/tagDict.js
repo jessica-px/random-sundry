@@ -1,38 +1,31 @@
 
 const tagDict = {
     // Living Things
-    $PERSON_ADJ: require('./personAdj'),
-    $PERSON: require('./persons'),
-    $PEOPLE: require('./peoples'),
-    $CREATURE: require('./creature'),
-    $CREATURES: require('./creatures'),
-    $FACTION: require('./factions'),
+    personAdj: require('./personAdj'),
+    person: require('./persons'),
+    people: require('./peoples'),
+    creature: require('./creature'),
+    creatures: require('./creatures'),
+    faction: require('./factions'),
     // Magic-related
-    $DAMAGE_TYPE: require('./damageType'),
-    $CANTRIP: require('./cantrips'),
+    damageType: require('./damageType'),
+    cantrip: require('./cantrips'),
     // Weapon Bonuses
-    $ITEMBONUS: require('./bonusItem').master,
-    $ITEMBONUS_SWORD: require('./bonusItem').sword,
-    $ITEMBONUS_SPEAR: require('./bonusItem').spear,
-    $ITEMBONUS_AXE: require('./bonusItem').axe,
-    $ITEMBONUS_HAMMER: require('./bonusItem').hammer,
+    itemBonus: require('./bonusItem').master,
+    itemBonusSword: require('./bonusItem').sword,
+    itemBonusSpear: require('./bonusItem').spear,
+    itemBonusAxe: require('./bonusItem').axe,
+    itemBonusHammer: require('./bonusItem').hammer,
     // Weapon Components
-    $METAL: require('./metals'),
-    $BLADE: require('./blades'),
-    $SHAFT: require('./shafts'),
+    metal: require('./metals'),
+    blade: require('./blades'),
+    shaft: require('./shafts'),
     // Places
-    $LOCATION: require('./locations'),
+    location: require('./locations'),
     // Ruins
-    $BUILDING: require('./buildings'),
-    $BUILDING_ADJ: require('./buildingAdj'),
-    $BUILDING_EXTRA: require('./buildingExtra'),
+    building: require('./buildings'),
+    buildingAdj: require('./buildingAdj'),
+    buildingExtra: require('./buildingExtra'),
 }
 
-const getArrFromTag = (tag) => {
-    if (tagDict[tag] === undefined){
-        console.log('ERROR: tag "' + tag + '" not found.')
-    }
-    return tagDict[tag];
-}
-
-module.exports = getArrFromTag;
+module.exports = tagDict;

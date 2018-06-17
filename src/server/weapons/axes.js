@@ -1,6 +1,5 @@
-
-const getRandomFrom = require('./../getRandomFromArray');
-const fillBlanks = require('./../sentences/fillBlanks.js');
+const tags = tagDict = require('./../tags/tagDict.js');
+const get = getRandomFrom = require('./../getRandomFromArray');
 const titleCase = require('./../titleCase.js');
 
 const weaponTypes = [
@@ -21,9 +20,9 @@ const weaponTypes = [
 
 const axe = () => {
     const weapon = getRandomFrom(weaponTypes);
-    const adj = fillBlanks('$METAL');
-    weapon.name = titleCase(adj +' ' + weapon.typeName);
-    weapon.description = `This is a ${weapon.typeName} with a $BLADE, ${adj} blade. $ITEMBONUS_AXE`;
+    const adjective = `${get(tags.metal)}`;
+    weapon.name = titleCase(adjective +' ' + weapon.typeName);
+    weapon.description = `This is a ${weapon.typeName} with a ${get(tags.blade)}, ${adjective} blade. ${get(tags.itemBonusAxe)}`;
     return weapon;
 }
 
