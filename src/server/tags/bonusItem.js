@@ -7,7 +7,7 @@ const itemBonuses = [
     'It has many runes engraved along it.',
     'It is engraved with twisting vines.',
     'Engraved on it is someone\s crest.',
-    'It has many ticks and scratches.',
+    'It has many nicks and scratches.',
     'It seems to hum slightly.',
     'It seems to glitter.',
     'It feels slightly cool to touch.',
