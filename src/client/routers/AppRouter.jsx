@@ -26,6 +26,10 @@ const ruinsProps = {
     url: 'random-ruin',
     title: 'Random Ruins Generator'
 }
+const villagesProps = {
+    url: 'random-village',
+    title: 'Random Villages Generator'
+}
 
 const AppRouter = () => (
     <BrowserRouter>
@@ -40,6 +44,7 @@ const AppRouter = () => (
                 {/* Generators */}
                 <Route path="/weapons" render={() => <GeneratorPage {...weaponProps}/>}/>
                 <Route path="/ruins" render={() => <GeneratorPage {...ruinsProps}/>}/>
+                <Route path="/villages" render={() => <GeneratorPage {...villagesProps}/>}/>
                 {/* User Pages */}
                 <Route path="/faves" exact component={UserFavesPage}/>
                 <Route path="/logout" exact component={LogOutPage}/>

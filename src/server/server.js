@@ -65,6 +65,12 @@ app.get('/api/random-ruin', (req, res) => {
     res.send(ruins);
 })
 
+// API - GET - Random Village
+app.get('/api/random-village', (req, res) => {
+    const village = require('./villages/villagesGen')();
+    res.send(village);
+})
+
 // ------ Add/Delete/Edit Favorites API ---------------------------
 
 app.post('/api/new-fave', (req, res) => {
