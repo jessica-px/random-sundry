@@ -27,7 +27,7 @@ const DropdownBrowse = (props) => (
                     header: 'Places',
                     links: [
                         {name: 'Ruins', url: '/ruins'},
-                        {name: 'Taverns', url: '/taverns'}
+                        {name: 'Villages', url: '/villages'}
                     ]
                 }
 
