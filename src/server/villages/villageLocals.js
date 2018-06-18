@@ -1,5 +1,5 @@
 const get = getRandomFrom = require('./../getRandomFromArray');
-const tags = tagDict = require('./../tags/tagDict.js');
+const fill = fillBlanks = require('./../fillBlanks.js');
 const spellCheck = require('./../spellCheck.js');
 
 const sentences = [
@@ -11,7 +11,7 @@ const sentences = [
 
 const getRandom = () => {
     let sentence = getRandomFrom(sentences)
-    sentence = spellCheck(sentence);
+    sentence = spellCheck(fill(sentence));
     return sentence;
 }
 
