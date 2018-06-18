@@ -17,7 +17,7 @@ const leaderCurrent = [
     'is looking for something that was stolen by $FACTION',
     'is secretly working with $FACTION',
     // unifinished
-    'is a $CLASS with a troubled past',
+    'is a former $CLASS with a troubled past',
 
 ]
 
