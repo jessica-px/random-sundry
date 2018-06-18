@@ -16,9 +16,8 @@ const leaderCurrent = [
     'is seeking aid against some nearby $FACTION',
     'is looking for something that was stolen by $FACTION',
     'is secretly working with $FACTION',
-    // unifinished
     'is a former $CLASS with a troubled past',
-
+    'is secretly a $SECRET_IDENTITY'
 ]
 
 const prefix = [ // No final: s, p, h, w, ll
