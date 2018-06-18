@@ -1,6 +1,7 @@
 
 const tagDict = {
     // Living Things
+    '$PERSON_ADJ': require('./personAdj'),
     '$VILLAIN_ADJ': require('./villainAdj'),
     '$VILLAIN': require('./villains'),
     '$PEOPLE': require('./peoples'),
