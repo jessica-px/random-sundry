@@ -6,7 +6,7 @@ const list = [
     'gloomy and pessimistic',
     'crude and ill-mannered',
     'arrogant and self-important',
-    `bigoted against ${get(races)}`
+    `bigoted against $RACE`
 ]
         
 module.exports = list;

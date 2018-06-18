@@ -6,7 +6,7 @@ const spellCheck = require('./../spellCheck.js');
 const titleCase = require('./../titleCase.js');
 
 
-const leader = ['young man', 'young woman', 'youth', 'old man', 'old woman', 'elder', 'man', 'woman', 'individual']
+const leader = ['young man', 'young woman', 'youth', 'old man', 'old woman', 'man', 'woman', 'individual']
 const leaderCurrent = [
     `has been making dark deals with a $VILLAIN_ADJ $VILLAIN`,
     `is under the influence of a $VILLAIN_ADJ $VILLAIN`,
@@ -15,7 +15,7 @@ const leaderCurrent = [
     `knows a dangerous secret about a $VILLAIN_ADJ $VILLAIN`,
     'is seeking aid against some nearby $FACTION',
     'is looking for something that was stolen by $FACTION',
-    'who is secretly working with $FACTION',
+    'is secretly working with $FACTION',
     // unifinished
     'is a paladin with a troubled past',
 
@@ -34,7 +34,7 @@ const formatJson = () => {
     const body = [
         spellCheck(fill(openingSentence + ' ' + industrySentence)),
         spellCheck(fill(localsSentence)),
-        spellCheck(fill(`Today, ${villageName} is led by a ${get(leaderAdj)} $PERSON_ADJ who ${get(leaderCurrent)}.`))
+        spellCheck(fill(`Today, ${villageName} is led by a $PERSON_ADJ ${get(leader)} who ${get(leaderCurrent)}.`))
     ]
 
     return {

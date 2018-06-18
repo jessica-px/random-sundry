@@ -8,6 +8,7 @@ const tagDict = {
     '$CREATURE': require('./creature'),
     '$CREATURES': require('./creatures'),
     '$FACTION': require('./factions'),
+    '$RACE': require('./playerRaces'),
     // Magic-related
     '$DAMAGE_TYPE': require('./damageType'),
     '$CANTRIP': require('./cantrips'),
