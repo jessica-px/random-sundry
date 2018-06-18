@@ -1,20 +1,36 @@
 
-const tags = tagDict = require('./../tags/tagDict.js');
+const fill = fillBlanks = require('./../fillBlanks.js');
 const get = getRandomFrom = require('./../getRandomFromArray.js');
 
 const spellCheck = require('./../spellCheck.js');
 const titleCase = require('./../titleCase.js');
 
 
+
+const leaderAdj = ['naive', 'brave', 'stern', 'sorrowful', 'moody', 'charming', 'cynical', 'nervous']
+const leader = ['young man', 'young woman', 'youth', 'old man', 'old woman', 'elder', 'man', 'woman', 'individual']
+const leaderCurrent = [
+    `has been making dark deals with a $PERSON_ADJ $PERSON`,
+    `is under the influence of a $PERSON_ADJ $PERSON`,
+    `is struggling to lift a curse placed by a $PERSON_ADJ $PERSON`,
+    `lives in fear of a $PERSON_ADJ $PERSON`,
+    `knows a dangerous secret about a $PERSON_ADJ $PERSON`
+]
+
+
+
+
 //Format to JSON
 const formatJson = () => {
-
-    const villageName = get[`Whitehaven`, 'Hollowbrook', 'Stonewood', 'Redcreek'];
-
+    const villageName = get([`Whitehaven`, 'Hollowbrook', 'Stonewood', 'Redcreek']);
+    const openingSentence = `${villageName} is a $VILLAGE_ADJ village $LOCATION_MILD.`;
+    const industrySentence = require('./villageIndustry.js')();
+    const localsSentence = require('./villageLocals.js')();
+    
     const body = [
-        spellCheck(`${villageName} is a ${get(tags.villageAdjs)} village ${get(tags.locationMild)}.`),
-        'Most of the locals share a fondness for archery, but although they are friendly to strangers, they are also arrogant and self-important.',
-        `Today, ${villageName} is led by a naive young man who has been making dark deals with a fanatical vampire.`
+        spellCheck(fill(openingSentence + ' ' + industrySentence)),
+        spellCheck(fill(localsSentence)),
+        spellCheck(fill(`Today, ${villageName} is led by a ${get(leaderAdj)} ${get(leader)} who ${get(leaderCurrent)}.`))
     ]
 
     return {

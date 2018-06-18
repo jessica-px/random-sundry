@@ -2,7 +2,7 @@
 const list = [
     'on the outskirts of a dark forest',
     'on the edge of a deep canyon',
-    'in the heart of rolling hills',
+    'atop an expanse of rolling hills',
     'in a sprawling field of wildflowers',
     'near a quiet coast',
     'on a warm, sandy beach',
@@ -10,7 +10,7 @@ const list = [
     'in a misty forest clearing',
     'within a vibrant desert oasis',
     'in a frosty grassland',
-    'in the grassy highlands',
+    'high up in a grassy highland',
     'on the crest of a rocky hill',
     'on the edge of a lake',
     'within a fertile valley',

@@ -2,7 +2,7 @@
 const list = [
     'cozy',
     'small',
-    'derelict',,
+    'derelict',
     'run-down',
     'charming',
     'well-organized',
@@ -17,7 +17,7 @@ const list = [
     'eccentric',
     'antiquated',
     'archaic',
-    'ancient'
+    'ancient',
 ]
         
 module.exports = list;
