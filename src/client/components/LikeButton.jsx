@@ -1,7 +1,9 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import FontAwesome from '@fortawesome/react-fontawesome';
 import faHeart from '@fortawesome/fontawesome-free-solid/faHeart';
 import uuid from 'uuid/v1';
+import ModalLogin from './ModalLogin.jsx';
 
 class LikeButton extends React.Component{
   state = {
@@ -12,24 +14,40 @@ class LikeButton extends React.Component{
   // resets "liked" state whenever RandomCard sends in new props
   componentWillReceiveProps(){
     this.setState(() => ({
-      liked: false
+      liked: false,
+      showModal: false
+    }))
+  }
+
+  toggleModal = (e) => {
+    this.setState((prevState) => ({
+      showModal: !prevState.showModal
     }))
   }
 
   handleClick = (e) => {
   const icon = e.target;
-
-    // TO-DO: If not logged in, pop up a modal saying "you need to be logged in"
-    // ALSO: A pop-up modal for nicknaming??
-
-    // If previously liked, unlike
     if (this.state.liked){
-      this.removeFromFaves();
-      this.setState((prevState) => ({
-        liked: false
-      }))
+      this.unlikeFave();
     }
-    // Else, like
+    else{
+      this.likeFave();
+    }
+  }
+
+  unlikeFave = () => {
+    this.removeFromFaves();
+    this.setState((prevState) => ({
+      liked: false
+    }))
+  }
+
+  likeFave = () => {
+    // If not logged in, show modal
+    if (!this.props.loggedIn){
+      this.toggleModal();
+    }
+    // Else, change heart and save fave
     else{
       this.addToFaves();
       this.setState((prevState) => ({
@@ -77,18 +95,34 @@ class LikeButton extends React.Component{
   // When "liked", render a bouncy red heart. When "unliked", return to grey heart.
   render(){
     return(
-      <div onClick={this.handleClick} className='cardIcon'>
-        {this.state.liked &&
-          <FontAwesome icon={faHeart} className='cardIcon--red bounce'/>
-        }
-        {!this.state.liked &&
-          <FontAwesome icon={faHeart} />
+      <div>
+        {/* 'Are you sure you want to Delete?' modal */}
+        {this.state.showModal &&
+          <ModalLogin 
+            isOpen={this.state.showModal}
+            hideModal={this.toggleModal} 
+          />
         }
 
+        {/* button */}
+        <div onClick={this.handleClick} className='cardIcon'>
+          {this.state.liked &&
+            <FontAwesome icon={faHeart} className='cardIcon--red bounce'/>
+          }
+          {!this.state.liked &&
+            <FontAwesome icon={faHeart} />
+          }
+        </div>
       </div>
     )
   
   }
 }
 
-export default LikeButton;
+const mapStateToProps = (state) => {
+  return{
+    loggedIn: state.auth.loggedIn
+  };
+}
+
+export default connect(mapStateToProps)(LikeButton);
