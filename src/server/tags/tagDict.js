@@ -1,34 +1,48 @@
 
 const tagDict = {
     // Living Things
-    personAdj: require('./personAdj'),
-    person: require('./persons'),
-    people: require('./peoples'),
-    creature: require('./creature'),
-    creatures: require('./creatures'),
-    faction: require('./factions'),
+    '$PERSON_ADJ': require('./personAdj'),
+    '$PERSON': require('./persons'),
+    '$PEOPLE': require('./peoples'),
+    '$CREATURE': require('./creature'),
+    '$CREATURES': require('./creatures'),
+    '$FACTION': require('./factions'),
     // Magic-related
-    damageType: require('./damageType'),
-    cantrip: require('./cantrips'),
+    '$DAMAGE_TYPE': require('./damageType'),
+    '$CANTRIP': require('./cantrips'),
     // Weapon Bonuses
-    itemBonus: require('./bonusItem').master,
-    itemBonusSword: require('./bonusItem').sword,
-    itemBonusSpear: require('./bonusItem').spear,
-    itemBonusAxe: require('./bonusItem').axe,
-    itemBonusHammer: require('./bonusItem').hammer,
+    '$ITEM_BONUS': require('./bonusItem').master,
+    '$ITEM_BONUS_SWORD': require('./bonusItem').sword,
+    '$ITEM_BONUS_SPEAR': require('./bonusItem').spear,
+    '$ITEM_BONUS_AXE': require('./bonusItem').axe,
+    '$ITEM_BONUS_HAMMER': require('./bonusItem').hammer,
     // Weapon Components
-    metal: require('./metals'),
-    blade: require('./blades'),
-    shaft: require('./shafts'),
+    '$METAL': require('./metals'),
+    '$BLADE': require('./blades'),
+    '$SHAFT': require('./shafts'),
     // Places
-    location: require('./locations'),
-    locationMild: require('./locationsMild'),
+    '$LOCATION': require('./locations'),
+    '$LOCATION_MILD': require('./locationsMild'),
     // Ruins
-    building: require('./buildings'),
-    buildingAdj: require('./buildingAdj'),
-    buildingExtra: require('./buildingExtra'),
+    '$BUILDING': require('./buildings'),
+    '$BUILDING_ADJ': require('./buildingAdj'),
+    '$BUILDING_EXTRA': require('./buildingExtra'),
     // Villages
-    villageAdjs: require('./villageAdjs'),
+    '$VILLAGE_ADJ': require('./villageAdjs'),
+    '$INDUSTRY_ADJ_POS': require('./industryAdjPositive'),
+    '$INDUSTRY_ADJ_NEG': require('./industryAdjNegative'),
+    '$INDUSTRY': require('./industries'),
+    '$LOCALS_NEG_1': require('./villageLocalsNeg1'),
+    '$LOCALS_NEG_2': require('./villageLocalsNeg2'),
+    '$LOCALS_POS_1': require('./villageLocalsPos1'),
+    '$LOCALS_POS_2': require('./villageLocalsPos2'),
 }
 
-module.exports = tagDict;
+const getArrFromTag = (tag) => {
+    if (tagDict[tag] === undefined){
+        console.log('ERROR: tag "' + tag + '" not found.')
+    }
+    return tagDict[tag];
+}
+
+module.exports = getArrFromTag;
