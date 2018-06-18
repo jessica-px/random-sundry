@@ -23,7 +23,7 @@ const leaderCurrent = [
 const prefix = [ // No final: s, p, h, w, ll
     'White', 'Red', 'Black', 'Grey', 'West', 'East', 'Fair', 'Rose', 'Graves', 'Wood', 'Daven', 
     'Ast', 'Avon', 'Bal', 'Bex', 'Blen', 'Brad', 'Car', 'Cul', 'Dal', 'Dun',
-    'Fin', 'Gart', 'Gil', 'Glen', 'Kil', 'Kings', 'Kirk', 'Knock', 'Lang', 'Lock',
+    'Fin', 'Gart', 'Gil', 'Glen', 'Kil', 'King', 'Kirk', 'Knock', 'Lang', 'Lock',
     'Lind', 'Nor', 'Pen', 'Pit', 'Pol', 'Pont', 'Ply', 'Strat', 'Stan', 'Swin',
     'Tarn', 'Win', 'Wel'
 ]
