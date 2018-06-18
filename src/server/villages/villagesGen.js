@@ -51,7 +51,7 @@ const formatJson = () => {
 
     return {
         header: titleCase(villageName),
-        //subheader: ,
+        subheader: '',
         body: body,
         category: 'Places',
         subcategory: 'Villages'

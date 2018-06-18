@@ -45,7 +45,7 @@ const formatJson = () => {
 
     return {
         header: titleCase(adjective + ' ' + building),
-        //subheader: ,
+        subheader: '',
         body: body,
         category: 'Places',
         subcategory: 'Ruins'
