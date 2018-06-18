@@ -21,12 +21,25 @@ const leaderCurrent = [
 
 ]
 
+const prefix = [ // No final: s, p, h, w, ll
+    'White', 'Red', 'Black', 'Grey', 'West', 'East', 'Fair', 'Rose', 'Graves', 'Wood', 'Daven', 
+    'Ast', 'Avon', 'Bal', 'Bex', 'Blen', 'Brad', 'Car', 'Cul', 'Dal', 'Dun',
+    'Fin', 'Gart', 'Gil', 'Glen', 'Kil', 'Kings', 'Kirk', 'Knock', 'Lang', 'Lock',
+    'Lind', 'Nor', 'Pen', 'Pit', 'Pol', 'Pont', 'Ply', 'Strat', 'Stan', 'Swin',
+    'Tarn', 'Win', 'Wel'
+]
 
+const suffix = [
+    'beck', 'berg', 'berry', 'bury', 'burgh', 'bourne', 'burn', 'cott', 'den', 'firth', 'ham',
+    'holme', 'hurst', 'ing', 'low', 'lyn', 'mere', 'more', 'pool', 'shaw',
+    'stead', 'ster', 'stow', 'ton', 'wick', 'wich', 'worth',
+    'field', 'ford', 'hill', 'dale', 'fell', 'shire', 'rock', 'mill', 'bridge',
+]
 
 
 //Format to JSON
 const formatJson = () => {
-    const villageName = get([`Whitehaven`, 'Hollowbrook', 'Stonewood', 'Redcreek', 'Axton', 'Ashburn', 'Rosebourne', 'Blackhill']);
+    const villageName = get(prefix) + get(suffix);
     const openingSentence = `${villageName} is a $VILLAGE_ADJ village $LOCATION_MILD.`;
     const industrySentence = require('./villageIndustry.js')();
     const localsSentence = require('./villageLocals.js')();
