@@ -39,6 +39,9 @@ const tagDict = {
     '$LOCALS_NEG_2': require('./villageLocalsNeg2'),
     '$LOCALS_POS_1': require('./villageLocalsPos1'),
     '$LOCALS_POS_2': require('./villageLocalsPos2'),
+    // Pretty Things
+    '$GEM': require('./preciousGems'),
+    '$PRECIOUS_METAL': require('./preciousMetals'),
 }
 
 const getArrFromTag = (tag) => {

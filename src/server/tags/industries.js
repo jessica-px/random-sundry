@@ -6,7 +6,8 @@ const list = [
     'cotton fields are',
     'fields of exotic spices are',
     'orchards are',
-    'gold mines are',
+    '$PRECIOUS_METAL mines are',
+    '$GEM mines are',
     // Industries
     'wool industry is',
     'cheese industry is',
@@ -17,6 +18,7 @@ const list = [
     'dye industry is',
     'logging industry is',
     'fur trading industry is',
+    'horse breeding industry is',
     // Establishments
     'brewery is',
     'winery is',
