@@ -10,12 +10,12 @@ const knowledge = [
     'a dusty old tome suggests',
     'There\'s a well known story about how',
     `The $PEOPLE tell an old legend about how`,
-    `A $PERSON_ADJ $PERSON is the only one who knows that`
+    `A $VILLAIN_ADJ $VILLAIN is the only one who knows that`
 ]
 
 const history = [
-    `this place was cursed by a $PERSON_ADJ god`,
-    `the original inhabitants were killed by a $PERSON_ADJ $PERSON`,
+    `this place was cursed by a $VILLAIN_ADJ god`,
+    `the original inhabitants were killed by a $VILLAIN_ADJ $VILLAIN`,
     'a mysterious plague drove off the original inhabitants',
     'its original inhabitants never left—they simply changed',
     'this place was consumed in an unnatural fire',
@@ -24,11 +24,11 @@ const history = [
 
 const current = [
     `Today, this place is overrun with $CREATURES.`,
-    `Today, a $PERSON_ADJ $PERSON struggles to wrest control of this place from $CREATURES.`,
+    `Today, a $VILLAIN_ADJ $VILLAIN struggles to wrest control of this place from $CREATURES.`,
     `Today, this place is home to two warring factions of $FACTION.`,
     `Today, this is a site of great conflict between $FACTION and $CREATURES.`,
-    `Today, a $PERSON_ADJ $PERSON struggles to wrest control of this place from $FACTION.`,
-    `Today, this place is home to $FACTION who have been recently subjugated by a $PERSON_ADJ $PERSON.`
+    `Today, a $VILLAIN_ADJ $VILLAIN struggles to wrest control of this place from $FACTION.`,
+    `Today, this place is home to $FACTION who have been recently subjugated by a $VILLAIN_ADJ $VILLAIN.`
 ]
 
 //Format to JSON

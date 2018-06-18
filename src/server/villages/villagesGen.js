@@ -10,11 +10,11 @@ const titleCase = require('./../titleCase.js');
 const leaderAdj = ['naive', 'brave', 'stern', 'sorrowful', 'moody', 'charming', 'cynical', 'nervous']
 const leader = ['young man', 'young woman', 'youth', 'old man', 'old woman', 'elder', 'man', 'woman', 'individual']
 const leaderCurrent = [
-    `has been making dark deals with a $PERSON_ADJ $PERSON`,
-    `is under the influence of a $PERSON_ADJ $PERSON`,
-    `is struggling to lift a curse placed by a $PERSON_ADJ $PERSON`,
-    `lives in fear of a $PERSON_ADJ $PERSON`,
-    `knows a dangerous secret about a $PERSON_ADJ $PERSON`
+    `has been making dark deals with a $VILLAIN_ADJ $VILLAIN`,
+    `is under the influence of a $VILLAIN_ADJ $VILLAIN`,
+    `is struggling to lift a curse placed by a $VILLAIN_ADJ $VILLAIN`,
+    `lives in fear of a $VILLAIN_ADJ $VILLAIN`,
+    `knows a dangerous secret about a $VILLAIN_ADJ $VILLAIN`
 ]
 
 
