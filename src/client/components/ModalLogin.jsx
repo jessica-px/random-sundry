@@ -17,14 +17,11 @@ class ModalLogin extends React.Component{
         onRequestClose={this.props.hideModal}
     >
         <div className='modalTitle'>
-            Sorry, you must be logged in to use this feature.
+            Sorry, you need an account to use this feature.
         </div>
         <div className="modalButtonWrapper">
-            <span className='modalButton' onClick={this.props.hideModal}>CLOSE</span>
-            <Link to='/login' className='modalButton'>
-                LOG IN
-            </Link>
-            <Link to='/signup' className='modalButton'>
+            <span className='modalButton modalButton--plain' onClick={this.props.hideModal}>CLOSE</span>
+            <Link to='/signup' className='modalButton modalButton--box'>
                 SIGN UP
             </Link>
         </div>
