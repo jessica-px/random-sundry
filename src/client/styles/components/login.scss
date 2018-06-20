@@ -27,12 +27,14 @@
   font-size: $size-m;
   border: none;
   background-color: white;
+  box-shadow: 0 0 0 100px white inset;
   -webkit-box-shadow: 0 0 0 100px white inset;
 }
 
 
 .textInput:focus{
   outline:none;
+  box-shadow: 0 0 0 100px white inset;
   -webkit-box-shadow: 0 0 0 100px white inset;
 }
 
