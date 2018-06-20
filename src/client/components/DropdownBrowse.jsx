@@ -12,7 +12,7 @@ import Dropdown from './Dropdown.jsx';
 // and builds a clickable html button with the link's name and url
 
 const DropdownBrowse = (props) => (
-    <div>
+    
         <Dropdown 
             button='Browse'
             sections={[
@@ -33,7 +33,7 @@ const DropdownBrowse = (props) => (
 
             ]}
         />
-    </div>
+    
 )
 
 export default DropdownBrowse;

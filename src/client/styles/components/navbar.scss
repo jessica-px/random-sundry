@@ -4,19 +4,23 @@
     background: $primary;
     color: white;
     justify-content: space-between;
+    align-items: center;
     //position: absolute;
+    height: 4.5rem;
     z-index: 1;
     //margin-bottom: $size-s;
 }
 
 .navTitle{
     flex: 1;
-    padding: $size-xs;
 }
 
 .navButton{
+    height: 4.5rem;
     padding: $size-xs;
     align-self: flex-end;
+    align-content: center;
+    box-sizing: border-box;
 }
 
 @media (any-hover){

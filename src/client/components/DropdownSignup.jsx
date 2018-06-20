@@ -13,7 +13,7 @@ import faUser from '@fortawesome/fontawesome-free-solid/faUser';
 // and builds a clickable html button with the link's name and url
 
 const DropdownSignup = (props) => (
-  <div>
+  
     <Dropdown 
       button=''
       icon={faUser}
@@ -27,7 +27,7 @@ const DropdownSignup = (props) => (
         }
       ]}
     />
-  </div>
+  
 )
 
 export default DropdownSignup;
