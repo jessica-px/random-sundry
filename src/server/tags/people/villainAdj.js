@@ -1,26 +1,39 @@
 
 const personAdj = [
+    // Lacking morals
+    'heartless',
+    'cruel',
+    'vicious',
+    'cold-blooded',
+    'merciless',
+    'ruthless',
+    'corrupt',
+    'depraved',
+
+    // Violent
+    'sadistic',
+    'destructive',
+    'bloodthirsty',
+    
+    // Backstory
     'crazed',
+    'mad',
     'traitorous',
     'cursed',
-    'heroic',
-    'hot-headed',
-    'blood-thirsty',
     'fanatical',
-    'selfish',
-    'proud',
-    'feared',
-    'cruel',
-    'cowardly',
-    'secretive',
     'vengeful',
     'desperate',
     'mysterious',
+    
+    // Power
     'power-hungry',
-    'cynical',
+    'tyrannical',
+
+    // Cognitive
     'paranoid',
-    'arrogant',
     'cunning',
+    'devious',
+
     // Races
     'fey',
     'elven',
