@@ -7,6 +7,8 @@ const tagDict = {
     '$VILLAIN': require('./people/villains')
         .concat(require('./people/royalty'))
         .concat(require('./people/magicUsers')),
+    '$HERO_ADJ': require('./people/heroAdj'),
+    '$HERO': require('./people/heroes'),
     '$MAGIC_USER': require('./people/magicUsers'),
     '$ROYALTY': require('./people/royalty'),
         //
