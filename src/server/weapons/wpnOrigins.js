@@ -5,7 +5,7 @@ const sentences = [
     `Rumors say it was once a gift for a $VILLAIN_ADJ $VILLAIN.`,
     `Rumors say it was once used to slay a $VILLAIN_ADJ $VILLAIN.`,
     `Rumors say it was stolen from a $VILLAIN_ADJ $VILLAIN.`,
-    `It\'s said to have been made by a $VILLAIN_ADJ $VILLAIN.`,
+    `It\'s said to have been made by a $VILLAIN_ADJ $MAGIC_USER.`,
     `They say a $VILLAIN_ADJ $VILLAIN fiercely coveted this weapon.`,
     `They say a $VILLAIN_ADJ $VILLAIN performed wicked deeds with this weapon.`,
     `They say a $VILLAIN_ADJ $VILLAIN desperately tried to destroy this weapon.`,

@@ -14,7 +14,7 @@ const knowledge = [
 ]
 
 const history = [
-    `this place was cursed by a $VILLAIN_ADJ god`,
+    `this place was cursed by a $VILLAIN_ADJ $MAGIC_USER`,
     `the original inhabitants were killed by a $VILLAIN_ADJ $VILLAIN`,
     'a mysterious plague drove off the original inhabitants',
     'its original inhabitants never left—they simply changed',
@@ -28,7 +28,8 @@ const current = [
     `Today, this place is home to two warring factions of $FACTION.`,
     `Today, this is a site of great conflict between $FACTION and $CREATURES.`,
     `Today, a $VILLAIN_ADJ $VILLAIN struggles to wrest control of this place from $FACTION.`,
-    `Today, this place is home to $FACTION who have been recently subjugated by a $VILLAIN_ADJ $VILLAIN.`
+    `Today, this place is home to $FACTION who have been recently subjugated by a $VILLAIN_ADJ $VILLAIN.`,
+    `Today, a $VILLAIN_ADJ $MAGIC_USER uses this place to perform terrible experiments with $CREATURES.`,
 ]
 
 //Format to JSON

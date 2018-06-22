@@ -10,7 +10,7 @@ const leader = ['young man', 'young woman', 'youth', 'old man', 'old woman', 'ma
 const leaderCurrent = [
     `has been making dark deals with a $VILLAIN_ADJ $VILLAIN`,
     `is under the influence of a $VILLAIN_ADJ $VILLAIN`,
-    `is struggling to lift a curse placed by a $VILLAIN_ADJ $VILLAIN`,
+    `is struggling to lift a curse placed by a $VILLAIN_ADJ $MAGIC_USER`,
     `lives in fear of a $VILLAIN_ADJ $VILLAIN`,
     `knows a dangerous secret about a $VILLAIN_ADJ $VILLAIN`,
     'is seeking aid against some nearby $FACTION',
