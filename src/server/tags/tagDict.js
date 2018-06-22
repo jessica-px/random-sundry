@@ -1,9 +1,12 @@
 
 const tagDict = {
     // Living Things
-    '$PERSON_ADJ': require('./personAdj'),
-    '$VILLAIN_ADJ': require('./villainAdj'),
-    '$VILLAIN': require('./villains'),
+        //People
+    '$PERSON_ADJ': require('./people/personAdj'),
+    '$VILLAIN_ADJ': require('./people/villainAdj'),
+    '$VILLAIN': require('./people/villains'),
+    '$MAGIC_USER': require('./people/magicUsers'),
+        //
     '$PEOPLE': require('./peoples'),
     '$CREATURE': require('./creature'),
     '$CREATURES': require('./creatures'),

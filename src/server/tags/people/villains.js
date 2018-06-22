@@ -23,9 +23,6 @@
 // ]
 
 const persons = [
-    'wizard',
-    'sorceror',
-    'sorceress',
     'princess',
     'prince',
     'queen',
@@ -39,11 +36,9 @@ const persons = [
     'warlord',
     'cleric',
     'lich',
-    'necromancer',
     'paladin',
     'dictator',
     'vampire',
-    'warlock'
 ]
 
 module.exports = persons;
