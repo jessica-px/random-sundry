@@ -81,7 +81,7 @@ class LoginWidget extends React.Component{
         <div className='cardHeaderBar'>Login</div>
         <FontAwesome icon={faDice} className='cardDiceIcon' size='4x'/>
         <TextInput name='Username' max={20} icon={faUser} clearErrorMsg={this.clearErrorMessage}/>
-        <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage}/>
+        <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage} password={true}/>
         <div className="inputMessage">{this.state.errorMessage}</div>
         <SubmitButton label='Login' />
         <div className="inputQuestionText">Don't have an account yet? <Link to={'/signup'}>Sign up</Link>.</div>
