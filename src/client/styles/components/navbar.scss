@@ -53,6 +53,7 @@
     border: solid 1px $primary;
     //  Adjusts position so you can't see a gap
     position: absolute;
-    top: -1rem;
+    top: -.1rem;
     z-index: -1;
+    pointer-events: none;
 }
