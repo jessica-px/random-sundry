@@ -7,7 +7,7 @@ html, body {
 
 html{
   font-size: 62.5%;
-  background: rgb(203, 220, 233);
+  background: $background;
 }
 
 a {
@@ -40,6 +40,9 @@ button:disabled{
 
 
 @media screen and (min-width: 650px) {
+  html{
+    background: rgb(203, 220, 233); //adds light blue BG on wide screens
+  }
   body{
       width: 650px;
       margin: 0 auto 0 auto;
