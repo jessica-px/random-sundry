@@ -18,8 +18,10 @@ a {
 body{
   font-family: 'Roboto', 'sans-serif';
   font-size: $size-m;
+  min-height: 45rem;
   height: 100%;
   background: $background;
+  
 }
 
 .page{ // functionally the 'body' as far as alignment is concerned
