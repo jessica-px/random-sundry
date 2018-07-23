@@ -66,7 +66,7 @@ class CopyButton extends React.Component{
                     </div>
                 </span>
 
-                {/* On hover, show "Copy Text" tooltip. On click, show "Copied" temporarily*/}
+                {/* On hover, show "Copy Text" / "Copied" tooltip*/}
                 <ReactTooltip 
                     id='copy' 
                     effect='solid' 
@@ -75,9 +75,8 @@ class CopyButton extends React.Component{
                     className='tooltipText'
                     getContent={this.getTooltipText}
                     afterHide={this.resetTooltipText}
-                >
-                    {/* <span>Copied</span> */}
-                </ReactTooltip>
+                />
+
                 
                 
             </div>
