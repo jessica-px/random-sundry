@@ -60,7 +60,7 @@ class FavesPanel extends React.Component{
   }
 }
 
-// TO-DO: Pull text from props. Assign CopyButton to unique ID.
+// TO-DO: Prevent "copy" function from copying its own text!
 
 const expandedPanelBody = (deleteFave, props) => {
   return(
@@ -71,10 +71,10 @@ const expandedPanelBody = (deleteFave, props) => {
           <p key={index}>{paragraph}</p>
         )}
       </div>
-        <div className='cardIconWrapper'>
-          <CopyButton copyDivId={props.id}/>
-          <DeleteButton faveId={props.id} faveLabel={props.header} onDelete={deleteFave}/>
-        </div>
+      <div className='cardIconWrapper'>
+        <CopyButton copyDivId={props.id}/>
+        <DeleteButton faveId={props.id} faveLabel={props.header} onDelete={deleteFave}/>
+      </div>
     </div>
   )
 }
