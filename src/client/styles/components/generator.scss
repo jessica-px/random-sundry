@@ -67,6 +67,7 @@
 
 .bounce{
     animation: bounce .5s;
+    transform-origin: center;
 }
 
 @keyframes bounce {
