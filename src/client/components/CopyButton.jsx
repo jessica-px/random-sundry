@@ -30,39 +30,55 @@ class CopyButton extends React.Component{
             toggleAnimation: !prevState.toggleAnimation,
             copied: true
         }))
-        const reset = setTimeout(this.resetTooltip, 1500, e.target);
+        const reset = setTimeout(this.resetAnimation, 1500, e.target);
     }
 
-    // Resets "copied" tooltip after 1.5 seconds
-    resetTooltip = (target) => {
+    // Resets "bounce" animation after 1.5 seconds
+    resetAnimation = (target) => {
         target.classList.remove('bounce');
+        
+    }
+
+    getTooltipText = () => {
+        if (this.state.copied){
+            return 'Copied'
+        }
+        else{
+            return 'Copy'
+        }
+    }
+
+    resetTooltipText = () => {
         this.setState((prevState) => ({
             copied: false
         }))
     }
+
+    
 
 
     render(){
         return(
             <div>
                 <span data-tip data-for='copy'>
-                    <div onClick={this.handleClick} 
-                        className='cardIcon' 
-                        data-tip data-for='copied'
-                        >
+                    <div onClick={this.handleClick} className='cardIcon'>
                             <FontAwesome icon={faClipboard} />
                     </div>
                 </span>
 
                 {/* On hover, show "Copy Text" tooltip. On click, show "Copied" temporarily*/}
-                <ReactTooltip id='copy' effect='solid' delayShow={150} delayHide={300}>
-                    {!this.state.copied &&   
-                            <span>Copy Text</span>
-                    }
-                    {this.state.copied && 
-                            <span>Copied</span>
-                    }
+                <ReactTooltip 
+                    id='copy' 
+                    effect='solid' 
+                    delayshow={300} 
+                    delayHide={300}
+                    className='tooltipText'
+                    getContent={this.getTooltipText}
+                    afterHide={this.resetTooltipText}
+                >
+                    {/* <span>Copied</span> */}
                 </ReactTooltip>
+                
                 
             </div>
 
