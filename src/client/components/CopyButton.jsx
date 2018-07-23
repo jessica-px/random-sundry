@@ -5,7 +5,6 @@ import ReactTooltip from 'react-tooltip';
 
 class CopyButton extends React.Component{
     state = {
-        toggleAnimation: false,
         copied: false,
     }
 
@@ -22,18 +21,16 @@ class CopyButton extends React.Component{
         //Copy Text
         this.copyToClipboard();
         // Bounce icon
-        if (this.state.copied === false){
-            e.target.classList.add('bounce');
-        }
+        e.target.classList.add('bounce');
+        
         //Change Tooltip
         this.setState((prevState) => ({
-            toggleAnimation: !prevState.toggleAnimation,
             copied: true
         }))
-        const reset = setTimeout(this.resetAnimation, 1500, e.target);
+        const reset = setTimeout(this.resetAnimation, 500, e.target);
     }
 
-    // Resets "bounce" animation after 1.5 seconds
+    // Resets "bounce" animation after 0.5 seconds
     resetAnimation = (target) => {
         target.classList.remove('bounce');
         
