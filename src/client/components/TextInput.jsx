@@ -13,9 +13,11 @@ class TextInput extends React.Component{
 
   // Sets password to 'hidden' by default for desktop, 'visible' for mobile
   componentWillMount(){
-    this.setState(() => ({
-      hidden: !isMobileDevice()
-    }))
+    if (this.props.password){
+      this.setState(() => ({
+        hidden: !isMobileDevice()
+      }))
+    }
   }
 
   // On focus, animates underline & moves up floating label
