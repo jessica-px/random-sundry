@@ -15,6 +15,7 @@ import faUser from '@fortawesome/fontawesome-free-solid/faUser';
 const DropdownSignup = (props) => (
   
     <Dropdown 
+      class="navbar--hideWhenWide"
       button=''
       icon={faUser}
       sections={[
@@ -29,5 +30,6 @@ const DropdownSignup = (props) => (
     />
   
 )
+
 
 export default DropdownSignup;

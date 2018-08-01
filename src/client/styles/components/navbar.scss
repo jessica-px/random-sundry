@@ -1,12 +1,20 @@
 
+.navBar--wrapper{
+    background: $primary;
+    height: 4.5rem;
+    width: 100%;
+}
+
 .navBar{
     display: flex;
     background: $primary;
-    color: white;
+    color: rgb(231, 231, 231);
     justify-content: space-between;
     align-items: center;
     //position: absolute;
     height: 4.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
     z-index: 1;
     //margin-bottom: $size-s;
 }
@@ -56,4 +64,55 @@
     top: -.1rem;
     z-index: -1;
     pointer-events: none;
+}
+
+.navBar--scrollMenu{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    //background: lighten($primary, 25%);
+    //background: $primary;
+    
+}
+
+.navBar--scrollLinks{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1000px;
+    border-bottom: 1px lighten($primary, 25%) solid;
+    //color: darken($primary, 40%);
+    //color: white;
+}
+
+.navBar--scrollLink{
+    font-size: $size-s;
+    font-weight: lighter;
+}
+
+.navBar--scrollLink:hover{
+    color: darken($primary, 15%);
+    //font-weight: normal;
+}
+
+
+@media screen and (max-width: 700px) {
+    .navBar--scrollMenu{
+        display: none;
+    }
+
+    .navbar--showWhenWide{
+        display: none !important;
+    }
+    
+}
+
+@media screen and (min-width: 700px) {
+    .navShape{
+        display: none;
+    }
+
+    .navbar--hideWhenWide{
+        display: none !important;
+    }
 }

@@ -3,6 +3,7 @@ import Dropdown from './Dropdown.jsx';
 import faUser from '@fortawesome/fontawesome-free-solid/faUser';
 
 
+
 // Menu anatomy wokrs like this:
 // Each dropdown has an array of sections
 // Each section has an optional header (displayed in smaller, grey font)
@@ -30,5 +31,6 @@ const DropdownUser = (props) => (
     />
   </div>
 )
+
 
 export default DropdownUser;

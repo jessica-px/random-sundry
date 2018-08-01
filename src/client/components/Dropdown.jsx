@@ -36,7 +36,7 @@ class Dropdown extends React.Component{
 
   render(){
     return(
-        <div className='dropdown'>
+        <div className={'dropdown' + ' ' + this.props.class}>
           {/* button */}
           <div className='navButton ripple' onClick={this.onClickHandler}>
             {this.props.button}

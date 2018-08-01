@@ -14,22 +14,23 @@ import IconButton from './../IconButton.jsx';
 
 
 const HomePage = (props) => (
+    <div>
     <div className="navShape">
- 
         <div className="navTriangle">
             <FontAwesome icon={faDice} className='homeIcon' size='4x'/>
         </div>
-        <div className='homeGreeting'>
-
-            {(!props.loggedIn && !props.validating) && notLoggedInContent(props)}
-            {props.loggedIn && loggedInContent(props)}
-            
-        </div>
-        
-        
-        
-        
     </div>
+
+     
+
+    <div className='homeGreeting'>
+
+    {(!props.loggedIn && !props.validating) && notLoggedInContent(props)}
+    {props.loggedIn && loggedInContent(props)}
+
+    </div>
+    </div>
+
 )
 
 const loggedInContent = (props) => {
