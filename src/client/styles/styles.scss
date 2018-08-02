@@ -5,7 +5,12 @@
 // Loading these out of order could cause consequences
 // Re-order with caution
 @import './components/navbar';
-@import './components/homePage';
+@import './pages/homePage';
+@import './pages/pageNotFound';
+@import './pages/logOutPage';
+@import './pages/browsePage';
+@import './pages/userFavesPage';
+
 @import './components/cards';
 @import './floatLabel';
 @import './components/login';
@@ -13,9 +18,6 @@
 @import './components/generator';
 @import './components/dropdown';
 @import './components/iconButton';
-@import './components/pageNotFound';
-@import './components/logOutPage';
-@import './components/userFavesPage';
 @import './components/modal';
 @import './components/selectDropdown';
 @import './components/textInput';
