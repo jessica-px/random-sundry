@@ -28,14 +28,21 @@ class NavBar extends React.Component{
           <div className="navBar">
             <HomeButton />
             <AboutButton />
-            <DropdownBrowse />
+            <Link to="/browse"><div className='navButton ripple'>Browse</div></Link>
+
+
+            {/* Log in Button */}
             {!this.props.loggedIn && 
               <Link to="/login"><div className='navButton ripple navbar--showWhenWide'>Log In</div></Link>
             }
+            {/* Sign up Button */}
             {!this.props.loggedIn && 
               <Link to="/signup"><div className='navButton ripple navbar--showWhenWide'>Sign Up</div></Link>
             }
+
+            {/* Logged in User icon */}
             {this.props.loggedIn && <DropdownUser />}
+            {/* Not logged in (sign up/sign up) user icon */}
             {!this.props.loggedIn && <DropdownSignup />}
           </div>
         </div>
