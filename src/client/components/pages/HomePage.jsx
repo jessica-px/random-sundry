@@ -47,7 +47,7 @@ const loggedInContent = (props) => {
         </p>
         <div className="homeButtons">
             <IconButton label='Log Out' url='logout' icon={faSignOut} />
-            <IconButton label='Browse' url='ruins' icon={faBook} />
+            <IconButton label='Browse' url='browse' icon={faBook} />
             <IconButton label='Faves' url='faves' icon={faHeart} />
         </div> 
     </div>
@@ -70,7 +70,7 @@ const notLoggedInContent = () => {
             {/* <LinkButton label='Sign Up' url='signup'/>
             <LinkButton label='Login' url='login' className='button--secondary'/>  */}
             <IconButton label='Sign Up' url='signup' icon={faUser} />
-            <IconButton label='Browse' url='ruins' icon={faBook} />
+            <IconButton label='Browse' url='browse' icon={faBook} />
             <IconButton label='Login' url='login' icon={faLogin} />
         </div>  
     </div>
