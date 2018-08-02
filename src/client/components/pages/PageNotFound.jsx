@@ -18,7 +18,7 @@ const PageNotFound = (props) => (
         </div>
         <div className="pageNotFoundButtons">
             <IconButton label='Home' url='/' icon={faHome} />
-            <IconButton label='Browse' url='ruins' icon={faBook} />
+            <IconButton label='Browse' url='browse' icon={faBook} />
         </div>  
 
     </div>
