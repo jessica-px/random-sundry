@@ -1,0 +1,115 @@
+.browsePageWrapper{
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 4rem auto;
+    padding-top: 6rem;
+}
+
+.browseTitle{
+    font-size: $size-l;
+    font-weight: 300;
+    text-align: center;
+    margin: auto;
+    padding-bottom: $size-l;
+}
+
+.browseTitleIcon{
+    display: block;
+    margin: auto;
+    font-size: 3rem;
+    color: $color-icon;
+    padding-top: 6rem;
+    padding-bottom: $size-l;
+}
+
+.browseSectionWrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.browseSection{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.browseSectionIcon{
+    display: block;
+    margin: auto;
+    font-size: 3rem;
+    color: $color-icon;
+    padding-bottom: $size-l;
+}
+
+.browseSectionTitle{
+    font-size: $size-m;
+    font-weight: 200;
+    padding: $size-l $size-xl;
+    text-align: center;
+}
+
+.browseSectionLink{
+    color: darken($primary, 15%);
+    margin: $size-s;
+    text-align: center;
+}
+
+.titleUnderline{
+    border-bottom: 1px lighten(grey, 25%) solid;
+}
+
+
+@media (any-hover){
+    .browseSectionLink:hover{
+        cursor: pointer;
+        color: darken($primary, 30%);
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .browsePageWrapper{
+        padding-top: 0;
+    }
+
+    .browseTitle{
+        padding: $size-xl $size-xs;
+        text-align: left;
+        width: 80%;
+    }
+
+    .browseTitleIcon{
+        display: none;
+    }
+
+    .browseSectionWrapper{
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .browseSectionIcon{
+        display: inline;
+        margin: 0;
+        font-size: 1.5rem;
+        padding: 0 $size-s 0 0;
+    }
+
+    .browseSectionTitle{
+        font-size: $size-xs;
+        font-weight: 200;
+        padding: $size-xs;
+        text-align: left;
+        width: 80%;
+        //border-bottom: 1px lighten($primary, 25%) solid;
+        //width: 80%;
+        //margin: auto;
+        //border-bottom: 1px lighten(grey, 25%) solid;
+    }
+
+    .titleUnderline{
+        //width: 100%;
+        border-bottom: 1px lighten($primary, 25%) solid;
+        margin: auto;
+    }
+}
