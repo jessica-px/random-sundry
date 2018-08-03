@@ -83,7 +83,7 @@ class LoginWidget extends React.Component{
         <TextInput name='Username' max={20} icon={faUser} clearErrorMsg={this.clearErrorMessage}/>
         <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage} password={true}/>
         <div className="inputMessage">{this.state.errorMessage}</div>
-        <SubmitButton label='Login' />
+        <SubmitButton label='Login' className='button--login' />
         <div className="inputQuestionText">Don't have an account yet? <Link to={'/signup'}>Sign up</Link>.</div>
         
       </form>
