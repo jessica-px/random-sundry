@@ -10,6 +10,7 @@ import AboutPage from './../components/pages/AboutPage.jsx'
 import BrowsePage from './../components/pages/BrowsePage.jsx'
 import SignupPage from './../components/pages/SignupPage.jsx'
 import LoginPage from './../components/pages/LoginPage.jsx'
+import SettingsPage from './../components/pages/SettingsPage.jsx'
 import PageNotFound from './../components/pages/PageNotFound.jsx'
 
 // User pgaes
@@ -43,6 +44,7 @@ const AppRouter = () => (
                 <Route path="/browse" component={BrowsePage}/>
                 <Route path="/signup" exact component={SignupPage}/>
                 <Route path="/login" exact component={LoginPage}/>
+                <Route path="/settings" exact component={SettingsPage}/>
                 {/* Generators */}
                 <Route path="/weapons" render={() => <GeneratorPage {...weaponProps}/>}/>
                 <Route path="/ruins" render={() => <GeneratorPage {...ruinsProps}/>}/>
