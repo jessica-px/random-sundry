@@ -7,8 +7,15 @@ class TextInput extends React.Component{
   state = {
     value: '',
     labelClass: 'floatLabel',
-    wrapperClass: 'textInputWrapper',
+    //wrapperClass: this.props.wrapperClass,
+    currentWrapper: this.props.wrapperClass,
+    //wrapperClass: 'textInputWrapper',
     hidden: false
+  }
+
+  static defaultProps = {
+    wrapperClass: 'textInputWrapper',
+    colorClass: 'whiteInput'
   }
 
   // Sets password to 'hidden' by default for desktop, 'visible' for mobile
@@ -24,14 +31,14 @@ class TextInput extends React.Component{
   onFocus = () => {
     this.setState(() => ({
       labelClass: 'floatLabel floatLabel--up',
-      wrapperClass: 'textInputWrapper textInputWrapper--focus'
+      currentWrapper: this.props.wrapperClass + ' textInputWrapper--focus'
     }))
   }
 
   // On blur, resets underline
   onBlur = () => {
     this.setState(() => ({
-      wrapperClass: 'textInputWrapper'
+      currentWrapper: this.props.wrapperClass
     }))
     // If text field is empty, resets floating label 
     if (this.state.value === ''){
@@ -67,7 +74,7 @@ class TextInput extends React.Component{
 
   render(){
     return(
-      <div className={this.state.wrapperClass}>
+      <div className={this.state.currentWrapper}>
         {/* Render leading icon if given in props */}
         {this.props.icon && 
           <FontAwesome icon={this.props.icon} className='inputIcon'/>
@@ -78,7 +85,7 @@ class TextInput extends React.Component{
           {/* Input Field */}
           <input 
             type={this.state.hidden ? 'password' : 'text'}
-            className='textInput'
+            className={'textInput '+this.props.colorClass}
             name={this.props.name}
             maxLength={this.props.max}
             value={this.state.value}
