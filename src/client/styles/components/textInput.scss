@@ -23,23 +23,40 @@
     padding: .8rem .8rem 0;
     font-size: $size-m;
     border: none;
+}
+
+.whiteInput{
     background-color: white;
     box-shadow: 0 0 0 100px white inset;
     -webkit-box-shadow: 0 0 0 100px white inset;
 }
-  
-  
-.textInput:focus{
+
+.whiteInput:focus{
     outline:none;
     box-shadow: 0 0 0 100px white inset;
     -webkit-box-shadow: 0 0 0 100px white inset;
 }
+
+.bgInput{
+    background-color: $background;
+    box-shadow: 0 0 0 100px $background inset;
+    -webkit-box-shadow: 0 0 0 100px $background inset;
+}
+
+.bgInput:focus{
+    outline:none;
+    box-shadow: 0 0 0 100px $background inset;
+    -webkit-box-shadow: 0 0 0 100px $background inset;
+}
+
+
   
 
 
 .floatLabelWrapper{
     position: relative;
     //background-color: pink;
+    width: 100%;
   }
   
   .floatLabel{
