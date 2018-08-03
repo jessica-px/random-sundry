@@ -39,6 +39,24 @@
     transition: background 0s;
 }
 
+// Ripple effect originally by Bence Szabo
+// https://codepen.io/finnhvman/pen/jLXKJw
+.ripple--red {
+    background-position: center;
+    transition: background 0.4s;
+    background: $color-danger radial-gradient(circle, transparent 1%, darken($color-danger, 5%) 1%) center/15000%;
+    }
+@media (any-hover){
+    .ripple--red:hover {
+        background: darken($color-danger, 5%) radial-gradient(circle, transparent 1%, darken($color-danger, 5%) 1%) center/15000%;
+    }
+}
+.ripple--red:active {
+    background-color: lighten($color-danger, 5%);
+    background-size: 100%;
+    transition: background 0s;
+}
+
 
 
 ////
