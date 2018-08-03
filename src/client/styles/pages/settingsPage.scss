@@ -1,0 +1,104 @@
+
+.settingsPageWrapper{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 4rem auto;
+    padding-top: 6rem;
+}
+
+.settingsSectionWrapper{
+    padding-bottom: 3rem;
+    padding-left: $size-l;
+    padding-right: $size-l;
+}
+
+.settingsTitle{
+    font-size: $size-l;
+    font-weight: 300;
+    padding-bottom: $size-l;
+}
+
+.settingsSectionText{
+    font-size: $size-s;
+    color: $color-icon;
+    padding-bottom: $size-m;
+    max-width: 400px;
+}
+
+.settingsDetail{
+    display: flex;
+    justify-content: space-between;
+    font-size: $size-m;
+    padding-left: 5rem;
+    padding-bottom: 4rem;
+    max-width: 400px;
+}
+
+.settingsInput{
+    display: flex;
+    margin-top: $size-xl;
+    margin-bottom: $size-xl;
+    width: 100%;
+    min-height: 3.2rem;
+    transition: all .4s ease-out;
+    border-bottom: 2px solid lighten($color-icon, 40%);
+}
+
+.settingsForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 5rem;
+    max-width: 400px;
+    //align-items: center;
+}
+
+.settingsSubmitButton{
+    font-size: $size-s;
+    max-width: 15rem;
+    max-height: 4rem;
+    margin-top: 1.5rem;
+    align-self: flex-end;
+}
+
+.greyFont{
+    color: $color-icon;
+}
+
+
+@media screen and (max-width: 700px) {
+    .settingsPageWrapper{
+        padding-top: 0rem;
+    }
+
+    .settingsTitle{
+        padding: $size-xl 0;
+        text-align: left;
+        width: 80%;
+    }
+
+    .settingsDetail{
+        display: flex;
+        justify-content: space-between;
+        font-size: $size-m;
+        padding-left: 5%;
+        padding-right: 5%;
+        color: $color-icon;
+    }
+
+    .settingsForm{
+        padding: 0;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .settingsInput{
+        align-self: center;
+        width: 90%;
+    }
+
+    .settingsSubmitButton{
+        margin: 0;
+        align-self: center;
+    }
+}
