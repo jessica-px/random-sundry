@@ -168,6 +168,29 @@ app.get('/auth/validate', (req, res) => {
 })
 
 
+// ------ User Settings API ---------------------------------------
+
+
+// SETTINGS - POST - Change Password
+app.post('/auth/changepassword', function(req, res, next) {
+    if (req.user.validPassword(req.body.currPassword)){
+        if (req.body.newPassword.length >= 8){
+            req.user.changePassword(req.body.newPassword);
+            res.json({success: 'Password successfully changed.'});
+        }
+        else{
+            const info = {message: 'New password must be at least 8 characters.'}
+            return res.json(info);
+        }
+        
+    }
+    else{
+        const info = {message: 'Incorrect password.'}
+        return res.json(info);
+    }
+  });
+
+
 
 
 // Direct all other routes to index.html
