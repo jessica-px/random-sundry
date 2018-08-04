@@ -49,8 +49,8 @@ class LoginWidget extends React.Component{
     if (info.success){
       console.log(info.success);
       console.log('Cookies: ' + document.cookie);
-      //this.props.dispatch(validateToken());
-      this.props.dispatch(setUsername(info.username));
+      this.props.dispatch(validateToken());
+      //this.props.dispatch(setUsername(info.username));
       this.props.history.push("/");
     }
     else if (info.message){
