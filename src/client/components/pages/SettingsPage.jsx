@@ -12,30 +12,97 @@ import Button from '../Button.jsx';
 import { domainToASCII } from 'url';
 
 import SettingsSection from '../SettingsSection.jsx';
+import ModalInfo from '../ModalInfo.jsx';
 
 class SettingsPage extends React.Component{
     state = {
-      errorMessage: ''
+        showModal: false,
+        modalText: '',
+
     }
 
-    saveEmail = (e) => {
+    toggleModal = (e) => {
+        this.setState((prevState) => ({
+          showModal: !prevState.showModal
+        }))
+      }
+
+    saveEmail = setErrorMsg => e =>  {
         e.preventDefault();
         console.log('Saved email');
     }
 
-    changePassword = (e) => {
+    changePassword = setErrorMsg => e => {
         e.preventDefault();
-        console.log('Changed password');
+        const info = {
+            username: this.props.username,
+            currPassword: e.target[0].value,
+            newPassword: e.target[1].value
+        }
+        if (!info.currPassword || !info.newPassword ){
+            setErrorMsg('Both fields are required.');
+        }
+        else if (info.newPassword.length < 8){
+            setErrorMsg('New password must be at least 8 characters.');
+        }
+        this.checkPassword(info, setErrorMsg);
     }
 
-    deleteAccount = (e) => {
+    checkPassword = (passwordInfo, setErrorMsg) => {
+        const url = '/auth/changepassword';
+        console.log('Submitting form: '+ JSON.stringify(passwordInfo));
+        fetch(url, {
+          method: 'POST',
+          credentials: 'include', // necessary for storing session cookies
+          headers: {
+            "Content-Type": "application/json",
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(passwordInfo)
+        }).then((res) => {
+          return res.json();
+        }).then((info) => {
+          this.changePasswordResult(info, setErrorMsg);
+        })
+    }
+
+    changePasswordResult = (info, setErrorMsg) => {
+        if (info.success){
+            // 'Show success modal'
+            this.setState(() => ({
+                modalText: 'Password has been changed.',
+                showModal: true
+            }))
+            console.log(info.success);
+        }
+        else if (info.message){
+            if (info.message === 'Missing credentials'){
+                setErrorMsg('Incorrect password.');
+            }
+            else{
+                setErrorMsg(info.message);
+            }
+        }
+  }
+
+    deleteAccount = setErrorMsg => e => {
         e.preventDefault();
         console.log('Really delete your account?');
     }
 
+
+
     render(){
         return(
         <div className='settingsPageWrapper'>
+            {/* 'Are you sure you want to Delete?' modal */}
+            {this.state.showModal &&
+                <ModalInfo
+                    isOpen={this.state.showModal}
+                    text={this.state.modalText}
+                    hideModal={this.toggleModal} 
+                />
+            }
         
             {/* Details */}
             <div className="settingsSectionWrapper">
@@ -66,6 +133,7 @@ class SettingsPage extends React.Component{
                 onFormSubmit={this.changePassword}
                 input1='Current Password'
                 inputIcon1={faLock}
+                password={true}
                 input2='New Password'
                 inputIcon2={faLock}
                 submitButton='Save Password'
