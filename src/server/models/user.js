@@ -6,6 +6,7 @@ const userSchema = mongoose.Schema({
     local:{
         username: String,
         password: String,
+        email: String,
     },
     faves: []
 })
@@ -38,6 +39,17 @@ userSchema.methods.changePassword = function(newPassword){ // can't be an arrow 
         if (err) throw err;
         else{
           console.log('Saved new password.')
+        }
+    });
+}
+
+// Change password
+userSchema.methods.changeEmail = function(newEmail){ // can't be an arrow function, because of 'this'
+    this.local.email = newEmail;
+    this.save((err) => {
+        if (err) throw err;
+        else{
+          console.log('Saved new email: ' + this.local.email)
         }
     });
 }
