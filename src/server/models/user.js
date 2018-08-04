@@ -31,6 +31,17 @@ userSchema.methods.validPassword = function(password){ // can't be an arrow func
     return bcrypt.compareSync(password, this.local.password);
 }
 
+// Change password
+userSchema.methods.changePassword = function(newPassword){ // can't be an arrow function, because of 'this'
+    this.local.password = this.generateHash(newPassword);
+    this.save((err) => {
+        if (err) throw err;
+        else{
+          console.log('Saved new password.')
+        }
+    });
+}
+
 //  --------------
 //
 //  Faves
