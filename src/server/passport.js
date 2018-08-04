@@ -10,7 +10,7 @@ module.exports = (passport) => {
 
   // serialize user for the session, aka 'store this session'
   passport.serializeUser( (user, done) => {
-    console.log('Serializing user: ' + user);
+    console.log('Serializing user: ' + user.local.username);
     done(null, user);
   });
 
@@ -101,7 +101,7 @@ module.exports = (passport) => {
       }
 
 
-      console.log('Password ' + password + ' is valid for user ' + username + ': ' + user.validPassword(password));
+      //console.log('Password ' + password + ' is valid for user ' + username + ': ' + user.validPassword(password));
       return done(null, user);
 
     })
