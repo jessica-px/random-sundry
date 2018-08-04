@@ -39,12 +39,12 @@ class LoginWidget extends React.Component{
     }).then((res) => {
       return res.json();
     }).then((info) => {
-      this.handleSeverMessage(info);
+      this.handleServerMessage(info);
     })
   }
 
   // Handle Error / Success messages from server
-  handleSeverMessage = (info) => {
+  handleServerMessage = (info) => {
     // Redirects to home page on success
     if (info.success){
       console.log(info.success);
