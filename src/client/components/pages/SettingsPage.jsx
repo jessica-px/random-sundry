@@ -11,58 +11,79 @@ import SubmitButton from '../SubmitButton.jsx';
 import Button from '../Button.jsx';
 import { domainToASCII } from 'url';
 
-const SettingsPage = (props) => (
-  <div className='settingsPageWrapper'>
- 
-    {/* Details */}
-    <div className="settingsSectionWrapper">
-        <div className="settingsTitle">Account Details</div>
-        <div className="settingsDetail">
-            <span className='greyFont'>Username:</span> 
-            <span>{props.username}</span>
-            </div>
-        <div className="settingsDetail">
-            <span className='greyFont'>Email:</span>
-            <span>{props.email}</span>
-            </div>
-    </div>
+import SettingsSection from '../SettingsSection.jsx';
 
-    {/* Change Email */}
-    <div className="settingsSectionWrapper">
-        <div className="settingsTitle">Change Email</div>
-        <div className="settingsSectionText">Emails are only used for password recovery. We will not send you any other emails.</div>
+class SettingsPage extends React.Component{
+    state = {
+      errorMessage: ''
+    }
+
+    saveEmail = (e) => {
+        e.preventDefault();
+        console.log('Saved email');
+    }
+
+    changePassword = (e) => {
+        e.preventDefault();
+        console.log('Changed password');
+    }
+
+    deleteAccount = (e) => {
+        e.preventDefault();
+        console.log('Really delete your account?');
+    }
+
+    render(){
+        return(
+        <div className='settingsPageWrapper'>
         
-        <form onSubmit='' className='settingsForm settingsForm--vertical'>
-            <TextInput name='New Email' max={256} icon={faMail} wrapperClass='settingsInput' colorClass='bgInput'/>
-            <SubmitButton label='Save Email' className='settingsSubmitButton settingsSubmitButton--right'/>
-        </form>
-    </div>
+            {/* Details */}
+            <div className="settingsSectionWrapper">
+                <div className="settingsTitle">Account Details</div>
+                <div className="settingsDetail">
+                    <span className='greyFont'>Username:</span> 
+                    <span>{this.props.username}</span>
+                    </div>
+                <div className="settingsDetail">
+                    <span className='greyFont'>Email:</span>
+                    <span>{this.props.email}</span>
+                    </div>
+            </div>
 
-    {/* Change Password */}
-    <div className="settingsSectionWrapper">
-        <div className="settingsTitle">Change Password</div>
-   
-        <form onSubmit='' className='settingsForm'>
-            <TextInput name='Current Password' max={256} icon={faLock} password={true} wrapperClass='settingsInput' colorClass='bgInput'/>
-            <TextInput name='New Password' max={256} icon={faLock} password={true} wrapperClass='settingsInput' colorClass='bgInput'/>
-            <SubmitButton label='Save Password' className='settingsSubmitButton'/>
-        </form>
-    </div>
-    {/* Delete Account */}
-    <div className="settingsSectionWrapper">
-        <div className="settingsTitle">Delete Account</div>
-        <div className="settingsSectionText">
-        This will permanently remove all of your account information from our database.</div>
-   
-        <form onSubmit='' className='settingsForm'>
-            <Button label='Delete Account' className='settingsSubmitButton ripple--red'/>
-        </form>
-    </div>
-    
+            {/* Change Email */}
+            <SettingsSection
+                title='Change Email'
+                text='Emails are only used for password recovery. We will not send you any other emails.'
+                onFormSubmit={this.saveEmail}
+                input1='New Email'
+                inputIcon1={faMail}
+                submitButton='Save Email'
+            />
 
+            {/* Change Password */}
+            <SettingsSection
+                title='Change Password'
+                onFormSubmit={this.changePassword}
+                input1='Current Password'
+                inputIcon1={faLock}
+                input2='New Password'
+                inputIcon2={faLock}
+                submitButton='Save Password'
+            />
 
-  </div>
-)
+            {/* Delete Account */}
+            <SettingsSection
+                title='Delete Account'
+                text='This will permanently remove all of your account information from our database.'
+                onFormSubmit={this.deleteAccount}
+                deleteButton={true}
+            />
+            
+
+        </div>
+        )
+    }
+}
 
 const mapStateToProps = (state) => {
     return{
