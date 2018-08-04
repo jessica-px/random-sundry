@@ -3,18 +3,39 @@ import TextInput from './TextInput.jsx';
 import SubmitButton from './SubmitButton.jsx';
 import Button from './Button.jsx';
 
-const SettingsSection = (props) => (
-    <div className="settingsSectionWrapper">
-    <div className="settingsTitle">{props.title}</div>
-    {props.text && <div className="settingsSectionText">{props.text}</div>}
+class SettingsSection extends React.Component{
+    state = {
+        errorMessage:''
+    }
+
+    clearErrorMessage = () => {
+        this.setState(() => ({
+          errorMessage: ''
+        }))
+      }
     
-    <form onSubmit={props.onFormSubmit} className='settingsForm'>
-        {props.input1 && <TextInput name={props.input1} max={256} icon={props.inputIcon1} wrapperClass='settingsInput' colorClass='bgInput'/>}
-        {props.input2 && <TextInput name={props.input2} max={256} icon={props.inputIcon2} wrapperClass='settingsInput' colorClass='bgInput'/>}
-        {props.submitButton && <SubmitButton label={props.submitButton} className='settingsSubmitButton'/>}
-        {props.deleteButton && <SubmitButton label='Delete Account' className='settingsSubmitButton ripple--red'/>}
-    </form>
-</div>
-)
+    setErrorMessage = (msg) => {
+    this.setState(() => ({
+        errorMessage: msg
+    }))
+    }
+
+    render(){
+        return(
+            <div className="settingsSectionWrapper">
+            <div className="settingsTitle">{this.props.title}</div>
+            {this.props.text && <div className="settingsSectionText">{this.props.text}</div>}
+            
+            <form onSubmit={this.props.onFormSubmit(this.setErrorMessage)} className='settingsForm'>
+                {this.props.input1 && <TextInput name={this.props.input1} max={256} icon={this.props.inputIcon1} clearErrorMsg={this.clearErrorMessage} password={this.props.password} wrapperClass='settingsInput' colorClass='bgInput'/>}
+                {this.props.input2 && <TextInput name={this.props.input2} max={256} icon={this.props.inputIcon2} clearErrorMsg={this.clearErrorMessage} password={this.props.password} wrapperClass='settingsInput' colorClass='bgInput'/>}
+                {this.props.input1 && <div className='inputMessage settingsInputError'>{this.state.errorMessage}</div>}
+                {this.props.submitButton && <SubmitButton label={this.props.submitButton} className='settingsSubmitButton'/>}
+                {this.props.deleteButton && <SubmitButton label='Delete Account' className='settingsSubmitButton ripple--red'/>}
+            </form>
+        </div>
+        )
+    }
+}
 
 export default SettingsSection;
