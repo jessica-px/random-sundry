@@ -10,6 +10,7 @@ import TextInput from '../TextInput.jsx';
 import SubmitButton from '../SubmitButton.jsx';
 import Button from '../Button.jsx';
 import { domainToASCII } from 'url';
+import { setEmail } from '../../actions/authActions';
 
 import SettingsSection from '../SettingsSection.jsx';
 import ModalInfo from '../ModalInfo.jsx';
@@ -27,10 +28,57 @@ class SettingsPage extends React.Component{
         }))
       }
 
+    // ------------------------
+    //  Email
+    // ------------------------
+
     saveEmail = setErrorMsg => e =>  {
         e.preventDefault();
-        console.log('Saved email');
+        const emailInfo = {newEmail: e.target[0].value};
+        this.sendEmailToServer(emailInfo,setErrorMsg);
     }
+
+    sendEmailToServer = (emailInfo, setErrorMsg) => {
+        const url = '/auth/change-email';
+        console.log('Submitting email: ' + emailInfo.newEmail);
+        fetch(url, {
+          method: 'POST',
+          credentials: 'include', // necessary for storing session cookies
+          headers: {
+            "Content-Type": "application/json",
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(emailInfo)
+        }).then((res) => {
+          return res.json();
+        }).then((info) => {
+          this.changeEmailResult(info, emailInfo.newEmail, setErrorMsg);
+        })
+    }
+
+    changeEmailResult = (info, newEmail, setErrorMsg) => {
+        if (info.success){
+            // 'Show success modal'
+            this.setState(() => ({
+                modalText: 'Email has been changed.',
+                showModal: true
+            }))
+            this.props.dispatch(setEmail(newEmail));
+            console.log(info.success);
+        }
+        else if (info.message){
+            if (info.message === 'Missing credentials'){
+                setErrorMsg('Error: Make sure you are logged in.');
+            }
+            else{
+                setErrorMsg(info.message);
+            }
+        }
+    }
+
+    // ------------------------
+    //  Password
+    // ------------------------
 
     changePassword = setErrorMsg => e => {
         e.preventDefault();
@@ -83,14 +131,20 @@ class SettingsPage extends React.Component{
                 setErrorMsg(info.message);
             }
         }
-  }
+    }
+
+    // ------------------------
+    //  Delete Account
+    // ------------------------
 
     deleteAccount = setErrorMsg => e => {
         e.preventDefault();
         console.log('Really delete your account?');
     }
 
-
+    // ------------------------
+    //  Render
+    // ------------------------
 
     render(){
         return(
@@ -157,7 +211,7 @@ const mapStateToProps = (state) => {
     return{
         loggedIn: state.auth.loggedIn,
         username: state.auth.username,
-        email: 'testjess2018@longdomain.com'
+        email: state.auth.email
     };
 }
 
