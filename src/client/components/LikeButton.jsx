@@ -96,7 +96,7 @@ class LikeButton extends React.Component{
   render(){
     return(
       <div>
-        {/* 'Are you sure you want to Delete?' modal */}
+        {/* 'you must be logged in' modal */}
         {this.state.showModal &&
           <ModalLogin 
             isOpen={this.state.showModal}
