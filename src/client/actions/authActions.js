@@ -4,6 +4,7 @@ export const VALIDATE_TOKEN_SUCCESS = 'VALIDATE_TOKEN_SUCCESS';
 export const VALIDATE_TOKEN_ERROR = 'VALIDATE_TOKEN_ERROR';
 export const NO_TOKEN_FOUND = 'NO_TOKEN_FOUND';
 export const SET_USERNAME = 'SET_USERNAME';
+export const SET_EMAIL = 'SET_EMAIL';
 export const SET_LOGGED_OUT = 'SET_LOGGED_OUT';
 
 export const setUsername = ( username) => ({
@@ -11,13 +12,18 @@ export const setUsername = ( username) => ({
   payload: { username }
 })
 
+export const setEmail = ( email ) => ({
+  type: SET_EMAIL,
+  payload: { email }
+})
+
 export const validateTokenBegin = () => ({
   type: VALIDATE_TOKEN_BEGIN
 })
 
-export const validateTokenSuccess = ( username ) => ({
+export const validateTokenSuccess = ( username, email ) => ({
   type: VALIDATE_TOKEN_SUCCESS,
-  payload: { username }
+  payload: { username, email }
 })
 
 export const validateTokenFailure = (error) => ({
@@ -41,14 +47,18 @@ export function validateToken() {
       .then(res => res.json())
       .then(json => {
         // If no token was found, set state to 'logged out'
-        if (json.username == ''){
+        if (json.username === ''){
           console.log('No token found: not logged in.')
           dispatch(noTokenFound());
         }
-        // Else store username in state
+        // Else store username (& optional email) in state
         else{
+          let email = json.email;
+          if (json.email == ''){
+            email = 'None'
+          }
           console.log('Token found: logged in as ' + json.username +'.')
-          dispatch(validateTokenSuccess(json.username));
+          dispatch(validateTokenSuccess(json.username, email));
         }
         return json.username;
       })
