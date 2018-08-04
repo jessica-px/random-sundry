@@ -161,10 +161,11 @@ app.get('/auth/validate', (req, res) => {
     console.log('Validating cookies...')
     const isLoggedIn = req.isAuthenticated();
     const username = req.user ? req.user.local.username : '';
+    const email = req.user ? req.user.local.email : '';
     if (!isLoggedIn){
         console.log('No cookies found!');
     }
-    res.send({isLoggedIn, username});
+    res.send({isLoggedIn, username, email});
 })
 
 
@@ -190,6 +191,18 @@ app.post('/auth/changepassword', function(req, res, next) {
     }
   });
 
+app.post('/auth/change-email', function(req, res, next) {
+    const isLoggedIn = req.isAuthenticated();
+    if (!isLoggedIn){
+        const info = {message: 'Not logged in.'}
+        return res.json(info);
+    }
+
+    else{
+        req.user.changeEmail(req.body.newEmail);
+        res.json({success: 'Email successfully changed.'});
+    }
+  });
 
 
 
