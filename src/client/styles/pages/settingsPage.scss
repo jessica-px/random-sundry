@@ -44,6 +44,12 @@
     border-bottom: 2px solid lighten($color-icon, 40%);
 }
 
+.settingsInputError{
+    position: relative;
+    top: -15px; 
+    margin-bottom: -15px;
+}
+
 .settingsForm{
     display: flex;
     flex-direction: column;
