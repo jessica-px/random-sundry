@@ -5,21 +5,24 @@ import faMail from '@fortawesome/fontawesome-pro-light/faEnvelope';
 import faLock from '@fortawesome/fontawesome-pro-light/faLock';
 import { setEmail } from '../../actions/authActions';
 
+import { setLoggedOut } from '../../actions/authActions';
 import SettingsSection from '../SettingsSection.jsx';
 import ModalInfo from '../ModalInfo.jsx';
+import ModalDeleteAcc from '../ModalDeleteAcc.jsx';
 
 class SettingsPage extends React.Component{
     state = {
-        showModal: false,
+        showInfoModal: false,
+        showDeleteModal: false,
         modalText: '',
 
     }
 
-    toggleModal = (e) => {
+    toggleInfoModal = (e) => {
         this.setState((prevState) => ({
-          showModal: !prevState.showModal
+            showInfoModal: !prevState.showInfoModal
         }))
-      }
+    }
 
     // ------------------------
     //  Email
@@ -54,7 +57,7 @@ class SettingsPage extends React.Component{
             // 'Show success modal'
             this.setState(() => ({
                 modalText: 'Email has been changed.',
-                showModal: true
+                showInfoModal: true
             }))
             this.props.dispatch(setEmail(newEmail));
             console.log(info.success);
@@ -112,7 +115,7 @@ class SettingsPage extends React.Component{
             // 'Show success modal'
             this.setState(() => ({
                 modalText: 'Password has been changed.',
-                showModal: true
+                showInfoModal: true
             }))
             console.log(info.success);
         }
@@ -130,9 +133,35 @@ class SettingsPage extends React.Component{
     //  Delete Account
     // ------------------------
 
-    deleteAccount = setErrorMsg => e => {
+    settingsToggleDeleteModal = setErrorMsg => e => {
         e.preventDefault();
-        console.log('Really delete your account?');
+        console.log('SETTINGS toggling delete modal')
+        this.setState((prevState) => ({
+            showDeleteModal: !prevState.showDeleteModal
+        }))
+      }
+
+    toggleDeleteModal = () => {
+        console.log('toggling delete modal')
+        this.setState((prevState) => ({
+            showDeleteModal: !prevState.showDeleteModal
+        }))
+      }
+
+
+    deleteAccount = () => {
+        console.log('Sending delete request...');
+        fetch('/auth/delete-account', {
+            method: 'GET',
+            credentials: 'include',
+            headers: {
+            "Content-Type": "application/json",
+            'Accept': 'application/json'
+            }
+        }).then((res) => {
+            this.props.dispatch(setLoggedOut());
+            console.log('Done fetching');
+        }) 
     }
 
     // ------------------------
@@ -146,12 +175,22 @@ class SettingsPage extends React.Component{
             {/* Redirects to home page if user is not logged in & not waiting on validation */}
             {(!this.props.loggedIn && !this.props.validating) &&  <Redirect to="/"/>}
 
-            {/* 'Are you sure you want to Delete?' modal */}
-            {this.state.showModal &&
+            {/* Informational modal */}
+            {this.state.showInfoModal &&
                 <ModalInfo
-                    isOpen={this.state.showModal}
+                    isOpen={this.state.showInfoModal}
                     text={this.state.modalText}
-                    hideModal={this.toggleModal} 
+                    hideModal={this.toggleInfoModal} 
+                />
+            }
+
+            {/* "Are you sure you want to delete?" modal */}
+            {this.state.showDeleteModal &&
+                <ModalDeleteAcc
+                    isOpen={this.state.showDeleteModal}
+                    question='Are you sure you want to delete your account?'
+                    hideModal={this.toggleDeleteModal} 
+                    deleteFunc={this.deleteAccount}
                 />
             }
         
@@ -194,7 +233,7 @@ class SettingsPage extends React.Component{
             <SettingsSection
                 title='Delete Account'
                 text='This will permanently remove all of your account information from our database.'
-                onFormSubmit={this.deleteAccount}
+                onFormSubmit={this.settingsToggleDeleteModal}
                 deleteButton={true}
             />
             
