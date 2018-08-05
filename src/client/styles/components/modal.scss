@@ -24,6 +24,13 @@
     padding-bottom: $size-l;
 }
 
+.modalTitle--red{
+    font-size: $size-m;
+    font-weight: 500;
+    padding-bottom: $size-s;
+    color: $color-danger;
+}
+
 .modalButtonWrapper{
     display: flex;
     justify-content: flex-end;
