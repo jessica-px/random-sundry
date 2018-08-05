@@ -203,7 +203,7 @@ class SettingsPage extends React.Component{
                     </div>
                 <div className="settingsDetail">
                     <span className='greyFont'>Email:</span>
-                    <span>{this.props.email}</span>
+                    <span>{this.props.email == null ? 'None' : this.props.email}</span>
                     </div>
             </div>
 
