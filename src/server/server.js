@@ -157,6 +157,17 @@ app.get('/auth/logout', (req, res) => {
     res.send('Session ended.')
 })
 
+// AUTH - GET - Delete Account
+app.get('/auth/delete-account', (req, res) => {
+    const User = require('./models/user');
+    User.deleteOne(req.user, function (err) {
+        if (err) return (err);
+    })
+    console.log('Deleting user account...');
+    req.session.destroy();
+    res.send('Session ended.')
+})
+
 // AUTH - GET - Validates cookies
 app.get('/auth/validate', (req, res) => {
     console.log('Validating cookies...')
