@@ -246,6 +246,7 @@ class SettingsPage extends React.Component{
 const mapStateToProps = (state) => {
     return{
         loggedIn: state.auth.loggedIn,
+        validating: state.auth.validating,
         username: state.auth.username,
         email: state.auth.email
     };
