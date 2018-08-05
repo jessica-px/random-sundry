@@ -1,15 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faUser from '@fortawesome/fontawesome-pro-light/faUser';
+import { Redirect } from 'react-router'
 import faMail from '@fortawesome/fontawesome-pro-light/faEnvelope';
 import faLock from '@fortawesome/fontawesome-pro-light/faLock';
-import faWrench from '@fortawesome/fontawesome-pro-light/faWrench';
-import { Link } from 'react-router-dom';
-import TextInput from '../TextInput.jsx';
-import SubmitButton from '../SubmitButton.jsx';
-import Button from '../Button.jsx';
-import { domainToASCII } from 'url';
 import { setEmail } from '../../actions/authActions';
 
 import SettingsSection from '../SettingsSection.jsx';
@@ -148,7 +141,11 @@ class SettingsPage extends React.Component{
 
     render(){
         return(
+
         <div className='settingsPageWrapper'>
+            {/* Redirects to home page if user is not logged in & not waiting on validation */}
+            {(!this.props.loggedIn && !this.props.validating) &&  <Redirect to="/"/>}
+
             {/* 'Are you sure you want to Delete?' modal */}
             {this.state.showModal &&
                 <ModalInfo
