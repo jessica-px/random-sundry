@@ -40,7 +40,7 @@ class ModalDeleteAcc extends React.Component{
             {this.props.text}
         </div> */}
         <form onSubmit={this.handleSubmit}>
-            <TextInput name='Type DELETE to confirm' max={20} clearErrorMsg={this.clearErrorMessage}/>
+            <TextInput name='Type DELETE to confirm' max={20} clearErrorMsg={this.clearErrorMessage} wrapperClass='settingsInput'/>
             <div className="modalButtonWrapper">
                 <span className='modalButton modalButton--plain' onClick={this.props.hideModal}>CANCEL</span>
                 <button className='button ripple--red modalButton modalButton--box modalButton--red'>DELETE</button>
