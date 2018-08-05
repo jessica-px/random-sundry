@@ -125,6 +125,7 @@ app.get('/api/faves', (req, res) => {
 
 // AUTH - POST - Signup / Register
 app.post('/auth/register', function(req, res, next) {
+    console.log(req.body);
     passport.authenticate('local-signup', function(err, user, info) {
       if (err) { return next(err); }
       if (!user) { return res.json(info); }

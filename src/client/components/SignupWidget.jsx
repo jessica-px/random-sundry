@@ -4,7 +4,9 @@ import TextInput from './TextInput.jsx';
 import BigButton from './BigButton.jsx';
 import SubmitButton from './SubmitButton.jsx';
 import FontAwesome from '@fortawesome/react-fontawesome';
+import faUserPlus from '@fortawesome/fontawesome-free-solid/faUserPlus';
 import faUser from '@fortawesome/fontawesome-free-solid/faUser';
+import faMail from '@fortawesome/fontawesome-free-solid/faEnvelope';
 import faLock from '@fortawesome/fontawesome-free-solid/faLock';
 import faDice from '@fortawesome/fontawesome-free-solid/faDice';
 import {connect} from 'react-redux';
@@ -20,7 +22,8 @@ class SignupWidget extends React.Component{
     this.clearErrorMessage();
     const info = {
       username: e.target[0].value,
-      password: e.target[1].value
+      email: e.target[1].value,
+      password: e.target[2].value
     }
     console.log('Submitting form: '+ JSON.stringify(info));
     const url = '/auth/register';
@@ -45,8 +48,8 @@ class SignupWidget extends React.Component{
     if (info.success){
       console.log(info.success);
       console.log('Cookies: ' + document.cookie);
-      //this.props.dispatch(validateToken());
-      this.props.dispatch(setUsername(info.username));
+      this.props.dispatch(validateToken());
+      //this.props.dispatch(setUsername(info.username));
       this.props.history.push("/");
     }
     else if (info.usernameError){
@@ -81,11 +84,12 @@ class SignupWidget extends React.Component{
     return(
       <form className='card loginCard' onSubmit={this.handleSubmit}>
         <div className='cardHeaderBar'>Sign Up</div>
-        <FontAwesome icon={faDice} className='cardDiceIcon' size='4x'/>
+        <FontAwesome icon={faUserPlus} className='cardDiceIcon' size='2x'/>
         <TextInput name='Username' max={20} icon={faUser} clearErrorMsg={this.clearErrorMessage}/>
+        <TextInput name='Email (Optional)' max={320} icon={faMail} clearErrorMsg={this.clearErrorMessage}/>
         <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage} password={true}/>
         <div className="inputMessage">{this.state.errorMessage}</div>
-        <SubmitButton label='Create Account' />
+        <SubmitButton label='Create Account' className='button--login' />
         
         <div className="inputQuestionText">Already have an account? <Link to={'/login'}>Login</Link>.</div>
         
