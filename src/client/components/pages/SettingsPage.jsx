@@ -214,6 +214,7 @@ class SettingsPage extends React.Component{
                 onFormSubmit={this.saveEmail}
                 input1='New Email'
                 inputIcon1={faMail}
+                email='true'
                 submitButton='Save Email'
             />
 
