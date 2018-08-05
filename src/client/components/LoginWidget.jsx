@@ -5,6 +5,7 @@ import BigButton from './BigButton.jsx';
 import SubmitButton from './SubmitButton.jsx';
 import FontAwesome from '@fortawesome/react-fontawesome';
 import faUser from '@fortawesome/fontawesome-free-solid/faUser';
+import faSignIn from '@fortawesome/fontawesome-free-solid/faSignInAlt';
 import faLock from '@fortawesome/fontawesome-free-solid/faLock';
 import faDice from '@fortawesome/fontawesome-free-solid/faDice';
 import {connect} from 'react-redux';
@@ -79,7 +80,7 @@ class LoginWidget extends React.Component{
     return(
       <form className='card loginCard' onSubmit={this.handleSubmit}>
         <div className='cardHeaderBar'>Login</div>
-        <FontAwesome icon={faDice} className='cardDiceIcon' size='4x'/>
+        <FontAwesome icon={faSignIn} className='cardDiceIcon' size='4x'/>
         <TextInput name='Username' max={20} icon={faUser} clearErrorMsg={this.clearErrorMessage}/>
         <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage} password={true}/>
         <div className="inputMessage">{this.state.errorMessage}</div>
