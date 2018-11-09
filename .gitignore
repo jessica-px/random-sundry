@@ -3,3 +3,4 @@ nodemon.json
 .env
 yarn.lock
 yarn-error.log
+bundle.js
