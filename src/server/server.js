@@ -19,21 +19,25 @@ const expressSession = require('express-session');
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json()); 
 
-// Configure express (sessions)
+// Configure database
+require('dotenv').config();
+const mongo_url = process.env.MONGO_URL;
+mongoose.connect(mongo_url);
+
+// Configure sessions
+const MongoStore = require('connect-mongo')(expressSession);
 app.use(expressSession({
-    secret: 'mySecretKey',
+    secret: process.env.COOKIE_SECRET,
     saveUninitialized: true,
     resave: false,
     cookie: {
         secure: false,
         httpOnly: false
-    }  
+    },
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 
-// Configure database
-require('dotenv').config();
-const mongo_url = process.env.MONGO_URL;
-mongoose.connect(mongo_url);
+
 
 // Configure passport
 require('./passport')(passport); // pass passport to config/passport.js
