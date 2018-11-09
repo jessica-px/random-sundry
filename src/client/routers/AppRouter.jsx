@@ -11,6 +11,7 @@ import BrowsePage from './../components/pages/BrowsePage.jsx'
 import SignupPage from './../components/pages/SignupPage.jsx'
 import LoginPage from './../components/pages/LoginPage.jsx'
 import SettingsPage from './../components/pages/SettingsPage.jsx'
+import ConstructionPage from './../components/pages/ConstructionPage.jsx'
 import PageNotFound from './../components/pages/PageNotFound.jsx'
 
 // User pgaes
@@ -45,10 +46,22 @@ const AppRouter = () => (
                 <Route path="/signup" exact component={SignupPage}/>
                 <Route path="/login" exact component={LoginPage}/>
                 <Route path="/settings" exact component={SettingsPage}/>
+
                 {/* Generators */}
-                <Route path="/weapons" render={() => <GeneratorPage {...weaponProps}/>}/>
-                <Route path="/ruins" render={() => <GeneratorPage {...ruinsProps}/>}/>
-                <Route path="/villages" render={() => <GeneratorPage {...villagesProps}/>}/>
+                  {/* People */}
+                  <Route path="/innkeepers" exact component={ConstructionPage}/>
+                  <Route path="/thieves" exact component={ConstructionPage}/>}/>
+                    {/* Places */}
+                  <Route path="/ruins" render={() => <GeneratorPage {...ruinsProps}/>}/>
+                  <Route path="/villages" render={() => <GeneratorPage {...villagesProps}/>}/>
+                    {/* Things */}
+                  <Route path="/weapons" render={() => <GeneratorPage {...weaponProps}/>}/>
+                  <Route path="/trinkets" exact component={ConstructionPage}/>
+
+                {/* Tools */}
+                <Route path="/dice" exact component={ConstructionPage}/>
+                <Route path="/calculator" exact component={ConstructionPage}/>
+
                 {/* User Pages */}
                 <Route path="/faves" exact component={UserFavesPage}/>
                 <Route path="/logout" exact component={LogOutPage}/>
