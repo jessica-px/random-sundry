@@ -31,7 +31,9 @@ app.use(expressSession({
 }))
 
 // Configure database
-mongoose.connect('mongodb://admin:password1@ds053156.mlab.com:53156/random-sundry');
+require('dotenv').config();
+const mongo_url = process.env.MONGO_URL;
+mongoose.connect(mongo_url);
 
 // Configure passport
 require('./passport')(passport); // pass passport to config/passport.js
