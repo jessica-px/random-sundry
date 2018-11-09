@@ -1,13 +1,13 @@
 import React from 'react';
 import NavBar from './../NavBar.jsx';
 import {connect} from 'react-redux';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faDice from '@fortawesome/fontawesome-free-solid/faDice';
-import faUser from '@fortawesome/fontawesome-pro-light/faUserPlus';
-import faLogin from '@fortawesome/fontawesome-pro-light/faSignInAlt';
-import faBook from '@fortawesome/fontawesome-pro-light/faBookOpen';
-import faHeart from '@fortawesome/fontawesome-pro-light/faHeart';
-import faSignOut from '@fortawesome/fontawesome-pro-light/faSignOut';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faDice} from '@fortawesome/pro-light-svg-icons/faDice';
+import {faUser} from '@fortawesome/pro-light-svg-icons/faUserPlus';
+import {faLogin} from '@fortawesome/pro-light-svg-icons/faSignInAlt';
+import {faBookOpen} from '@fortawesome/pro-light-svg-icons/faBookOpen';
+import {faHeart} from '@fortawesome/pro-light-svg-icons/faHeart';
+import {faSignOut} from '@fortawesome/pro-light-svg-icons/faSignOut';
 import BigButton from './../BigButton.jsx';
 import LinkButton from './../LinkButton.jsx';
 import IconButton from './../IconButton.jsx';
@@ -17,7 +17,7 @@ const HomePage = (props) => (
     <div>
     <div className="navShape">
         <div className="navTriangle">
-            <FontAwesome icon={faDice} className='homeIcon' size='4x'/>
+            <FontAwesomeIcon icon={faDice} className='homeIcon' size='4x'/>
         </div>
     </div>
 
@@ -47,7 +47,7 @@ const loggedInContent = (props) => {
         </p>
         <div className="homeButtons">
             <IconButton label='Log Out' url='logout' icon={faSignOut} />
-            <IconButton label='Browse' url='browse' icon={faBook} />
+            <IconButton label='Browse' url='browse' icon={faBookOpen} />
             <IconButton label='Faves' url='faves' icon={faHeart} />
         </div> 
     </div>
@@ -70,7 +70,7 @@ const notLoggedInContent = () => {
             {/* <LinkButton label='Sign Up' url='signup'/>
             <LinkButton label='Login' url='login' className='button--secondary'/>  */}
             <IconButton label='Sign Up' url='signup' icon={faUser} />
-            <IconButton label='Browse' url='browse' icon={faBook} />
+            <IconButton label='Browse' url='browse' icon={faBookOpen} />
             <IconButton label='Login' url='login' icon={faLogin} />
         </div>  
     </div>

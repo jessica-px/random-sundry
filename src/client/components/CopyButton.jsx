@@ -1,6 +1,6 @@
 import React from 'react';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faClipboard from '@fortawesome/fontawesome-free-solid/faClipboard';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faClipboard} from '@fortawesome/free-solid-svg-icons/faClipboard';
 import ReactTooltip from 'react-tooltip';
 
 class CopyButton extends React.Component{
@@ -59,7 +59,7 @@ class CopyButton extends React.Component{
             <div>
                 <span data-tip data-for='copy'>
                     <div onClick={this.handleClick} className='cardIcon'>
-                            <FontAwesome icon={faClipboard} />
+                            <FontAwesomeIcon icon={faClipboard} />
                     </div>
                 </span>
 

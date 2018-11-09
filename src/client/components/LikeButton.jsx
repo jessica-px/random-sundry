@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faHeart from '@fortawesome/fontawesome-free-solid/faHeart';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faHeart} from '@fortawesome/free-solid-svg-icons/faHeart';
 import uuid from 'uuid/v1';
 import ModalLogin from './ModalLogin.jsx';
 
@@ -107,10 +107,10 @@ class LikeButton extends React.Component{
         {/* button */}
         <div onClick={this.handleClick} className='cardIcon'>
           {this.state.liked &&
-            <FontAwesome icon={faHeart} className='cardIcon--red bounce'/>
+            <FontAwesomeIcon icon={faHeart} className='cardIcon--red bounce'/>
           }
           {!this.state.liked &&
-            <FontAwesome icon={faHeart} />
+            <FontAwesomeIcon icon={faHeart} />
           }
         </div>
       </div>

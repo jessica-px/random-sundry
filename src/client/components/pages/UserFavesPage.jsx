@@ -3,9 +3,6 @@ import {connect} from 'react-redux';
 import { Redirect } from 'react-router'
 import FavesPanel from './../FavesPanel.jsx';
 import FavesFilter from './../FavesFilter.jsx';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faChevronDown from '@fortawesome/fontawesome-pro-light/faChevronDown';
-
 
 class UserFavesPage extends React.Component{
   constructor(props){

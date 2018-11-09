@@ -3,11 +3,10 @@ import { Link, withRouter } from "react-router-dom"; // withRouter allows redire
 import TextInput from './TextInput.jsx';
 import BigButton from './BigButton.jsx';
 import SubmitButton from './SubmitButton.jsx';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faUser from '@fortawesome/fontawesome-free-solid/faUser';
-import faSignIn from '@fortawesome/fontawesome-free-solid/faSignInAlt';
-import faLock from '@fortawesome/fontawesome-free-solid/faLock';
-import faDice from '@fortawesome/fontawesome-free-solid/faDice';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
+import {faSignIn} from '@fortawesome/free-solid-svg-icons/faSignInAlt';
+import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
 import {connect} from 'react-redux';
 import { validateToken, setUsername } from '../actions/authActions';
 
@@ -80,7 +79,7 @@ class LoginWidget extends React.Component{
     return(
       <form className='card loginCard' onSubmit={this.handleSubmit}>
         <div className='cardHeaderBar'>Login</div>
-        <FontAwesome icon={faSignIn} className='cardDiceIcon' size='4x'/>
+        <FontAwesomeIcon icon={faSignIn} className='cardDiceIcon' size='4x'/>
         <TextInput name='Username' max={20} icon={faUser} clearErrorMsg={this.clearErrorMessage}/>
         <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage} password={true}/>
         <div className="inputMessage">{this.state.errorMessage}</div>

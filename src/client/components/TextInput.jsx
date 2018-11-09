@@ -1,7 +1,7 @@
 import React from 'react';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faEye from '@fortawesome/fontawesome-free-solid/faEye';
-import faEyeSlash from '@fortawesome/fontawesome-free-solid/faEyeSlash';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faEye} from '@fortawesome/free-solid-svg-icons/faEye';
+import {faEyeSlash} from '@fortawesome/free-solid-svg-icons/faEyeSlash';
 
 class TextInput extends React.Component{
   state = {
@@ -77,7 +77,7 @@ class TextInput extends React.Component{
       <div className={this.state.currentWrapper}>
         {/* Render leading icon if given in props */}
         {this.props.icon && 
-          <FontAwesome icon={this.props.icon} className='inputIcon'/>
+          <FontAwesomeIcon icon={this.props.icon} className='inputIcon'/>
         }
         <span className='floatLabelWrapper'>
           {/* Floating Label */}
@@ -100,8 +100,8 @@ class TextInput extends React.Component{
         {(this.props.password) &&
           (
           this.state.hidden ?
-          <FontAwesome icon={faEye} className='inputIcon inputIcon--button' onClick={this.toggleHidden}/> :
-          <FontAwesome icon={faEyeSlash} className='inputIcon inputIcon--button' onClick={this.toggleHidden}/>
+          <FontAwesomeIcon icon={faEye} className='inputIcon inputIcon--button' onClick={this.toggleHidden}/> :
+          <FontAwesomeIcon icon={faEyeSlash} className='inputIcon inputIcon--button' onClick={this.toggleHidden}/>
           )
         }
 

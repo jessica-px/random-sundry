@@ -1,6 +1,6 @@
 import React from 'react';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faClipboard from '@fortawesome/fontawesome-free-solid/faTrashAlt';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faTrashAlt} from '@fortawesome/free-solid-svg-icons/faTrashAlt';
 import ReactTooltip from 'react-tooltip';
 import ModalDelete from './ModalDelete.jsx';
 
@@ -39,7 +39,7 @@ class DeleteButton extends React.Component{
             <div onClick={this.toggleModal} 
                 className='cardIcon' 
               >
-                <FontAwesome icon={faClipboard} />
+                <FontAwesomeIcon icon={faTrashAlt} />
             </div>
         </span>
 

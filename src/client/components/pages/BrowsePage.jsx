@@ -1,9 +1,9 @@
 import React from 'react';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faUser from '@fortawesome/fontawesome-pro-light/faUser';
-import faMap from '@fortawesome/fontawesome-pro-light/faMap';
-import faBox from '@fortawesome/fontawesome-pro-light/faBoxFull';
-import faWrench from '@fortawesome/fontawesome-pro-light/faWrench';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/pro-light-svg-icons/faUser';
+import {faMap} from '@fortawesome/pro-light-svg-icons/faMap';
+import {faBoxFull} from '@fortawesome/pro-light-svg-icons/faBoxFull';
+import {faWrench} from '@fortawesome/pro-light-svg-icons/faWrench';
 import { Link } from 'react-router-dom';
 
 const BrowsePage = (props) => (
@@ -17,12 +17,12 @@ const BrowsePage = (props) => (
       <div className="browseSection">
         {/* Title */}
         <div className="browseSectionTitle titleUnderline">
-          <FontAwesome icon={faUser} className='browseSectionIcon' size='1x'/>
+          <FontAwesomeIcon icon={faUser} className='browseSectionIcon' size='1x'/>
           People
         </div> 
         {/* Links */}
-        <div className='browseSectionLink'><Link to="/404">Fighters</Link></div>
-        <div className='browseSectionLink'><Link to="/404">Thieves</Link></div>
+        <div className='browseSectionLink'><Link to="/innkeepers">Innkeepers</Link></div>
+        <div className='browseSectionLink'><Link to="/thieves">Thieves</Link></div>
       </div>
 
 
@@ -30,7 +30,7 @@ const BrowsePage = (props) => (
       <div className="browseSection">
         {/* Title */}
         <div className="browseSectionTitle titleUnderline">
-          <FontAwesome icon={faMap} className='browseSectionIcon' size='1x'/>
+          <FontAwesomeIcon icon={faMap} className='browseSectionIcon' size='1x'/>
           Places
         </div> 
         {/* Links */}
@@ -43,7 +43,7 @@ const BrowsePage = (props) => (
       <div className="browseSection">
         {/* Title */}
         <div className="browseSectionTitle titleUnderline">
-          <FontAwesome icon={faBox} className='browseSectionIcon' size='1x'/>
+          <FontAwesomeIcon icon={faBoxFull} className='browseSectionIcon' size='1x'/>
           Things
         </div> 
         {/* Links */}
@@ -55,11 +55,11 @@ const BrowsePage = (props) => (
     {/* Tools */}
     
     <div className="browseSection">
-    <FontAwesome icon={faWrench} className='browseTitleIcon' size='1x'/>
+    <FontAwesomeIcon icon={faWrench} className='browseTitleIcon' size='1x'/>
     <div className="browseTitle titleUnderline">Browse Tools</div>
       {/* Links */}
-      <div className='browseSectionLink'><Link to="/404">Dice Roller</Link></div>
-      <div className='browseSectionLink'><Link to="/404">Probability Calculator</Link></div>
+      <div className='browseSectionLink'><Link to="/dice">Dice Roller</Link></div>
+      <div className='browseSectionLink'><Link to="/calculator">Probability Calculator</Link></div>
       
     </div>
 

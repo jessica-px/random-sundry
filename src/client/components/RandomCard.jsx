@@ -1,5 +1,4 @@
 import React from 'react';
-import FontAwesome from '@fortawesome/react-fontawesome';
 import LikeButton from './LikeButton.jsx';
 import CopyButton from './CopyButton.jsx';
 

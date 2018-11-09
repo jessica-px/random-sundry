@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import FontAwesome from '@fortawesome/react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 // Menu anatomy wokrs like this:
 // Each dropdown has (as a prop) an array of sections
@@ -40,7 +40,7 @@ class Dropdown extends React.Component{
           {/* button */}
           <div className='navButton ripple' onClick={this.onClickHandler}>
             {this.props.button}
-            {this.props.icon &&  <FontAwesome icon={this.props.icon} />}
+            {this.props.icon &&  <FontAwesomeIcon icon={this.props.icon} />}
           </div>
 
           {/* menu */}

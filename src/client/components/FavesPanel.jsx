@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router'
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faChevronDown from '@fortawesome/fontawesome-pro-light/faChevronDown';
-import faChevronUp from '@fortawesome/fontawesome-pro-light/faChevronUp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faChevronDown} from '@fortawesome/pro-light-svg-icons/faChevronDown';
+import {faChevronUp} from '@fortawesome/pro-light-svg-icons/faChevronUp';
 import CopyButton from './CopyButton.jsx';
 import DeleteButton from './DeleteButton.jsx';
 
@@ -48,8 +48,8 @@ class FavesPanel extends React.Component{
       <div className="favesPanel" id={this.props.id}>
         <div className="favesPanel__label" onClick={this.toggleExpand}>
           <span>{this.props.header}</span>
-          {!this.state.expanded && <FontAwesome icon={faChevronDown} size='1x'/>}
-          {this.state.expanded && <FontAwesome icon={faChevronUp} size='1x'/>}
+          {!this.state.expanded && <FontAwesomeIcon icon={faChevronDown} size='1x'/>}
+          {this.state.expanded && <FontAwesomeIcon icon={faChevronUp} size='1x'/>}
         </div>  
 
         {this.state.expanded && expandedPanelBody(this.deleteFave, this.props)}

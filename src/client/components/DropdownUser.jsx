@@ -1,6 +1,6 @@
 import React from 'react';
 import Dropdown from './Dropdown.jsx';
-import faUser from '@fortawesome/fontawesome-free-solid/faUser';
+import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 
 
 

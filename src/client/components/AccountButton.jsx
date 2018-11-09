@@ -1,6 +1,6 @@
 import React from 'react';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faUser from '@fortawesome/fontawesome-free-solid/faUser';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 
 class AccountButton extends React.Component{
   state = {
@@ -17,7 +17,7 @@ class AccountButton extends React.Component{
       
 
       <div onClick={this.handleClick} className='navIcon navButton ripple'>
-          <FontAwesome icon={faUser} />
+          <FontAwesomeIcon icon={faUser} />
       </div>
   
   

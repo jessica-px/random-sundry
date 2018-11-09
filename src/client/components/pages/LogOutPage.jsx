@@ -3,9 +3,9 @@ import NavBar from './../NavBar.jsx';
 import { setLoggedOut } from '../../actions/authActions';
 import {connect} from 'react-redux';
 import IconButton from './../IconButton.jsx';
-import faHome from '@fortawesome/fontawesome-pro-light/faHome';
-import faBook from '@fortawesome/fontawesome-pro-light/faBookOpen';
-import faLogin from '@fortawesome/fontawesome-pro-light/faSignInAlt';
+import {faHome} from '@fortawesome/pro-light-svg-icons/faHome';
+import {faBook} from '@fortawesome/pro-light-svg-icons/faBookOpen';
+import {faLogin} from '@fortawesome/pro-light-svg-icons/faSignInAlt';
 
 
 class LogOutPage extends React.Component{

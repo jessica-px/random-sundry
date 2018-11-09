@@ -1,8 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router'
-import faMail from '@fortawesome/fontawesome-pro-light/faEnvelope';
-import faLock from '@fortawesome/fontawesome-pro-light/faLock';
+import {faMail} from '@fortawesome/pro-light-svg-icons/faEnvelope';
+import {faLock} from '@fortawesome/pro-light-svg-icons/faLock';
 import { setEmail } from '../../actions/authActions';
 
 import { setLoggedOut } from '../../actions/authActions';

@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import FontAwesome from '@fortawesome/react-fontawesome';
-import faChevronDown from '@fortawesome/fontawesome-pro-light/faChevronDown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import faChevronDown from '@fortawesome/pro-light-svg-icons/faChevronDown';
 
 // Menu anatomy wokrs like this:
 // Each dropdown has (as a prop) an array of sections
@@ -54,7 +53,7 @@ class SelectDropdown extends React.Component{
         {/* button */}
         <div className="selectDropdown" onClick={this.onClickHandler}>
           {this.state.selected + ' '}
-          <FontAwesome icon={faChevronDown} size='xs'/>
+          <FontAwesomeIcon icon={faChevronDown} size='xs'/>
         </div>
 
         {/* menu */}
