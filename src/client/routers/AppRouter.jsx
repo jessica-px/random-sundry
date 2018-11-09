@@ -21,15 +21,15 @@ import LogOutPage from './../components/pages/LogOutPage.jsx'
 // Made by passing props to the generic GeneratorPage template
 import GeneratorPage from "./../components/pages/GeneratorPage.jsx";
 const weaponProps = {
-    url: 'random-weapon',
+    url: 'weapon',
     title: 'Random Weapon Generator'
 }
 const ruinsProps = {
-    url: 'random-ruin',
+    url: 'ruin',
     title: 'Random Ruins Generator'
 }
 const villagesProps = {
-    url: 'random-village',
+    url: 'village',
     title: 'Random Villages Generator'
 }
 

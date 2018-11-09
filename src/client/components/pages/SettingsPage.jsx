@@ -93,7 +93,7 @@ class SettingsPage extends React.Component{
     }
 
     checkPassword = (passwordInfo, setErrorMsg) => {
-        const url = '/auth/changepassword';
+        const url = '/auth/change-password';
         console.log('Submitting form: '+ JSON.stringify(passwordInfo));
         fetch(url, {
           method: 'POST',

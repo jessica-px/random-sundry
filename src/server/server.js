@@ -58,69 +58,64 @@ console.log('Listening on port ' + port);
 
 // ------ Generator API --------------------------------------------
 
+const categoryPaths = {
+  'weapon': './weapons/weaponGen',
+  'ruin': './ruins/ruinsGen',
+  'village': './villages/villagesGen'
+}
 
-// API - GET - Random Weapon
-app.get('/api/random-weapon', (req, res) => {
-    const weapon = require('./weapons/weaponGen')();
-    res.send(weapon);
-})
-
-// API - GET - Random Ruins
-app.get('/api/random-ruin', (req, res) => {
-    const ruins = require('./ruins/ruinsGen')();
-    res.send(ruins);
-})
-
-// API - GET - Random Village
-app.get('/api/random-village', (req, res) => {
-    const village = require('./villages/villagesGen')();
-    res.send(village);
+// API - GET - Random
+app.get('/api/random/:category', (req, res) => {
+  const category = req.params.category;
+  const modulePath = categoryPaths[category] ? categoryPaths[category] : 'Error: Text unavailable';
+  const randomizedText = require(modulePath)();
+  res.send(randomizedText);
 })
 
 // ------ Add/Delete/Edit Favorites API ---------------------------
 
-app.post('/api/new-fave', (req, res) => {
-    console.log('Recieved new-fave post request...')
-    const testFave = req.body;
+// Add Face
+app.post('/api/faves', (req, res) => {
+    const newFave = req.body;
     const isLoggedIn = req.isAuthenticated();
     if (isLoggedIn){
-        console.log('User ' + req.user.local.username + ' is logged in...')
-        req.user.addFave(testFave);
+        console.log('User ' + req.user.local.username + ' is logged in...adding fave...')
+        req.user.addFave(newFave);
         res.sendStatus(200); // status ok
     }
     else{
-        console.log('User not logged in!')
+        console.log('User not logged in! Cannot add fave.')
         res.sendStatus(401); // status not authenticated
     }
 })
 
-app.post('/api/delete-fave', (req, res) => {
-    console.log('Recieved delete-fave post request...')
+// Delete Fave
+app.delete('/api/faves', (req, res) => {
     const id = req.body.id;
     const isLoggedIn = req.isAuthenticated();
     if (isLoggedIn){
-        console.log('User ' + req.user.local.username + ' is logged in...')
+        console.log('User ' + req.user.local.username + ' is logged in...deleting fave...')
         req.user.deleteFave(id);
         res.sendStatus(200); // status ok
     }
     else{
-        console.log('User not logged in!')
+        console.log('User not logged in! Cannot delete fave.')
         res.sendStatus(401); // status not authenticated
     }
 })
 
+// Get All Faves
 app.get('/api/faves', (req, res) => {
-    console.log('Recieved GET request for faves...');
     const category = req.query.category;
     const subcategory = req.query.subcategory;
     const isLoggedIn = req.isAuthenticated();
     if (isLoggedIn){
-        console.log('User ' + req.user.local.username + ' is logged in...')
+        console.log('User ' + req.user.local.username + ' is logged in...getting faves list')
         const faves = req.user.getAllFaves(category, subcategory);
         res.send(faves);
     }
     else{
-        console.log('User not logged in!')
+        console.log('User not logged in! Cannot get faves list.')
         res.send(401); // status not authenticated
     }
 })
@@ -191,7 +186,7 @@ app.get('/auth/validate', (req, res) => {
 
 
 // SETTINGS - POST - Change Password
-app.post('/auth/changepassword', function(req, res, next) {
+app.post('/auth/change-password', function(req, res, next) {
     if (req.user.validPassword(req.body.currPassword)){
         if (req.body.newPassword.length >= 8){
             req.user.changePassword(req.body.newPassword);

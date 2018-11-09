@@ -25,9 +25,9 @@ class FavesPanel extends React.Component{
 
   deleteFave = (e) => {
     console.log('Deleting ' + this.props.header)
-    const url = '/api/delete-fave';
+    const url = '/api/faves';
     fetch(url, {
-      method: 'POST',
+      method: 'DELETE',
       credentials: 'include',
       headers: {
         "Content-Type": "application/json",

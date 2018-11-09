@@ -57,7 +57,7 @@ class LikeButton extends React.Component{
   }
 
   addToFaves = () => {
-    const url = '/api/new-fave'
+    const url = '/api/faves'
     let newFaveJson = {...this.props};
     newFaveJson.id = uuid(); // add unique ID, for retrieval and to prevent duplicate posts
     this.setState(() => ({id: newFaveJson.id})) // saves ID to state, for un-faving
@@ -77,10 +77,10 @@ class LikeButton extends React.Component{
   }
 
   removeFromFaves = () => {
-    const url = '/api/delete-fave';
+    const url = '/api/faves';
     console.log('Deleting fave with ID:' + this.state.id)
     fetch(url, {
-      method: 'POST',
+      method: 'DELETE',
       credentials: 'include', // sends session token
       headers: {
         "Content-Type": "application/json",
