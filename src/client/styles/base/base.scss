@@ -38,3 +38,8 @@ button{
 button:disabled{
   cursor: default;
 }
+
+// Prevents firefox from adding dotted outlines to clicked buttons
+*:focus { 
+  outline: none; 
+}
