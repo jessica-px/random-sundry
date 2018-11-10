@@ -6,7 +6,7 @@ import SubmitButton from './SubmitButton.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUserPlus} from '@fortawesome/free-solid-svg-icons/faUserPlus';
 import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
-import {faMail} from '@fortawesome/free-solid-svg-icons/faEnvelope';
+import {faEnvelope} from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
 import faDice from '@fortawesome/free-solid-svg-icons/faDice';
 import {connect} from 'react-redux';
@@ -86,7 +86,7 @@ class SignupWidget extends React.Component{
         <div className='cardHeaderBar'>Sign Up</div>
         <FontAwesomeIcon icon={faUserPlus} className='cardDiceIcon' size='2x'/>
         <TextInput name='Username' max={20} icon={faUser} clearErrorMsg={this.clearErrorMessage}/>
-        <TextInput name='Email (Optional)' max={320} icon={faMail} clearErrorMsg={this.clearErrorMessage}/>
+        <TextInput name='Email (Optional)' max={320} icon={faEnvelope} clearErrorMsg={this.clearErrorMessage}/>
         <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage} password={true}/>
         <div className="inputMessage">{this.state.errorMessage}</div>
         <SubmitButton label='Create Account' className='button--login' />

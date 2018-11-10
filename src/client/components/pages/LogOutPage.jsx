@@ -4,8 +4,8 @@ import { setLoggedOut } from '../../actions/authActions';
 import {connect} from 'react-redux';
 import IconButton from './../IconButton.jsx';
 import {faHome} from '@fortawesome/pro-light-svg-icons/faHome';
-import {faBook} from '@fortawesome/pro-light-svg-icons/faBookOpen';
-import {faLogin} from '@fortawesome/pro-light-svg-icons/faSignInAlt';
+import {faBookOpen} from '@fortawesome/pro-light-svg-icons/faBookOpen';
+import {faSignInAlt} from '@fortawesome/pro-light-svg-icons/faSignInAlt';
 
 
 class LogOutPage extends React.Component{
@@ -39,8 +39,8 @@ class LogOutPage extends React.Component{
         <div className="logOutText">Thanks for visiting!</div>
         <div className="logOutPageButtons">
             <IconButton label='Home' url='/' icon={faHome} />
-            <IconButton label='Browse' url='ruins' icon={faBook} />
-            <IconButton label='Login' url='login' icon={faLogin} />
+            <IconButton label='Browse' url='ruins' icon={faBookOpen} />
+            <IconButton label='Login' url='login' icon={faSignInAlt} />
         </div>  
       </div>
     )

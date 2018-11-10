@@ -3,8 +3,8 @@ import NavBar from './../NavBar.jsx';
 import {connect} from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faDice} from '@fortawesome/pro-light-svg-icons/faDice';
-import {faUser} from '@fortawesome/pro-light-svg-icons/faUserPlus';
-import {faLogin} from '@fortawesome/pro-light-svg-icons/faSignInAlt';
+import {faUserPlus} from '@fortawesome/pro-light-svg-icons/faUserPlus';
+import {faSignInAlt} from '@fortawesome/pro-light-svg-icons/faSignInAlt';
 import {faBookOpen} from '@fortawesome/pro-light-svg-icons/faBookOpen';
 import {faHeart} from '@fortawesome/pro-light-svg-icons/faHeart';
 import {faSignOut} from '@fortawesome/pro-light-svg-icons/faSignOut';
@@ -69,9 +69,9 @@ const notLoggedInContent = () => {
         <div className="homeButtons">
             {/* <LinkButton label='Sign Up' url='signup'/>
             <LinkButton label='Login' url='login' className='button--secondary'/>  */}
-            <IconButton label='Sign Up' url='signup' icon={faUser} />
+            <IconButton label='Sign Up' url='signup' icon={faUserPlus} />
             <IconButton label='Browse' url='browse' icon={faBookOpen} />
-            <IconButton label='Login' url='login' icon={faLogin} />
+            <IconButton label='Login' url='login' icon={faSignInAlt} />
         </div>  
     </div>
     )
