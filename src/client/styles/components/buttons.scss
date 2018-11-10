@@ -12,7 +12,9 @@
     outline: none;
 }
 
-@media (any-hover){
+// " screen and (min--moz-device-pixel-ratio:0) " = 
+// hack to that selects FireFox, which has a bug that ignores (any-hover)
+@media (any-hover), screen and (min--moz-device-pixel-ratio:0){
     .button:hover{
         cursor: pointer;
         background-color: darken($primary, 5%);
@@ -28,7 +30,9 @@
     transition: background 0.4s;
     background: $primary radial-gradient(circle, transparent 1%, darken($primary, 5%) 1%) center/15000%;
   }
-@media (any-hover){
+// " screen and (min--moz-device-pixel-ratio:0) " = 
+// hack to that selects FireFox, which has a bug that ignores (any-hover)
+@media (any-hover), screen and (min--moz-device-pixel-ratio:0){
     .ripple:hover {
         background: darken($primary, 5%) radial-gradient(circle, transparent 1%, darken($primary, 5%) 1%) center/15000%;
     }
@@ -46,7 +50,9 @@
     transition: background 0.4s;
     background: $color-danger radial-gradient(circle, transparent 1%, darken($color-danger, 5%) 1%) center/15000%;
     }
-@media (any-hover){
+// " screen and (min--moz-device-pixel-ratio:0) " = 
+// hack to that selects FireFox, which has a bug that ignores (any-hover)
+@media (any-hover), screen and (min--moz-device-pixel-ratio:0){
     .ripple--red:hover {
         background: darken($color-danger, 5%) radial-gradient(circle, transparent 1%, darken($color-danger, 5%) 1%) center/15000%;
     }

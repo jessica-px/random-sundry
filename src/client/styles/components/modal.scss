@@ -57,7 +57,9 @@
     background-color: rgb(248, 96, 96);
 }
 
-@media (any-hover){
+// " screen and (min--moz-device-pixel-ratio:0) " = 
+// hack to that selects FireFox, which has a bug that ignores (any-hover)
+@media (any-hover), screen and (min--moz-device-pixel-ratio:0){
     .modalButton--plain:hover{
         color: $black;
         background-color: darken(white, 20%);

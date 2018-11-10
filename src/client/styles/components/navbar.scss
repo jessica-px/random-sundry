@@ -31,7 +31,9 @@
     box-sizing: border-box;
 }
 
-@media (any-hover){
+// " screen and (min--moz-device-pixel-ratio:0) " = 
+// hack to that selects FireFox, which has a bug that ignores (any-hover)
+@media (any-hover), screen and (min--moz-device-pixel-ratio:0){
     .navButton:hover{
         cursor: pointer;
         background-color: darken($primary, 5%);

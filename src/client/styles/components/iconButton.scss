@@ -15,12 +15,12 @@
     font-size: $size-s;
 }
 
-
-
-@media (any-hover){
-    .iconButton:hover{
-        cursor: pointer;
-        color: $primary;
-        font-weight: 500;
-    }
+// " screen and (min--moz-device-pixel-ratio:0) " = 
+// hack to that selects FireFox, which has a bug that ignores (any-hover)
+@media (any-hover), screen and (min--moz-device-pixel-ratio:0){
+  .iconButton:hover{
+      cursor: pointer;
+      color: $primary;
+      font-weight: 500;
+  }
 }
