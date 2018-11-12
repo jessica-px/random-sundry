@@ -5,7 +5,7 @@
     "comments": false,
     "env": {
       "production": {
-        "plugins": ["transform-remove-console", { "exclude": [ "error", "warn"] }]
+        "plugins": ["transform-remove-console"]
       }
     },
     "presets": ["env", "react", "stage-2"]
