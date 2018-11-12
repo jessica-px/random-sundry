@@ -4,7 +4,6 @@ nodemon.json
 yarn.lock
 yarn-error.log
 public/bundle.js
-.npmrc
 .eslintrc.json
 bundle.js.map
 .vscode
