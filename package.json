@@ -4,7 +4,8 @@
   "main": "server.js",
   "license": "UNLICENSED",
   "engines": {
-    "node": "10.10.0"
+    "node": "10.10.0",
+    "npm": "6.4.1"
   },
   "dependencies": {
     "@fortawesome/fontawesome-pro": "^5.5.0",
@@ -35,8 +36,8 @@
     "start-webpack": "webpack-dev-server --port 8080 -w --mode=development --host 0.0.0.0",
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "lint-fix": "eslint src/**/*.js src/**/*.jsx --fix",
-    "start": "node src/server/server.js"
-
+    "start": "node src/server/server.js",
+    "heroku-postbuild": "webpack -p"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
