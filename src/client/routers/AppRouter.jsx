@@ -6,7 +6,6 @@ import NavBar from './../components/NavBar.jsx'
 
 // General Pages
 import HomePage from './../components/pages/HomePage.jsx'
-import AboutPage from './../components/pages/AboutPage.jsx'
 import BrowsePage from './../components/pages/BrowsePage.jsx'
 import SignupPage from './../components/pages/SignupPage.jsx'
 import LoginPage from './../components/pages/LoginPage.jsx'
@@ -41,7 +40,7 @@ const AppRouter = () => (
       <Switch>
         {/* General Navigation */}
         <Route path="/" exact component={HomePage}/>
-        <Route path="/about" component={AboutPage}/>
+        <Route path="/about" component={ConstructionPage}/>
         <Route path="/browse" component={BrowsePage}/>
         <Route path="/signup" exact component={SignupPage}/>
         <Route path="/login" exact component={LoginPage}/>
