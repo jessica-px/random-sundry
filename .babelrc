@@ -1,5 +1,11 @@
 {
-    "plugins": ["transform-class-properties"],
+    "plugins": [
+      ["transform-class-properties"]
+    ],
+    "env": {
+      "production": {
+        "plugins": ["transform-remove-console", { "exclude": [ "error", "warn"] }]
+      }
+    },
     "presets": ["env", "react", "stage-2"]
-    
 }
