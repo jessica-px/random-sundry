@@ -7,3 +7,4 @@ public/bundle.js
 .npmrc
 .eslintrc.json
 bundle.js.map
+.vscode
