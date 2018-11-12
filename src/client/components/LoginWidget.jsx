@@ -1,14 +1,13 @@
 import React from 'react';
 import { Link, withRouter } from "react-router-dom"; // withRouter allows redirects
 import TextInput from './TextInput.jsx';
-import BigButton from './BigButton.jsx';
 import SubmitButton from './SubmitButton.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 import {faSignIn} from '@fortawesome/free-solid-svg-icons/faSignInAlt';
 import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
 import {connect} from 'react-redux';
-import { validateToken, setUsername } from '../actions/authActions';
+import { validateToken } from '../actions/authActions';
 
 class LoginWidget extends React.Component{
   state = {
@@ -84,7 +83,7 @@ class LoginWidget extends React.Component{
         <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage} password={true}/>
         <div className="inputMessage">{this.state.errorMessage}</div>
         <SubmitButton label='Login' className='button--login' />
-        <div className="inputQuestionText">Don't have an account yet? <Link to={'/signup'}>Sign up</Link>.</div>
+        <div className="inputQuestionText">Don&apos;t have an account yet? <Link to={'/signup'}>Sign up</Link>.</div>
         
       </form>
     )

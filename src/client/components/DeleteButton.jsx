@@ -1,7 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faTrashAlt} from '@fortawesome/free-solid-svg-icons/faTrashAlt';
-import ReactTooltip from 'react-tooltip';
 import ModalDelete from './ModalDelete.jsx';
 
 class DeleteButton extends React.Component{
@@ -10,13 +9,13 @@ class DeleteButton extends React.Component{
     showModal: false
   }
 
-  toggleModal = (e) => {
+  toggleModal = () => {
     this.setState((prevState) => ({
       showModal: !prevState.showModal
     }))
   }
 
-  delete = (id) => {
+  delete = () => {
     this.props.onDelete();
     this.toggleModal();
   }
@@ -36,11 +35,11 @@ class DeleteButton extends React.Component{
 
         {/* Button */}
         <span data-tip data-for='delete'>
-            <div onClick={this.toggleModal} 
-                className='cardIcon' 
-              >
-                <FontAwesomeIcon icon={faTrashAlt} />
-            </div>
+          <div onClick={this.toggleModal} 
+            className='cardIcon' 
+          >
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </div>
         </span>
 
       </div>

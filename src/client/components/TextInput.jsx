@@ -19,7 +19,7 @@ class TextInput extends React.Component{
   }
 
   // Sets password to 'hidden' by default for desktop, 'visible' for mobile
-  componentWillMount(){
+  componentDidMount(){
     if (this.props.password){
       this.setState(() => ({
         hidden: !isMobileDevice()
@@ -59,9 +59,9 @@ class TextInput extends React.Component{
   }
 
   changeValue = (newValue) => {
-    this.setState((prevState) => ({
+    this.setState({
       value: newValue
-    }))
+    })
     this.props.clearErrorMsg();
   }
 
@@ -93,15 +93,15 @@ class TextInput extends React.Component{
             onBlur={this.onBlur}
             onChange={this.onInputChange}
             //required
-            > 
+          > 
           </input>
         </span> 
         {/* Render hide/show button if given 'password' prop */}
         {(this.props.password) &&
           (
-          this.state.hidden ?
-          <FontAwesomeIcon icon={faEye} className='inputIcon inputIcon--button' onClick={this.toggleHidden}/> :
-          <FontAwesomeIcon icon={faEyeSlash} className='inputIcon inputIcon--button' onClick={this.toggleHidden}/>
+            this.state.hidden ?
+              <FontAwesomeIcon icon={faEye} className='inputIcon inputIcon--button' onClick={this.toggleHidden}/> :
+              <FontAwesomeIcon icon={faEyeSlash} className='inputIcon inputIcon--button' onClick={this.toggleHidden}/>
           )
         }
 

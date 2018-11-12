@@ -1,16 +1,14 @@
 import React from 'react';
 import { Link, withRouter } from "react-router-dom"; // withRouter allows redirects
 import TextInput from './TextInput.jsx';
-import BigButton from './BigButton.jsx';
 import SubmitButton from './SubmitButton.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUserPlus} from '@fortawesome/free-solid-svg-icons/faUserPlus';
 import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 import {faEnvelope} from '@fortawesome/free-solid-svg-icons/faEnvelope';
 import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
-import faDice from '@fortawesome/free-solid-svg-icons/faDice';
 import {connect} from 'react-redux';
-import { validateToken, setUsername } from '../actions/authActions';
+import { validateToken } from '../actions/authActions';
 
 class SignupWidget extends React.Component{
   state = {

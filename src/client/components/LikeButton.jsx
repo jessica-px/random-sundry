@@ -12,21 +12,20 @@ class LikeButton extends React.Component{
   }
 
   // resets "liked" state whenever RandomCard sends in new props
-  componentWillReceiveProps(){
+  componentDidReceiveProps(){
     this.setState(() => ({
       liked: false,
       showModal: false
     }))
   }
 
-  toggleModal = (e) => {
+  toggleModal = () => {
     this.setState((prevState) => ({
       showModal: !prevState.showModal
     }))
   }
 
-  handleClick = (e) => {
-  const icon = e.target;
+  handleClick = () => {
     if (this.state.liked){
       this.unlikeFave();
     }
@@ -37,9 +36,9 @@ class LikeButton extends React.Component{
 
   unlikeFave = () => {
     this.removeFromFaves();
-    this.setState((prevState) => ({
+    this.setState({
       liked: false
-    }))
+    })
   }
 
   likeFave = () => {
@@ -50,9 +49,9 @@ class LikeButton extends React.Component{
     // Else, change heart and save fave
     else{
       this.addToFaves();
-      this.setState((prevState) => ({
+      this.setState({
         liked: true
-      }))
+      })
     }
   }
 
@@ -87,7 +86,7 @@ class LikeButton extends React.Component{
       },
       body: JSON.stringify({id: this.state.id})
     }).then((res) => {
-      this.setState(() => {id: ''}); // reset id
+      this.setState({id: ''}); // reset id
       return res;
     })
   }

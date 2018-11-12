@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from './../NavBar.jsx';
 import { setLoggedOut } from '../../actions/authActions';
 import {connect} from 'react-redux';
 import IconButton from './../IconButton.jsx';
@@ -10,7 +9,7 @@ import {faSignInAlt} from '@fortawesome/pro-light-svg-icons/faSignInAlt';
 
 class LogOutPage extends React.Component{
 
-  componentWillMount(){
+  componentDidMount(){
     console.log('mounted logout page')
     this.sendLogOutRequest();
   }
@@ -24,7 +23,7 @@ class LogOutPage extends React.Component{
         "Content-Type": "application/json",
         'Accept': 'application/json'
       }
-    }).then((res) => {
+    }).then(() => {
       this.props.dispatch(setLoggedOut());
       console.log('Done fetching');
     })
@@ -38,9 +37,9 @@ class LogOutPage extends React.Component{
         <div className='logOutTitle'>You are now logged out.</div>
         <div className="logOutText">Thanks for visiting!</div>
         <div className="logOutPageButtons">
-            <IconButton label='Home' url='/' icon={faHome} />
-            <IconButton label='Browse' url='ruins' icon={faBookOpen} />
-            <IconButton label='Login' url='login' icon={faSignInAlt} />
+          <IconButton label='Home' url='/' icon={faHome} />
+          <IconButton label='Browse' url='ruins' icon={faBookOpen} />
+          <IconButton label='Login' url='login' icon={faSignInAlt} />
         </div>  
       </div>
     )

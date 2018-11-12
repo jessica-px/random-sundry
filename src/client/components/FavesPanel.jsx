@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faChevronDown} from '@fortawesome/pro-light-svg-icons/faChevronDown';
 import {faChevronUp} from '@fortawesome/pro-light-svg-icons/faChevronUp';
@@ -11,10 +10,10 @@ class FavesPanel extends React.Component{
     expanded: false
   }
 
-  componentWillReceiveProps(){
-    this.setState((prevState) => ({
+  componentDidReceiveProps(){
+    this.setState({
       expanded: false
-    }))
+    })
   }
 
   toggleExpand = () => {
@@ -23,7 +22,7 @@ class FavesPanel extends React.Component{
     }))
   }
 
-  deleteFave = (e) => {
+  deleteFave = () => {
     console.log('Deleting ' + this.props.header)
     const url = '/api/faves';
     fetch(url, {
@@ -33,9 +32,7 @@ class FavesPanel extends React.Component{
         "Content-Type": "application/json",
       },
       body: JSON.stringify({id: this.props.id})
-    }).then((response) => {
-      // After fetch, hide modal and remove fave from list
-      //this.toggleModal();
+    }).then(() => {
       this.props.removeFunc(this.props.id);
     }).catch((err) => {
       console.log(err);

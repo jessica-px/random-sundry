@@ -1,5 +1,4 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -9,20 +8,20 @@ class IconButton extends React.Component{
   }
 
   redirect = () => {
-    this.setState((prevState) => ({
+    this.setState({
       redirect: true
-    }))
+    })
   }
 
   render(){
     return(
-    <Link to={this.props.url}>
+      <Link to={this.props.url}>
         <div className='iconButton'>
-            <FontAwesomeIcon icon={this.props.icon} className='' size='2x'/>
-            <div className="iconButton__label">{this.props.label}</div>
-            {/* {this.state.redirect && <Redirect to={this.props.url} />} */}
+          <FontAwesomeIcon icon={this.props.icon} className='' size='2x'/>
+          <div className="iconButton__label">{this.props.label}</div>
+          {/* {this.state.redirect && <Redirect to={this.props.url} />} */}
         </div>
-    </Link>
+      </Link>
       
     )
   }

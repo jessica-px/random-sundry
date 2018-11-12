@@ -79,8 +79,8 @@ class UserFavesPage extends React.Component{
     // Else only return faves with matching category or subcategory
     else{
       return allFaves.filter((fave) => 
-      fave.category === filter || fave.subcategory === filter
-    )
+        fave.category === filter || fave.subcategory === filter
+      )
     }
     
     
@@ -89,31 +89,31 @@ class UserFavesPage extends React.Component{
   render(){
     return(
         
-    <div className="favesPageWrapper">
+      <div className="favesPageWrapper">
 
-      {/* Redirects to home page if user is not logged in & not waiting on validation */}
-      {(!this.props.loggedIn && !this.props.validating) &&  <Redirect to="/"/>}
+        {/* Redirects to home page if user is not logged in & not waiting on validation */}
+        {(!this.props.loggedIn && !this.props.validating) &&  <Redirect to="/"/>}
 
-      <div className="favesHeader">
-        <div className="favesTitle">My Favorites</div>
-        <FavesFilter setFilter={this.setFilter}/>
-      </div>
+        <div className="favesHeader">
+          <div className="favesTitle">My Favorites</div>
+          <FavesFilter setFilter={this.setFilter}/>
+        </div>
 
-      <div className="favesPanelWrapper">
+        <div className="favesPanelWrapper">
 
-        {/* map faves to FavesPanels */}
-        {!this.state.noFaves && this.state.filteredFaves.map((fave) => 
-          <FavesPanel {...fave} key={fave.id} removeFunc={this.removeFaveFromList}/>
-        )}
+          {/* map faves to FavesPanels */}
+          {!this.state.noFaves && this.state.filteredFaves.map((fave) => 
+            <FavesPanel {...fave} key={fave.id} removeFunc={this.removeFaveFromList}/>
+          )}
 
-        {/* if no faves to present, show message  */}
-        {this.state.noFaves &&
-          <p>There's nothing here!</p>
-        }
+          {/* if no faves to present, show message  */}
+          {this.state.noFaves &&
+          <p>There&apos;s nothing here!</p>
+          }
       
-      </div>
+        </div>
 
-    </div>
+      </div>
 
       
     )

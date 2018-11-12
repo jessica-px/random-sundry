@@ -27,14 +27,14 @@ mongoose.connect(mongo_url);
 // Configure sessions
 const MongoStore = require('connect-mongo')(expressSession);
 app.use(expressSession({
-    secret: process.env.COOKIE_SECRET,
-    saveUninitialized: true,
-    resave: false,
-    cookie: {
-        secure: false,
-        httpOnly: false
-    },
-    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  secret: process.env.COOKIE_SECRET,
+  saveUninitialized: true,
+  resave: false,
+  cookie: {
+    secure: false,
+    httpOnly: false
+  },
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 
 
@@ -76,48 +76,48 @@ app.get('/api/random/:category', (req, res) => {
 
 // Add Face
 app.post('/api/faves', (req, res) => {
-    const newFave = req.body;
-    const isLoggedIn = req.isAuthenticated();
-    if (isLoggedIn){
-        console.log('User ' + req.user.local.username + ' is logged in...adding fave...')
-        req.user.addFave(newFave);
-        res.sendStatus(200); // status ok
-    }
-    else{
-        console.log('User not logged in! Cannot add fave.')
-        res.sendStatus(401); // status not authenticated
-    }
+  const newFave = req.body;
+  const isLoggedIn = req.isAuthenticated();
+  if (isLoggedIn){
+    console.log('User ' + req.user.local.username + ' is logged in...adding fave...')
+    req.user.addFave(newFave);
+    res.sendStatus(200); // status ok
+  }
+  else{
+    console.log('User not logged in! Cannot add fave.')
+    res.sendStatus(401); // status not authenticated
+  }
 })
 
 // Delete Fave
 app.delete('/api/faves', (req, res) => {
-    const id = req.body.id;
-    const isLoggedIn = req.isAuthenticated();
-    if (isLoggedIn){
-        console.log('User ' + req.user.local.username + ' is logged in...deleting fave...')
-        req.user.deleteFave(id);
-        res.sendStatus(200); // status ok
-    }
-    else{
-        console.log('User not logged in! Cannot delete fave.')
-        res.sendStatus(401); // status not authenticated
-    }
+  const id = req.body.id;
+  const isLoggedIn = req.isAuthenticated();
+  if (isLoggedIn){
+    console.log('User ' + req.user.local.username + ' is logged in...deleting fave...')
+    req.user.deleteFave(id);
+    res.sendStatus(200); // status ok
+  }
+  else{
+    console.log('User not logged in! Cannot delete fave.')
+    res.sendStatus(401); // status not authenticated
+  }
 })
 
 // Get All Faves
 app.get('/api/faves', (req, res) => {
-    const category = req.query.category;
-    const subcategory = req.query.subcategory;
-    const isLoggedIn = req.isAuthenticated();
-    if (isLoggedIn){
-        console.log('User ' + req.user.local.username + ' is logged in...getting faves list')
-        const faves = req.user.getAllFaves(category, subcategory);
-        res.send(faves);
-    }
-    else{
-        console.log('User not logged in! Cannot get faves list.')
-        res.send(401); // status not authenticated
-    }
+  const category = req.query.category;
+  const subcategory = req.query.subcategory;
+  const isLoggedIn = req.isAuthenticated();
+  if (isLoggedIn){
+    console.log('User ' + req.user.local.username + ' is logged in...getting faves list')
+    const faves = req.user.getAllFaves(category, subcategory);
+    res.send(faves);
+  }
+  else{
+    console.log('User not logged in! Cannot get faves list.')
+    res.send(401); // status not authenticated
+  }
 })
 
 
@@ -126,59 +126,59 @@ app.get('/api/faves', (req, res) => {
 
 // AUTH - POST - Signup / Register
 app.post('/auth/register', function(req, res, next) {
-    console.log(req.body);
-    passport.authenticate('local-signup', function(err, user, info) {
+  console.log(req.body);
+  passport.authenticate('local-signup', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { return res.json(info); }
+    req.logIn(user, function(err) {
       if (err) { return next(err); }
-      if (!user) { return res.json(info); }
-      req.logIn(user, function(err) {
-        if (err) { return next(err); }
-        return res.json({success: 'You have successfully signed up.', username: user.local.username});
-      });
-    })(req, res, next);
-  });
+      return res.json({success: 'You have successfully signed up.', username: user.local.username});
+    });
+  })(req, res, next);
+});
 
 
 // AUTH - POST - LOGIN
 app.post('/auth/login', function(req, res, next) {
-    console.log('Logging user in...')
-    passport.authenticate('local-login', function(err, user, info) {
+  console.log('Logging user in...')
+  passport.authenticate('local-login', function(err, user, info) {
+    if (err) { return next(err); }
+    if (!user) { return res.json(info); }
+    req.logIn(user, function(err) {
       if (err) { return next(err); }
-      if (!user) { return res.json(info); }
-      req.logIn(user, function(err) {
-        if (err) { return next(err); }
-        return res.json({success: 'You have successfully logged in.', username: user.local.username});
-      });
-    })(req, res, next);
-  });
+      return res.json({success: 'You have successfully logged in.', username: user.local.username});
+    });
+  })(req, res, next);
+});
 
 // AUTH - GET - Log Out
 app.get('/auth/logout', (req, res) => {
-    console.log('Logging user out...');
-    req.session.destroy();
-    res.send('Session ended.')
+  console.log('Logging user out...');
+  req.session.destroy();
+  res.send('Session ended.')
 })
 
 // AUTH - GET - Delete Account
 app.get('/auth/delete-account', (req, res) => {
-    const User = require('./models/user');
-    User.deleteOne(req.user, function (err) {
-        if (err) return (err);
-    })
-    console.log('Deleting user account...');
-    req.session.destroy();
-    res.send('Session ended.')
+  const User = require('./models/user');
+  User.deleteOne(req.user, function (err) {
+    if (err) return (err);
+  })
+  console.log('Deleting user account...');
+  req.session.destroy();
+  res.send('Session ended.')
 })
 
 // AUTH - GET - Validates cookies
 app.get('/auth/validate', (req, res) => {
-    console.log('Validating cookies...')
-    const isLoggedIn = req.isAuthenticated();
-    const username = req.user ? req.user.local.username : '';
-    const email = req.user ? req.user.local.email : '';
-    if (!isLoggedIn){
-        console.log('No cookies found!');
-    }
-    res.send({isLoggedIn, username, email});
+  console.log('Validating cookies...')
+  const isLoggedIn = req.isAuthenticated();
+  const username = req.user ? req.user.local.username : '';
+  const email = req.user ? req.user.local.email : '';
+  if (!isLoggedIn){
+    console.log('No cookies found!');
+  }
+  res.send({isLoggedIn, username, email});
 })
 
 
@@ -186,36 +186,36 @@ app.get('/auth/validate', (req, res) => {
 
 
 // SETTINGS - POST - Change Password
-app.post('/auth/change-password', function(req, res, next) {
-    if (req.user.validPassword(req.body.currPassword)){
-        if (req.body.newPassword.length >= 8){
-            req.user.changePassword(req.body.newPassword);
-            res.json({success: 'Password successfully changed.'});
-        }
-        else{
-            const info = {message: 'New password must be at least 8 characters.'}
-            return res.json(info);
-        }
+app.post('/auth/change-password', function(req, res) {
+  if (req.user.validPassword(req.body.currPassword)){
+    if (req.body.newPassword.length >= 8){
+      req.user.changePassword(req.body.newPassword);
+      res.json({success: 'Password successfully changed.'});
+    }
+    else{
+      const info = {message: 'New password must be at least 8 characters.'}
+      return res.json(info);
+    }
         
-    }
-    else{
-        const info = {message: 'Incorrect password.'}
-        return res.json(info);
-    }
-  });
+  }
+  else{
+    const info = {message: 'Incorrect password.'}
+    return res.json(info);
+  }
+});
 
-app.post('/auth/change-email', function(req, res, next) {
-    const isLoggedIn = req.isAuthenticated();
-    if (!isLoggedIn){
-        const info = {message: 'Not logged in.'}
-        return res.json(info);
-    }
+app.post('/auth/change-email', function(req, res) {
+  const isLoggedIn = req.isAuthenticated();
+  if (!isLoggedIn){
+    const info = {message: 'Not logged in.'}
+    return res.json(info);
+  }
 
-    else{
-        req.user.changeEmail(req.body.newEmail);
-        res.json({success: 'Email successfully changed.'});
-    }
-  });
+  else{
+    req.user.changeEmail(req.body.newEmail);
+    res.json({success: 'Email successfully changed.'});
+  }
+});
 
 
 

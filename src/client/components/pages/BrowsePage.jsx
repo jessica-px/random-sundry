@@ -6,7 +6,7 @@ import {faBoxFull} from '@fortawesome/pro-light-svg-icons/faBoxFull';
 import {faWrench} from '@fortawesome/pro-light-svg-icons/faWrench';
 import { Link } from 'react-router-dom';
 
-const BrowsePage = (props) => (
+const BrowsePage = () => (
   <div className='browsePageWrapper'>
  
     {/* Generators */}
@@ -55,8 +55,8 @@ const BrowsePage = (props) => (
     {/* Tools */}
     
     <div className="browseSection">
-    <FontAwesomeIcon icon={faWrench} className='browseTitleIcon' size='1x'/>
-    <div className="browseTitle titleUnderline">Browse Tools</div>
+      <FontAwesomeIcon icon={faWrench} className='browseTitleIcon' size='1x'/>
+      <div className="browseTitle titleUnderline">Browse Tools</div>
       {/* Links */}
       <div className='browseSectionLink'><Link to="/dice">Dice Roller</Link></div>
       <div className='browseSectionLink'><Link to="/calculator">Probability Calculator</Link></div>

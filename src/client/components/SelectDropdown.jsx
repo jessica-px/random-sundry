@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import faChevronDown from '@fortawesome/pro-light-svg-icons/faChevronDown';
+import {faChevronDown} from '@fortawesome/pro-light-svg-icons/faChevronDown';
 
 // Menu anatomy wokrs like this:
 // Each dropdown has (as a prop) an array of sections
@@ -42,7 +42,7 @@ class SelectDropdown extends React.Component{
   selectOption = (selected) => {
     this.hideMenu();
     this.setState(() => ({
-        selected
+      selected
     }))
     this.props.parentFunc(selected);
   }
@@ -75,8 +75,8 @@ class SelectDropdown extends React.Component{
         }
           
       </div>
-      )
-    }
+    )
+  }
 }
 
 export default SelectDropdown;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 
 class LinkButton extends React.Component{
   state = {
@@ -7,16 +7,16 @@ class LinkButton extends React.Component{
   }
 
   redirect = () => {
-    this.setState((prevState) => ({
+    this.setState({
       redirect: true
-    }))
+    })
   }
 
   render(){
     return(
       <div className={'button button--big ripple '+ this.props.className} onClick={this.redirect}>
-       {this.props.label}
-       {this.state.redirect && <Redirect to={this.props.url} />}
+        {this.props.label}
+        {this.state.redirect && <Redirect to={this.props.url} />}
       </div>
       
     )

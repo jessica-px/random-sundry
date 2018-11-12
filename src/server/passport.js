@@ -30,51 +30,50 @@ module.exports = (passport) => {
   //==============================================================
 
   passport.use('local-signup', new LocalStrategy({
-      passReqToCallback: true // this prevents the 'done is not a function' error
-    },
-    (req, username, password, done) => {
-      console.log('Processing signup...');
+    passReqToCallback: true // this prevents the 'done is not a function' error
+  },
+  (req, username, password, done) => {
+    console.log('Processing signup...');
 
-      // looks up this username in DB
-      User.findOne({'local.username' : username}, (err, alreadyRegisteredUser) => {
-        console.log('Looking up user...')
+    // looks up this username in DB
+    User.findOne({'local.username' : username}, (err, alreadyRegisteredUser) => {
+      console.log('Looking up user...')
 
-        // if name is taken, return message
-        if (alreadyRegisteredUser) return done(null, false, info = 
-          {usernameError: 'Username already taken.'});
+      // if name is taken, return message
+      if (alreadyRegisteredUser) return done(null, false,  {usernameError: 'Username already taken.'});
 
-        // if password is too short, return message
-        else if (password.length < 8) return done(null, false, info = {passwordError: 'Password must be at least 8 characters.'});
+      // if password is too short, return message
+      else if (password.length < 8) return done(null, false, {passwordError: 'Password must be at least 8 characters.'});
 
-        // catch errors
-        else if (err) return done(err);
+      // catch errors
+      else if (err) return done(err);
 
-        else{
-          console.log('Creating new user...')
-          // otherwise create new user
-          const newUser = new User();
+      else{
+        console.log('Creating new user...')
+        // otherwise create new user
+        const newUser = new User();
 
-          // set credentials
-          newUser.local.username = username;
-          newUser.local.password = newUser.generateHash(password);
-          if (req.body.email != ''){
-            newUser.local.email = req.body.email;
-          }
-
-          // save user
-          newUser.save((err) => {
-            
-            if (err) throw err;
-            else{
-              console.log('Saved user: ' + newUser.local.username + ', pw: ' + newUser.local.password)
-              return done(null, newUser);
-            }
-            
-          });
+        // set credentials
+        newUser.local.username = username;
+        newUser.local.password = newUser.generateHash(password);
+        if (req.body.email != ''){
+          newUser.local.email = req.body.email;
         }
-      });
 
-    }
+        // save user
+        newUser.save((err) => {
+            
+          if (err) throw err;
+          else{
+            console.log('Saved user: ' + newUser.local.username + ', pw: ' + newUser.local.password)
+            return done(null, newUser);
+          }
+            
+        });
+      }
+    });
+
+  }
   ));
 
   //==============================================================
@@ -88,7 +87,7 @@ module.exports = (passport) => {
     passwordField: 'password',
     passReqToCallback: true // this prevents the 'done is not a function' error
   },
-  callback = (req, username, password, done) => {
+  (req, username, password, done) => {
 
     // Find a user with matching username
     User.findOne({ 'local.username' : username}, (err, user) => {
@@ -96,11 +95,11 @@ module.exports = (passport) => {
 
       // If no user found, or the password doesn't match, return failure message
       if ( !user || !user.validPassword(password) ) {
-        return done(null, false, info = { message: 'Wrong username or password.' })
+        return done(null, false, { message: 'Wrong username or password.' })
       }
       
       if (!user.validPassword(password)){
-        return done(null, false, info = { message: 'Wrong username or password.' })
+        return done(null, false, { message: 'Wrong username or password.' })
       }
 
 

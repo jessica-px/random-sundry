@@ -36,26 +36,26 @@ class Dropdown extends React.Component{
 
   render(){
     return(
-        <div className={'dropdown' + ' ' + this.props.class}>
-          {/* button */}
-          <div className='navButton ripple' onClick={this.onClickHandler}>
-            {this.props.button}
-            {this.props.icon &&  <FontAwesomeIcon icon={this.props.icon} />}
-          </div>
+      <div className={'dropdown' + ' ' + this.props.class}>
+        {/* button */}
+        <div className='navButton ripple' onClick={this.onClickHandler}>
+          {this.props.button}
+          {this.props.icon &&  <FontAwesomeIcon icon={this.props.icon} />}
+        </div>
 
-          {/* menu */}
-          {this.state.showMenu &&
+        {/* menu */}
+        {this.state.showMenu &&
             <div className="dropdown--menu card">
               {this.props.sections.map(section => {
                 return [renderHeader(section), renderLinks(section)];
               })}
               
             </div>
-          }
+        }
             
-        </div>
-      )
-    }
+      </div>
+    )
+  }
 }
 
 export default Dropdown;

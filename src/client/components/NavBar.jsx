@@ -1,8 +1,6 @@
 import React from 'react';
-// import AccountButton from './AccountButton.jsx';
 import DropdownUser from './DropdownUser.jsx';
 import DropdownSignup from './DropdownSignup.jsx';
-import DropdownBrowse from './DropdownBrowse.jsx';
 import HomeButton from './HomeButton.jsx';
 import AboutButton from './AboutButton.jsx';
 import NavBarScrollMenu from './NavBarScrollMenu.jsx';
@@ -16,8 +14,8 @@ class NavBar extends React.Component{
   }
 
   // on first load, validate token credentials 
-  // (to see if uesr is logged in)
-  componentWillMount = () => {
+  // (to see if user is logged in)
+  componentDidMount = () => {
     this.props.dispatch(validateToken());
   }
 
@@ -54,8 +52,8 @@ class NavBar extends React.Component{
 
 const mapStateToProps = (state) => {
   return{
-      loggedIn: state.auth.loggedIn,
-      username: state.auth.username
+    loggedIn: state.auth.loggedIn,
+    username: state.auth.username
   };
 }
 

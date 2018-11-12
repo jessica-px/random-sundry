@@ -2,8 +2,6 @@ import React from 'react';
 import Dropdown from './Dropdown.jsx';
 import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 
-
-
 // Menu anatomy wokrs like this:
 // Each dropdown has an array of sections
 // Each section has an optional header (displayed in smaller, grey font)
@@ -13,7 +11,7 @@ import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
 // The dropdown looks at each section, builds a header if present, then looks at each link
 // and builds a clickable html button with the link's name and url
 
-const DropdownUser = (props) => (
+const DropdownUser = () => (
   <div>
     <Dropdown 
       button=''
@@ -31,6 +29,5 @@ const DropdownUser = (props) => (
     />
   </div>
 )
-
 
 export default DropdownUser;

@@ -4,16 +4,16 @@ import {Provider} from 'react-redux';
 import configureStore from './store/configureStore';
 import AppRouter from './routers/AppRouter.jsx';
 
-import styles from './styles/styles.scss';
+import styles from './styles/styles.scss'; // eslint-disable-line no-unused-vars
 
 console.log('Loading index.js');
 
 const store = configureStore();
 
 const jsx = (
-    <Provider store = {store}>
-        <AppRouter />
-    </Provider>
+  <Provider store = {store}>
+    <AppRouter />
+  </Provider>
 )
 
 const appRoot = document.getElementById('root');
