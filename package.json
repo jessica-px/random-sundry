@@ -39,7 +39,6 @@
   },
   "scripts": {
     "start-server": "nodemon src/server/server.js",
-    "webpack": "./node_modules/.bin/webpack -w --mode=development",
     "start-webpack": "webpack-dev-server --port 8080 -w --mode=development --host 0.0.0.0",
     "lint": "eslint src/**/*.js src/**/*.jsx",
     "lint-fix": "eslint src/**/*.js src/**/*.jsx --fix",
