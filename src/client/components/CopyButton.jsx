@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faClipboard} from '@fortawesome/free-solid-svg-icons/faClipboard';
+import {faClipboard} from '@fortawesome/pro-solid-svg-icons/faClipboard';
 import ReactTooltip from 'react-tooltip';
 
 class CopyButton extends React.Component{

@@ -3,9 +3,9 @@ import { Link, withRouter } from "react-router-dom"; // withRouter allows redire
 import TextInput from './TextInput.jsx';
 import SubmitButton from './SubmitButton.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
-import {faSignIn} from '@fortawesome/free-solid-svg-icons/faSignInAlt';
-import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
+import {faUser} from '@fortawesome/pro-solid-svg-icons/faUser';
+import {faSignIn} from '@fortawesome/pro-solid-svg-icons/faSignInAlt';
+import {faLock} from '@fortawesome/pro-solid-svg-icons/faLock';
 import {connect} from 'react-redux';
 import { validateToken } from '../actions/authActions';
 

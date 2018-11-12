@@ -3,10 +3,10 @@ import { Link, withRouter } from "react-router-dom"; // withRouter allows redire
 import TextInput from './TextInput.jsx';
 import SubmitButton from './SubmitButton.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faUserPlus} from '@fortawesome/free-solid-svg-icons/faUserPlus';
-import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
-import {faEnvelope} from '@fortawesome/free-solid-svg-icons/faEnvelope';
-import {faLock} from '@fortawesome/free-solid-svg-icons/faLock';
+import {faUserPlus} from '@fortawesome/pro-solid-svg-icons/faUserPlus';
+import {faUser} from '@fortawesome/pro-solid-svg-icons/faUser';
+import {faEnvelope} from '@fortawesome/pro-solid-svg-icons/faEnvelope';
+import {faLock} from '@fortawesome/pro-solid-svg-icons/faLock';
 import {connect} from 'react-redux';
 import { validateToken } from '../actions/authActions';
 

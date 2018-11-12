@@ -1,6 +1,6 @@
 import React from 'react';
 import Dropdown from './Dropdown.jsx';
-import {faUser} from '@fortawesome/free-solid-svg-icons/faUser';
+import {faUser} from '@fortawesome/pro-solid-svg-icons/faUser';
 
 // Menu anatomy wokrs like this:
 // Each dropdown has an array of sections

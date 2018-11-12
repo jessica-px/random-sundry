@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faEye} from '@fortawesome/free-solid-svg-icons/faEye';
-import {faEyeSlash} from '@fortawesome/free-solid-svg-icons/faEyeSlash';
+import {faEye} from '@fortawesome/pro-solid-svg-icons/faEye';
+import {faEyeSlash} from '@fortawesome/pro-solid-svg-icons/faEyeSlash';
 
 class TextInput extends React.Component{
   state = {

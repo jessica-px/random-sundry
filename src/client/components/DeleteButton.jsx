@@ -1,6 +1,6 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faTrashAlt} from '@fortawesome/free-solid-svg-icons/faTrashAlt';
+import {faTrashAlt} from '@fortawesome/pro-solid-svg-icons/faTrashAlt';
 import ModalDelete from './ModalDelete.jsx';
 
 class DeleteButton extends React.Component{
