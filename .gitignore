@@ -8,3 +8,4 @@ public/bundle.js
 .eslintrc.json
 bundle.js.map
 .vscode
+settings.json
