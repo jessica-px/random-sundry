@@ -2,6 +2,7 @@
     "plugins": [
       ["transform-class-properties"]
     ],
+    "comments": false,
     "env": {
       "production": {
         "plugins": ["transform-remove-console", { "exclude": [ "error", "warn"] }]
