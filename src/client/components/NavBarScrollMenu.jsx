@@ -25,8 +25,8 @@ const NavBarScrollMenu = () => (
       </Link>
 
       {/* Adventurer */}
-      <Link to={'/adventurers'} key={'adventurers'} className='navBar--scrollLink'>
-        <p>Adventurer Generator</p>
+      <Link to={'/thieves'} key={'thieves'} className='navBar--scrollLink'>
+        <p>Thief Generator</p>
       </Link>
 
       {/* See More */}
