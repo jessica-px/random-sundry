@@ -8,18 +8,65 @@
 }
 
 .homeGreeting{
-    //position: absolute;
     font-size: $size-m;
     margin: 18rem $size-l $size-l $size-l;
+    max-width: 75rem;
+}
+
+.homeGreeting--link{
+  color: $primary;
+}
+
+.homeGreeting--link:hover{
+  text-decoration: underline;
+  color: darken($primary, 20%);
+}
+
+.homeHello{
+  font-size: $size-l;
+  margin: 2rem 0;
 }
 
 .homeButtons{
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: $size-xl;
 }
 
+.home--svg-wrapper{
+  display: none;
+}
+
+.home--svg{
+  padding: 1rem;
+}
+
+.home--svg path{
+  fill: none;
+  stroke: lighten($color-icon, 10%);
+  stroke-width: 10px;
+  stroke-linecap: round;
+  
+}
+
+
 @media screen and (min-width: 700px) {
-    .homeGreeting{
-        margin: $size-l $size-l $size-l $size-l;
-    }
+  .homeGreeting{
+      margin: $size-xl*3 auto;
+      padding: 0 $size-l;
+  }
+  .homeHello{
+    font-size: $size-xl*1.5;
+    font-weight: 200;
+  }
+  .home--svg-wrapper{
+    display: flex;
+    justify-content: center;
+    height: auto;
+    margin-bottom: $size-xl*2;
+  }
+  .homeButtons{
+    margin-top: $size-xl*3;
+  }
+  
 }

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faDice} from '@fortawesome/pro-light-svg-icons/faDice';
 import {faUserPlus} from '@fortawesome/pro-light-svg-icons/faUserPlus';
@@ -8,6 +9,7 @@ import {faBookOpen} from '@fortawesome/pro-light-svg-icons/faBookOpen';
 import {faHeart} from '@fortawesome/pro-light-svg-icons/faHeart';
 import {faSignOut} from '@fortawesome/pro-light-svg-icons/faSignOut';
 import IconButton from './../IconButton.jsx';
+import AnimatedSvg from './../AnimatedSvg.jsx';
 
 
 const HomePage = (props) => (
@@ -17,8 +19,6 @@ const HomePage = (props) => (
         <FontAwesomeIcon icon={faDice} className='homeIcon' size='4x'/>
       </div>
     </div>
-
-     
 
     <div className='homeGreeting'>
 
@@ -33,14 +33,13 @@ const HomePage = (props) => (
 const loggedInContent = (props) => {
   return(
     <div className='homeGreeting'>
-      <p>Hi there, {props.username}!</p>
+      <AnimatedSvg/>
+      <div className='homeHello'>Welcome, {props.username}!</div>
       <p>
-            I can&apos;t think of any interesting text to put here right now.
-            However, I think it should take up several lines.
+        Thanks for using RandomSundry to generate all your various and sundry fantasy gaming needs.
       </p>
       <p>
-            Otherwise the buttons will look unnaturally high up on the page.
-            Anyway, enjoy the generators!
+        Got a suggestion about how this site can be improved? <Link className='homeGreeting--link' to={'/about'}>Shoot me an email!</Link>
       </p>
       <div className="homeButtons">
         <IconButton label='Log Out' url='logout' icon={faSignOut} />
@@ -54,14 +53,15 @@ const loggedInContent = (props) => {
 const notLoggedInContent = () => {
   return(
     <div className='homeGreeting'>
-      <p>Hi there!</p>
+      <AnimatedSvg/>
+      <div className='homeHello'>Welcome</div>
       <p>
-            This website hosts a collection of quick and snappy random generators
-            for 5th Edition Dungeons and Dragons.
+          This website hosts a collection of quick and snappy random generators
+          for 5th Edition Dungeons and Dragons.
       </p>
       <p>
-            Browse the generators as a guest, or sign up for an account so you 
-            can save your favorite results!
+          Browse the generators as a guest, or sign up for an account so you 
+          can save your favorite results!
       </p>
       <div className="homeButtons">
         {/* <LinkButton label='Sign Up' url='signup'/>
@@ -73,6 +73,7 @@ const notLoggedInContent = () => {
     </div>
   )
 }
+
 
 const mapStateToProps = (state) => {
   return{
