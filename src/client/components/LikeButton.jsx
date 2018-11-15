@@ -12,7 +12,7 @@ class LikeButton extends React.Component{
   }
 
   // resets "liked" state whenever RandomCard sends in new props
-  componentDidReceiveProps(){
+  UNSAFE_componentWillReceiveProps(){
     this.setState(() => ({
       liked: false,
       showModal: false

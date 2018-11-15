@@ -18,7 +18,7 @@ class GeneratorPage extends React.Component{
     }
 
     // Randomize on props updates (when swapping between generators)
-    componentDidReceiveProps(newProps){
+    UNSAFE_componentWillReceiveProps(newProps){
       const url = '/api/random/' + newProps.url;
       this.randomize(url);
     }
