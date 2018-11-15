@@ -4,7 +4,7 @@ import TextInput from './TextInput.jsx';
 import SubmitButton from './SubmitButton.jsx';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faUser} from '@fortawesome/pro-solid-svg-icons/faUser';
-import {faSignIn} from '@fortawesome/pro-solid-svg-icons/faSignInAlt';
+import {faSignInAlt} from '@fortawesome/pro-solid-svg-icons/faSignInAlt';
 import {faLock} from '@fortawesome/pro-solid-svg-icons/faLock';
 import {connect} from 'react-redux';
 import { validateToken } from '../actions/authActions';
@@ -78,7 +78,7 @@ class LoginWidget extends React.Component{
     return(
       <form className='card loginCard' onSubmit={this.handleSubmit}>
         <div className='cardHeaderBar'>Login</div>
-        <FontAwesomeIcon icon={faSignIn} className='cardDiceIcon' size='4x'/>
+        <FontAwesomeIcon icon={faSignInAlt} className='cardDiceIcon' size='4x'/>
         <TextInput name='Username' max={20} icon={faUser} clearErrorMsg={this.clearErrorMessage}/>
         <TextInput name='Password' max={256} icon={faLock} clearErrorMsg={this.clearErrorMessage} password={true}/>
         <div className="inputMessage">{this.state.errorMessage}</div>
