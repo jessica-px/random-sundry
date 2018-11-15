@@ -10,7 +10,7 @@ class FavesPanel extends React.Component{
     expanded: false
   }
 
-  componentDidReceiveProps(){
+  UNSAFE_componentDidReceiveProps(){
     this.setState({
       expanded: false
     })
