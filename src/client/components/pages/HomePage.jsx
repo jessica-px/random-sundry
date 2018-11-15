@@ -32,7 +32,7 @@ const HomePage = (props) => (
 
 const loggedInContent = (props) => {
   return(
-    <div className='homeGreeting'>
+    <div>
       <AnimatedSvg/>
       <div className='homeHello'>Welcome, {props.username}!</div>
       <p>
@@ -52,7 +52,7 @@ const loggedInContent = (props) => {
 
 const notLoggedInContent = () => {
   return(
-    <div className='homeGreeting'>
+    <div>
       <AnimatedSvg/>
       <div className='homeHello'>Welcome</div>
       <p>
