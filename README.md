@@ -24,4 +24,5 @@ A robust web app for randomly generating items and concepts that can be used in 
 - SVG images do not display as expected on Firefox
 
 __Libraries Used:__ React, React-Router, Redux, Redux-Thunk, SCSS, Express, MongoDB, Mongoose, Passport.js, Bcrypt, uuid, [FontAwesome](https://fontawesome.com/), [react-tooltip](https://github.com/wwayne/react-tooltip), [vivus](https://maxwellito.github.io/vivus/)
+
 __Tools Used:__ Babel, ESLint, yarn, webpack
