@@ -5,7 +5,7 @@
 A robust web app for randomly generating items and concepts that can be used in tabletop roleplaying games such as Dungeons and Dragons. Users can make accounts and save their favorite random results.
 
 <p align="center">
-<img src="https://jessypeck.netlify.com/dist/images/portfolio.png" alt="portfolio site screenshot" width="50%"/>
+<img src="https://jessypeck.netlify.com/dist/images/random-3.png" alt="random sundry screenshot" width="50%"/>
 </p>
 
 #### Project Goals:
